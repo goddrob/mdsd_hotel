@@ -238,10 +238,4 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 		return super.eInvoke(operationID, arguments);
 	}
 
-	@Override
-	public StaffRole getRoleForStaff(int pers_no) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 } //ManagementHandlerImpl
