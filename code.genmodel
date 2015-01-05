@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
+    modelDirectory="/MDsD/src" modelPluginID="MDsD" modelName="Code"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.uml2.uml.ecore.importer"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../org.eclipse.uml2.types/model/Types.genmodel#//types"
+    operationReflection="true" importOrganizing="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="VALIDATION_DELEGATES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>CodePack.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="CodePack" disposableProviderFactory="true"
+      ecorePackage="CodePack.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="CodePack.ecore#//IUserAccount">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IUserAccount/isEmailAvailable">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/isEmailAvailable/e_mail"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IUserAccount/login">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/login/e_mail"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/login/password"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IUserAccount/updateCustomerCC">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerCC/customer_id"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerCC/cc_number"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerCC/cc_ccv"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerCC/cc_month"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerCC/cc_year"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerCC/name_first"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerCC/name_last"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IUserAccount/updateCustomerPwd">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerPwd/customer_id"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerPwd/pwd_old"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerPwd/pwd_new"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IUserAccount/updateCustomerInfo">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerInfo/e_mail"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/updateCustomerInfo/phone_no"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IUserAccount/registerCustomer">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/registerCustomer/e_mail"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/registerCustomer/password"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/registerCustomer/date_of_birth"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/registerCustomer/phone_no"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IUserAccount/getCustomerInfo">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IUserAccount/getCustomerInfo/customer_id"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="CodePack.ecore#//IBookings">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/createBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBooking/contact_data"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBooking/payment_data"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBooking/rooms"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBooking/services"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBooking/number_of_guests"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBooking/date_check_in"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBooking/date_check_out"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/createBookingForCustomer">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBookingForCustomer/customer_id"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBookingForCustomer/rooms"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBookingForCustomer/services"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBookingForCustomer/number_of_guests"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBookingForCustomer/date_check_in"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/createBookingForCustomer/date_check_out"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/updateRoomForBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/updateRoomForBooking/booking_id"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/updateRoomForBooking/old_room"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/updateRoomForBooking/new_room"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/updateServiceForBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/updateServiceForBooking/old_service_id"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/updateServiceForBooking/new_service"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/getAvailableRooms">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/getAvailableRooms/date_start"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/getAvailableRooms/date_end"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/getAvailableServices"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/isRoomAvailable">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/isRoomAvailable/room_number"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/isRoomAvailable/date_start"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/isRoomAvailable/date_end"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/getBookingsForCustomer">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/getBookingsForCustomer/customer_id"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/getBookingForId">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/getBookingForId/booking_id"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/updateTimeForBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/updateTimeForBooking/booking_id"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/updateTimeForBooking/new_check_in"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/updateTimeForBooking/new_check_out"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/cancelBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/cancelBooking/booking_id"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/getPaymentForBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/getPaymentForBooking/booking_id"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IBookings/sendComfimationMail">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IBookings/sendComfimationMail/booking"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="CodePack.ecore#//IStaffAdmin">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAdmin/registerStaffAccount"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAdmin/updateStaffAccount"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAdmin/getStaffAccount"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAdmin/getAllStaffAccounts"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAdmin/removeStaffAccount"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAdmin/getStaffRoles"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAdmin/addStaffRole"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAdmin/updateStaffRole"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAdmin/removeStaffRole"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="CodePack.ecore#//IStaffAuthentication">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAuthentication/login">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IStaffAuthentication/login/e_mail"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IStaffAuthentication/login/password"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IStaffAuthentication/getRoleForStaff">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IStaffAuthentication/getRoleForStaff/pers_no"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="CodePack.ecore#//IManagement">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IManagement/addRoom">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/addRoom/number"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/addRoom/description"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/addRoom/isAvailable"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/addRoom/type"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IManagement/updateRoom">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/updateRoom/room"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IManagement/removeRoom">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/removeRoom/number"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IManagement/addRoomType">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/addRoomType/name"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/addRoomType/description"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/addRoomType/max_guests"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/addRoomType/rate"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IManagement/updateRoomType">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/updateRoomType/roomType"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IManagement/removeRoomType">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/removeRoomType/type_name"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IManagement/getRoom">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IManagement/getRoom/number"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IManagement/getAllRooms"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IManagement/getRoomTypes"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="CodePack.ecore#//ICheckIn">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//ICheckIn/validateBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//ICheckIn/validateBooking/booking_id"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//ICheckIn/assignRoomToBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//ICheckIn/assignRoomToBooking/booking_id"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="CodePack.ecore#//IReceptionOperations_rename_required">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IReceptionOperations_rename_required/generateReceiptForBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IReceptionOperations_rename_required/generateReceiptForBooking/booking_id"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IReceptionOperations_rename_required/generateBill">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IReceptionOperations_rename_required/generateBill/booking_id"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="CodePack.ecore#//IReceptionOperations_rename_required/isCheckedIn">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="CodePack.ecore#//IReceptionOperations_rename_required/isCheckedIn/booking_id"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//StaffGUI">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//StaffGUI/managementHandler"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//StaffGUI/receptionHandler"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//UserGUI">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//UserGUI/customerHandler"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//CheckInMachine">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//CheckInMachine/checkInHandler"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataBank">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataBank/roomList"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataBank/bookingList"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataBank/customerList"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataBank/roomTypeList"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataBank/paymentDataList"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataBank/roomBookedList"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataBank/extraServiceList"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataBank/serviceTypeList"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataBank/GuestList"/>
+    </genClasses>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="DataModels" basePackage="CodePack"
+        disposableProviderFactory="true" ecorePackage="CodePack.ecore#//DataModels">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/Room">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Room/number"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Room/description"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Room/isAvailable"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Room/room_type"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/RoomType">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/RoomType/description"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/RoomType/max_guests"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/RoomType/rate"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/RoomType/typename"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/Customer">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Customer/password"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Customer/date_of_birth"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Customer/bonus_points"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Customer/e_mail"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Customer/first_name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Customer/phone_no"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Customer/customer_id"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Customer/payment_id"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Customer/last_name"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/PaymentData">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/PaymentData/cc_number"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/PaymentData/cc_ccv"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/PaymentData/cc_month"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/PaymentData/cc_year"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/PaymentData/cc_first_name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/PaymentData/cc_last_name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/PaymentData/id"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/RoomBooked">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/RoomBooked/room_number"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/RoomBooked/booking_id"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/RoomBooked/date_start"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/RoomBooked/date_end"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataModels/RoomBooked/booking"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/ServiceType">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/ServiceType/description"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/ServiceType/type_name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/ServiceType/price"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/ExtraService">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/ExtraService/date_start"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/ExtraService/date_end"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/ExtraService/booking_id"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/ExtraService/total_price"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/ExtraService/type"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/StaffRole">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffRole/name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffRole/canManageBookings"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffRole/canManageRooms"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffRole/canManageServices"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffRole/canManageAccounts"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/StaffMember">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffMember/full_name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffMember/email"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffMember/password"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffMember/pers_no"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffMember/phone_no"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/StaffMember/role_name"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/Guest">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Guest/name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Guest/booking_id"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//DataModels/Booking">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Booking/id"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Booking/date_check_in"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Booking/date_check_out"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Booking/isCheckedIn"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Booking/total_price"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Booking/contact_name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Booking/contact_phone"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Booking/contact_email"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//DataModels/Booking/room"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Booking/customer_id"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//DataModels/Booking/payment_id"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Shared" basePackage="CodePack"
+        disposableProviderFactory="true" ecorePackage="CodePack.ecore#//Shared">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//Shared/ContactData">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//Shared/ContactData/full_name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//Shared/ContactData/e_mail"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute CodePack.ecore#//Shared/ContactData/phone_no"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Backend" basePackage="CodePack"
+        disposableProviderFactory="true" ecorePackage="CodePack.ecore#//Backend">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//Backend/CustomerHandler">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//Backend/CustomerHandler/bankComponent"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//Backend/ReceptionHandler">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference CodePack.ecore#//Backend/ReceptionHandler/bankComponent"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//Backend/CheckInHandler"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="CodePack.ecore#//Backend/ManagementHandler"/>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="BankingModel" disposableProviderFactory="true"
+      ecorePackage="BankingModel.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="BankingModel.ecore#//AdministratorProvides">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="BankingModel.ecore#//AdministratorProvides/makeDeposit">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/makeDeposit/ccNumber"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/makeDeposit/ccv"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/makeDeposit/expiryMonth"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/makeDeposit/expiryYear"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/makeDeposit/firstName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/makeDeposit/lastName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/makeDeposit/sum"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="BankingModel.ecore#//AdministratorProvides/addCreditCard">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/addCreditCard/ccNumber"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/addCreditCard/ccv"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/addCreditCard/expiryMonth"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/addCreditCard/expiryYear"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/addCreditCard/firstName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/addCreditCard/lastName"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="BankingModel.ecore#//AdministratorProvides/removeCreditCard">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/removeCreditCard/ccNumber"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/removeCreditCard/ccv"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/removeCreditCard/expiryMonth"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/removeCreditCard/expiryYear"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/removeCreditCard/firstName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/removeCreditCard/lastName"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="BankingModel.ecore#//AdministratorProvides/getBalance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/getBalance/ccNumber"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/getBalance/ccv"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/getBalance/expiryMonth"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/getBalance/expiryYear"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/getBalance/firstName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//AdministratorProvides/getBalance/lastName"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="BankingModel.ecore#//CustomerProvides">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="BankingModel.ecore#//CustomerProvides/makePayment">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/makePayment/ccNumber"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/makePayment/ccv"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/makePayment/expiryMonth"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/makePayment/expiryYear"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/makePayment/firstName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/makePayment/lastName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/makePayment/sum"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="BankingModel.ecore#//CustomerProvides/isCreditCardValid">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/isCreditCardValid/ccNumber"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/isCreditCardValid/ccv"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/isCreditCardValid/expiryMonth"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/isCreditCardValid/expiryYear"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/isCreditCardValid/firstName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="BankingModel.ecore#//CustomerProvides/isCreditCardValid/lastName"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="BankingModel.ecore#//BankComponent"/>
+  </genPackages>
+</genmodel:GenModel>

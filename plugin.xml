@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated code -->
+      <package
+            uri="http:///CodePack.ecore"
+            class="CodePack.CodePackPackage"
+            genModel="code.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated code -->
+      <package
+            uri="http:///CodePack/DataModels.ecore"
+            class="CodePack.DataModels.DataModelsPackage"
+            genModel="code.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated code -->
+      <package
+            uri="http:///CodePack/Shared.ecore"
+            class="CodePack.Shared.SharedPackage"
+            genModel="code.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated code -->
+      <package
+            uri="http:///CodePack/Backend.ecore"
+            class="CodePack.Backend.BackendPackage"
+            genModel="code.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated code -->
+      <package
+            uri="http:///BankingModel.ecore"
+            class="BankingModel.BankingModelPackage"
+            genModel="code.genmodel"/>
+   </extension>
+
+</plugin>
