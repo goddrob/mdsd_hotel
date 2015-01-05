@@ -11,6 +11,8 @@ import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomBooked;
 import CodePack.DataModels.RoomType;
 import CodePack.DataModels.ServiceType;
+import CodePack.DataModels.StaffMember;
+import CodePack.DataModels.StaffRole;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -31,6 +33,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link CodePack.DataBank#getExtraServiceList <em>Extra Service List</em>}</li>
  *   <li>{@link CodePack.DataBank#getServiceTypeList <em>Service Type List</em>}</li>
  *   <li>{@link CodePack.DataBank#getGuestList <em>Guest List</em>}</li>
+ *   <li>{@link CodePack.DataBank#getStaffRoleList <em>Staff Role List</em>}</li>
+ *   <li>{@link CodePack.DataBank#getStaffMemberList <em>Staff Member List</em>}</li>
  * </ul>
  * </p>
  *
@@ -182,5 +186,37 @@ public interface DataBank extends EObject {
 	 * @generated
 	 */
 	EList<Guest> getGuestList();
+
+	/**
+	 * Returns the value of the '<em><b>Staff Role List</b></em>' reference list.
+	 * The list contents are of type {@link CodePack.DataModels.StaffRole}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Staff Role List</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Staff Role List</em>' reference list.
+	 * @see CodePack.CodePackPackage#getDataBank_StaffRoleList()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	EList<StaffRole> getStaffRoleList();
+
+	/**
+	 * Returns the value of the '<em><b>Staff Member List</b></em>' reference list.
+	 * The list contents are of type {@link CodePack.DataModels.StaffMember}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Staff Member List</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Staff Member List</em>' reference list.
+	 * @see CodePack.CodePackPackage#getDataBank_StaffMemberList()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	EList<StaffMember> getStaffMemberList();
 
 } // DataBank

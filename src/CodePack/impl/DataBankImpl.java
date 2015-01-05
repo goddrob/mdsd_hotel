@@ -13,6 +13,8 @@ import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomBooked;
 import CodePack.DataModels.RoomType;
 import CodePack.DataModels.ServiceType;
+import CodePack.DataModels.StaffMember;
+import CodePack.DataModels.StaffRole;
 import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -35,6 +37,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link CodePack.impl.DataBankImpl#getExtraServiceList <em>Extra Service List</em>}</li>
  *   <li>{@link CodePack.impl.DataBankImpl#getServiceTypeList <em>Service Type List</em>}</li>
  *   <li>{@link CodePack.impl.DataBankImpl#getGuestList <em>Guest List</em>}</li>
+ *   <li>{@link CodePack.impl.DataBankImpl#getStaffRoleList <em>Staff Role List</em>}</li>
+ *   <li>{@link CodePack.impl.DataBankImpl#getStaffMemberList <em>Staff Member List</em>}</li>
  * </ul>
  * </p>
  *
@@ -122,6 +126,24 @@ public class DataBankImpl extends MinimalEObjectImpl.Container implements DataBa
 	 * @ordered
 	 */
 	protected static EList<Guest> guestList;
+	/**
+	 * The cached value of the '{@link #getStaffRoleList() <em>Staff Role List</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStaffRoleList()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StaffRole> staffRoleList;
+	/**
+	 * The cached value of the '{@link #getStaffMemberList() <em>Staff Member List</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStaffMemberList()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StaffMember> staffMemberList;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -254,6 +276,30 @@ public class DataBankImpl extends MinimalEObjectImpl.Container implements DataBa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<StaffRole> getStaffRoleList() {
+		if (staffRoleList == null) {
+			staffRoleList = new EObjectResolvingEList<StaffRole>(StaffRole.class, this, CodePackPackage.DATA_BANK__STAFF_ROLE_LIST);
+		}
+		return staffRoleList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<StaffMember> getStaffMemberList() {
+		if (staffMemberList == null) {
+			staffMemberList = new EObjectResolvingEList<StaffMember>(StaffMember.class, this, CodePackPackage.DATA_BANK__STAFF_MEMBER_LIST);
+		}
+		return staffMemberList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -275,6 +321,10 @@ public class DataBankImpl extends MinimalEObjectImpl.Container implements DataBa
 				return getServiceTypeList();
 			case CodePackPackage.DATA_BANK__GUEST_LIST:
 				return getGuestList();
+			case CodePackPackage.DATA_BANK__STAFF_ROLE_LIST:
+				return getStaffRoleList();
+			case CodePackPackage.DATA_BANK__STAFF_MEMBER_LIST:
+				return getStaffMemberList();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -324,6 +374,14 @@ public class DataBankImpl extends MinimalEObjectImpl.Container implements DataBa
 				getGuestList().clear();
 				getGuestList().addAll((Collection<? extends Guest>)newValue);
 				return;
+			case CodePackPackage.DATA_BANK__STAFF_ROLE_LIST:
+				getStaffRoleList().clear();
+				getStaffRoleList().addAll((Collection<? extends StaffRole>)newValue);
+				return;
+			case CodePackPackage.DATA_BANK__STAFF_MEMBER_LIST:
+				getStaffMemberList().clear();
+				getStaffMemberList().addAll((Collection<? extends StaffMember>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -363,6 +421,12 @@ public class DataBankImpl extends MinimalEObjectImpl.Container implements DataBa
 			case CodePackPackage.DATA_BANK__GUEST_LIST:
 				getGuestList().clear();
 				return;
+			case CodePackPackage.DATA_BANK__STAFF_ROLE_LIST:
+				getStaffRoleList().clear();
+				return;
+			case CodePackPackage.DATA_BANK__STAFF_MEMBER_LIST:
+				getStaffMemberList().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -393,6 +457,10 @@ public class DataBankImpl extends MinimalEObjectImpl.Container implements DataBa
 				return serviceTypeList != null && !serviceTypeList.isEmpty();
 			case CodePackPackage.DATA_BANK__GUEST_LIST:
 				return guestList != null && !guestList.isEmpty();
+			case CodePackPackage.DATA_BANK__STAFF_ROLE_LIST:
+				return staffRoleList != null && !staffRoleList.isEmpty();
+			case CodePackPackage.DATA_BANK__STAFF_MEMBER_LIST:
+				return staffMemberList != null && !staffMemberList.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

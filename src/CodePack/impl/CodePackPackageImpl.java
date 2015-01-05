@@ -818,6 +818,24 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDataBank_StaffRoleList() {
+		return (EReference)dataBankEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataBank_StaffMemberList() {
+		return (EReference)dataBankEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CodePackFactory getCodePackFactory() {
 		return (CodePackFactory)getEFactoryInstance();
 	}
@@ -920,6 +938,8 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		createEReference(dataBankEClass, DATA_BANK__EXTRA_SERVICE_LIST);
 		createEReference(dataBankEClass, DATA_BANK__SERVICE_TYPE_LIST);
 		createEReference(dataBankEClass, DATA_BANK__GUEST_LIST);
+		createEReference(dataBankEClass, DATA_BANK__STAFF_ROLE_LIST);
+		createEReference(dataBankEClass, DATA_BANK__STAFF_MEMBER_LIST);
 	}
 
 	/**
@@ -1089,7 +1109,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		addEParameter(op, ecorePackage.getEString(), "password", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getIStaffAuthentication__GetRoleForStaff__int(), theDataModelsPackage.getStaffRole(), "getRoleForStaff", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "pers_no", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "pers_no", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(iManagementEClass, IManagement.class, "IManagement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1163,6 +1183,8 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		initEReference(getDataBank_ExtraServiceList(), theDataModelsPackage.getExtraService(), null, "extraServiceList", null, 1, -1, DataBank.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getDataBank_ServiceTypeList(), theDataModelsPackage.getServiceType(), null, "serviceTypeList", null, 1, -1, DataBank.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getDataBank_GuestList(), theDataModelsPackage.getGuest(), null, "GuestList", null, 1, -1, DataBank.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDataBank_StaffRoleList(), theDataModelsPackage.getStaffRole(), null, "staffRoleList", null, 1, -1, DataBank.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDataBank_StaffMemberList(), theDataModelsPackage.getStaffMember(), null, "staffMemberList", null, 1, -1, DataBank.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

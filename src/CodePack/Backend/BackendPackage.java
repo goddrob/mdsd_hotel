@@ -452,7 +452,7 @@ public interface BackendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__INT = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___GET_ROLE_FOR_STAFF__INT;
+	int RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__STRING = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___GET_ROLE_FOR_STAFF__INT;
 
 	/**
 	 * The operation id for the '<em>Generate Receipt For Booking</em>' operation.
@@ -572,7 +572,7 @@ public interface BackendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGEMENT_HANDLER___GET_ROLE_FOR_STAFF__INT = CodePackPackage.IMANAGEMENT___GET_ROLE_FOR_STAFF__INT;
+	int MANAGEMENT_HANDLER___GET_ROLE_FOR_STAFF__STRING = CodePackPackage.IMANAGEMENT___GET_ROLE_FOR_STAFF__INT;
 
 	/**
 	 * The operation id for the '<em>Add Room</em>' operation.

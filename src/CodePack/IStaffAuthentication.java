@@ -32,6 +32,6 @@ public interface IStaffAuthentication extends EObject {
 	 * @model required="true" ordered="false" pers_noRequired="true" pers_noOrdered="false"
 	 * @generated
 	 */
-	StaffRole getRoleForStaff(int pers_no);
+	StaffRole getRoleForStaff(String pers_no);
 
 } // IStaffAuthentication

@@ -1157,13 +1157,31 @@ public interface CodePackPackage extends EPackage {
 	int DATA_BANK__GUEST_LIST = 8;
 
 	/**
+	 * The feature id for the '<em><b>Staff Role List</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_BANK__STAFF_ROLE_LIST = 9;
+
+	/**
+	 * The feature id for the '<em><b>Staff Member List</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_BANK__STAFF_MEMBER_LIST = 10;
+
+	/**
 	 * The number of structural features of the '<em>Data Bank</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_BANK_FEATURE_COUNT = 9;
+	int DATA_BANK_FEATURE_COUNT = 11;
 
 
 	/**
@@ -1517,11 +1535,11 @@ public interface CodePackPackage extends EPackage {
 	EOperation getIStaffAuthentication__Login__String_String();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IStaffAuthentication#getRoleForStaff(int) <em>Get Role For Staff</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IStaffAuthentication#getRoleForStaff(java.lang.String) <em>Get Role For Staff</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Role For Staff</em>' operation.
-	 * @see CodePack.IStaffAuthentication#getRoleForStaff(int)
+	 * @see CodePack.IStaffAuthentication#getRoleForStaff(java.lang.String)
 	 * @generated
 	 */
 	EOperation getIStaffAuthentication__GetRoleForStaff__int();
@@ -1878,6 +1896,28 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDataBank_GuestList();
+
+	/**
+	 * Returns the meta object for the reference list '{@link CodePack.DataBank#getStaffRoleList <em>Staff Role List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Staff Role List</em>'.
+	 * @see CodePack.DataBank#getStaffRoleList()
+	 * @see #getDataBank()
+	 * @generated
+	 */
+	EReference getDataBank_StaffRoleList();
+
+	/**
+	 * Returns the meta object for the reference list '{@link CodePack.DataBank#getStaffMemberList <em>Staff Member List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Staff Member List</em>'.
+	 * @see CodePack.DataBank#getStaffMemberList()
+	 * @see #getDataBank()
+	 * @generated
+	 */
+	EReference getDataBank_StaffMemberList();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2474,6 +2514,22 @@ public interface CodePackPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DATA_BANK__GUEST_LIST = eINSTANCE.getDataBank_GuestList();
+
+		/**
+		 * The meta object literal for the '<em><b>Staff Role List</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_BANK__STAFF_ROLE_LIST = eINSTANCE.getDataBank_StaffRoleList();
+
+		/**
+		 * The meta object literal for the '<em><b>Staff Member List</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_BANK__STAFF_MEMBER_LIST = eINSTANCE.getDataBank_StaffMemberList();
 
 	}
 

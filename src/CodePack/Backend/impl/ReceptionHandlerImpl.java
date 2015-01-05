@@ -19,11 +19,8 @@ import CodePack.DataBank;
 import CodePack.ICheckIn;
 import CodePack.IStaffAuthentication;
 import CodePack.Shared.ContactData;
-
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Date;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -325,7 +322,7 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StaffRole getRoleForStaff(int pers_no) {
+	public StaffRole getRoleForStaff(String pers_no) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -440,7 +437,7 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 		if (baseClass == IStaffAuthentication.class) {
 			switch (baseOperationID) {
 				case CodePackPackage.ISTAFF_AUTHENTICATION___LOGIN__STRING_STRING: return BackendPackage.RECEPTION_HANDLER___LOGIN__STRING_STRING;
-				case CodePackPackage.ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__INT: return BackendPackage.RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__INT;
+				case CodePackPackage.ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__INT: return BackendPackage.RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__STRING;
 				default: return -1;
 			}
 		}
@@ -489,8 +486,8 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 				return assignRoomToBooking((Integer)arguments.get(0));
 			case BackendPackage.RECEPTION_HANDLER___LOGIN__STRING_STRING:
 				return login((String)arguments.get(0), (String)arguments.get(1));
-			case BackendPackage.RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__INT:
-				return getRoleForStaff((Integer)arguments.get(0));
+			case BackendPackage.RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__STRING:
+				return getRoleForStaff((String)arguments.get(0));
 			case BackendPackage.RECEPTION_HANDLER___GENERATE_RECEIPT_FOR_BOOKING__INT:
 				return generateReceiptForBooking((Integer)arguments.get(0));
 			case BackendPackage.RECEPTION_HANDLER___GENERATE_BILL__INT:

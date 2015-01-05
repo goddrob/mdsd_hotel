@@ -2,20 +2,21 @@
  */
 package CodePack.Backend.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import CodePack.CodePackFactory;
+import CodePack.DataBank;
 import CodePack.Backend.BackendPackage;
 import CodePack.Backend.ManagementHandler;
-
+import CodePack.DataModels.DataModelsFactory;
 import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomType;
 import CodePack.DataModels.StaffMember;
 import CodePack.DataModels.StaffRole;
-
-import java.lang.reflect.InvocationTargetException;
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,23 +61,42 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public StaffRole getRoleForStaff(int pers_no) {
+	public StaffRole getRoleForStaff(String pers_no) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (StaffMember sm : db.getStaffMemberList()) {
+			if (sm.getPers_no().equals(pers_no)) 
+				for (StaffRole sr : db.getStaffRoleList())
+					if (sr.getName().equals(sm.getRole_name())) return sr;
+		}
+		return null;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean addRoom(int number, String description, boolean isAvailable, String type) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (Room r : db.getRoomList())
+			if (r.getNumber()==number) return false;
+		boolean isType = false;
+		for (RoomType rt : db.getRoomTypeList())
+			if (rt.getTypename().equals(type)) isType = true;
+		if (!isType) return false;
+		Room room = DataModelsFactory.eINSTANCE.createRoom();
+		room.setNumber(number);
+		room.setDescription(description);
+		room.setIsAvailable(isAvailable);
+		room.setRoom_type(type);
+		db.getRoomList().add(room);
+		return true;
 	}
 
 	/**
@@ -177,8 +197,8 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 		switch (operationID) {
 			case BackendPackage.MANAGEMENT_HANDLER___LOGIN__STRING_STRING:
 				return login((String)arguments.get(0), (String)arguments.get(1));
-			case BackendPackage.MANAGEMENT_HANDLER___GET_ROLE_FOR_STAFF__INT:
-				return getRoleForStaff((Integer)arguments.get(0));
+			case BackendPackage.MANAGEMENT_HANDLER___GET_ROLE_FOR_STAFF__STRING:
+				return getRoleForStaff((String)arguments.get(0));
 			case BackendPackage.MANAGEMENT_HANDLER___ADD_ROOM__INT_STRING_BOOLEAN_STRING:
 				return addRoom((Integer)arguments.get(0), (String)arguments.get(1), (Boolean)arguments.get(2), (String)arguments.get(3));
 			case BackendPackage.MANAGEMENT_HANDLER___UPDATE_ROOM__ROOM:
@@ -199,6 +219,12 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 				return getRoomTypes();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	@Override
+	public StaffRole getRoleForStaff(int pers_no) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //ManagementHandlerImpl
