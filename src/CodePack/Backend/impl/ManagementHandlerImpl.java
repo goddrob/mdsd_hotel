@@ -102,23 +102,40 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateRoom(Room room) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		boolean isDataValid = false;
+		for (Room r : db.getRoomList())
+			if (r.getNumber()==room.getNumber()) isDataValid = true;
+		for (RoomType rt : db.getRoomTypeList())
+			if (rt.getTypename().equals(room.getRoom_type())) isDataValid = true;
+		if (!isDataValid) return false;
+		else {
+			db.getRoomList().add(room);
+			return true;
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeRoom(int number) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		int size = db.getRoomList().size();
+		for (int i=0; i<size; i++)
+			if(db.getRoomList().get(i).getNumber()==number){
+				db.getRoomList().remove(i);
+				return true;
+			}
+		return false;
 	}
 
 	/**
