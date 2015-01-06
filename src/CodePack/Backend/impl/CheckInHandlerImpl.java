@@ -2,14 +2,17 @@
  */
 package CodePack.Backend.impl;
 
-import CodePack.Backend.BackendPackage;
-import CodePack.Backend.CheckInHandler;
-
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import CodePack.CodePackFactory;
+import CodePack.DataBank;
+import CodePack.Backend.BackendPackage;
+import CodePack.Backend.CheckInHandler;
+import CodePack.DataModels.Booking;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,12 +57,19 @@ public class CheckInHandlerImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public int assignRoomToBooking(int booking_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank static_db = CodePackFactory.eINSTANCE.createDataBank();
+		  Booking booking = null;
+		  for(Booking b : static_db.getBookingList()) {
+		   if (b.getId() == booking_id) {
+		    booking = b;
+		    break;
+		   }
+		  }
 	}
 
 	/**
