@@ -169,9 +169,9 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 			rb.setDate_end(date_check_out);
 			for(Room rta : rooms){
 				rb.setRoom_number(rta.getNumber());
+				db.getRoomBookedList().add(rb);
 			}
 			
-			db.getRoomBookedList().add(rb);
 			db.getBookingList().add(b);
 			
 		}
@@ -417,11 +417,20 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isEmailAvailable(String e_mail) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		
+		for(Customer c : db.getCustomerList()){
+			if(!(e_mail == c.getE_mail())){
+				return true;
+			}else { return false;
+				
+			}
+		}
 		throw new UnsupportedOperationException();
 	}
 

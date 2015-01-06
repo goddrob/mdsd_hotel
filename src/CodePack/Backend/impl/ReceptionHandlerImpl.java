@@ -7,10 +7,13 @@ import CodePack.Backend.BackendPackage;
 import CodePack.Backend.ReceptionHandler;
 import CodePack.CodePackPackage;
 import CodePack.DataModels.Booking;
+import CodePack.DataModels.Customer;
+import CodePack.DataModels.DataModelsFactory;
 import CodePack.DataModels.ExtraService;
 import CodePack.DataModels.PaymentData;
 import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomBooked;
+import CodePack.DataModels.RoomType;
 import CodePack.DataModels.ServiceType;
 import CodePack.DataModels.StaffMember;
 import CodePack.DataModels.StaffRole;
@@ -115,25 +118,153 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Booking createBooking(ContactData contact_data, PaymentData payment_data, EList<Room> rooms, EList<ExtraService> services, int number_of_guests, Date date_check_in, Date date_check_out) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+		//IMPORTANT: Is there any use of number_of_guests?
+		
+				DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+				Booking b = DataModelsFactory.eINSTANCE.createBooking();
+				RoomBooked rb = DataModelsFactory.eINSTANCE.createRoomBooked();
+				EList<RoomType> rt = new BasicEList<RoomType>();
+				
+				if(date_check_in.before(date_check_out)){
+			// Find out the time difference in days		
+					long diff = date_check_out.getTime() - date_check_in.getTime();
+					long diffdays = diff/(24*60*60*1000);
+			// Calculate the total price		
+					for(Room r: rooms) {
+						RoomType room1 = DataModelsFactory.eINSTANCE.createRoomType();
+						room1.setTypename(r.getRoom_type());
+					}for(RoomType rt1 : rt){
+						for(RoomType dbrt : db.getRoomTypeList()){
+							if(dbrt.getTypename().equals(rt1.getTypename())){
+								b.setTotal_price(rt1.getRate()*diffdays);
+								
+							}
+						}
+					}
+					
+					b.setDate_check_in(date_check_in);
+					b.setDate_check_out(date_check_out);
+					b.setIsCheckedIn(false);
+					b.setContact_name(contact_data.getFull_name());
+					b.setContact_email(contact_data.getE_mail());
+					b.setContact_phone(contact_data.getPhone_no());
+					b.setPayment_id(payment_data.getId());
+				// Find the biggest ID and set new booking id +1
+					int max = 0;
+					for (Booking book : db.getBookingList()) {
+						if(book.getId() > max){
+							max = book.getId();
+						}
+					}
+					b.setId(max+1);
+					//Needs to be checked!
+
+					for(Room rtb : rooms){
+						b.setRoom(rtb);
+					}
+					
+					rb.setBooking(b);
+					rb.setBooking_id(max+1);
+					rb.setDate_start(date_check_in);
+					rb.setDate_end(date_check_out);
+					for(Room rta : rooms){
+						rb.setRoom_number(rta.getNumber());
+						db.getRoomBookedList().add(rb);
+					}
+					
+					db.getBookingList().add(b);
+					
+				}
+				return b;
+				
+				
+				
+			}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Booking createBookingForCustomer(int customer_id, EList<Room> rooms, EList<ExtraService> services, int number_of_guests, Date date_check_in, Date date_check_out) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
+		//IMPORTANT: Is there any use of number_of_guests?
+		
+				DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+				Booking b = DataModelsFactory.eINSTANCE.createBooking();
+				RoomBooked rb = DataModelsFactory.eINSTANCE.createRoomBooked();
+				EList<RoomType> rt = new BasicEList<RoomType>();
+				
+				
+				if(date_check_in.before(date_check_out)){
+			// Find out the time difference in days		
+					long diff = date_check_out.getTime() - date_check_in.getTime();
+					long diffdays = diff/(24*60*60*1000);
+			// Calculate the total price		
+					for(Room r: rooms) {
+						RoomType room1 = DataModelsFactory.eINSTANCE.createRoomType();
+						room1.setTypename(r.getRoom_type());
+					}for(RoomType rt1 : rt){
+						for(RoomType dbrt : db.getRoomTypeList()){
+							if(dbrt.getTypename().equals(rt1.getTypename())){
+								b.setTotal_price(rt1.getRate()*diffdays);
+								
+							}
+						}
+					}
+					
+					
+					b.setCustomer_id(customer_id);
+					b.setDate_check_in(date_check_in);
+					b.setDate_check_out(date_check_out);
+					b.setIsCheckedIn(false);
+				//Find the correct customer by id and add all info
+					for (Customer c : db.getCustomerList()){
+						if(c.getCustomer_id() == customer_id){
+							b.setContact_name(c.getFirst_name() + c.getLast_name());
+							b.setContact_email(c.getE_mail());
+							b.setContact_phone(c.getPhone_no());
+							b.setPayment_id(c.getPayment_id());
+						}
+						
+					}
+				// Find the biggest ID and set new booking id +1
+					int max = 0;
+					for (Booking book : db.getBookingList()) {
+						if(book.getId() > max){
+							max = book.getId();
+						}
+					}
+					b.setId(max+1);
+					//setroom/setroom_number needs to be checked
+					
+					for(Room rtb : rooms){
+						b.setRoom(rtb);
+					}
+					
+					rb.setBooking(b);
+					rb.setBooking_id(max+1);
+					rb.setDate_start(date_check_in);
+					rb.setDate_end(date_check_out);
+					for(Room rta : rooms){
+						rb.setRoom_number(rta.getNumber());
+					}
+					
+					db.getRoomBookedList().add(rb);
+					db.getBookingList().add(b);
+					
+				}
+				return b;
+				
+				
+				
+			}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,11 +454,19 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public StaffMember login(String e_mail, String password) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		
+		for(StaffMember sm : db.getStaffMemberList()){
+			if(e_mail == sm.getEmail() && password == sm.getPassword()){
+				return sm;
+			}
+		}
+		
 		throw new UnsupportedOperationException();
 	}
 
@@ -345,11 +484,19 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isCheckedIn(int booking_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		
+		for(Booking b : db.getBookingList()){
+			if(b.getId() == booking_id && b.isCheckedIn() == true){
+				return true;
+			}
+			return false;	
+		}
 		throw new UnsupportedOperationException();
 	}
 
