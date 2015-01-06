@@ -552,7 +552,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__INT = 1;
+	int ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__STRING = 1;
 
 	/**
 	 * The number of operations of the '<em>IStaff Authentication</em>' class.
@@ -598,7 +598,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___GET_ROLE_FOR_STAFF__INT = ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__INT;
+	int IMANAGEMENT___GET_ROLE_FOR_STAFF__STRING = ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__STRING;
 
 	/**
 	 * The operation id for the '<em>Add Room</em>' operation.
@@ -719,13 +719,13 @@ public interface CodePackPackage extends EPackage {
 	int ICHECK_IN___VALIDATE_BOOKING__INT = 0;
 
 	/**
-	 * The operation id for the '<em>Assign Room To Booking</em>' operation.
+	 * The operation id for the '<em>Assign Guest To Booking</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICHECK_IN___ASSIGN_ROOM_TO_BOOKING__INT = 1;
+	int ICHECK_IN___ASSIGN_GUEST_TO_BOOKING__INT_STRING = 1;
 
 	/**
 	 * The number of operations of the '<em>ICheck In</em>' class.
@@ -882,13 +882,13 @@ public interface CodePackPackage extends EPackage {
 	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___VALIDATE_BOOKING__INT = IBOOKINGS_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Assign Room To Booking</em>' operation.
+	 * The operation id for the '<em>Assign Guest To Booking</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___ASSIGN_ROOM_TO_BOOKING__INT = IBOOKINGS_OPERATION_COUNT + 1;
+	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___ASSIGN_GUEST_TO_BOOKING__INT_STRING = IBOOKINGS_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Login</em>' operation.
@@ -906,7 +906,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___GET_ROLE_FOR_STAFF__INT = IBOOKINGS_OPERATION_COUNT + 3;
+	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___GET_ROLE_FOR_STAFF__STRING = IBOOKINGS_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Receipt For Booking</em>' operation.
@@ -1542,7 +1542,7 @@ public interface CodePackPackage extends EPackage {
 	 * @see CodePack.IStaffAuthentication#getRoleForStaff(java.lang.String)
 	 * @generated
 	 */
-	EOperation getIStaffAuthentication__GetRoleForStaff__int();
+	EOperation getIStaffAuthentication__GetRoleForStaff__String();
 
 	/**
 	 * Returns the meta object for class '{@link CodePack.IManagement <em>IManagement</em>}'.
@@ -1665,14 +1665,14 @@ public interface CodePackPackage extends EPackage {
 	EOperation getICheckIn__ValidateBooking__int();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.ICheckIn#assignRoomToBooking(int) <em>Assign Room To Booking</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.ICheckIn#assignGuestToBooking(int, java.lang.String) <em>Assign Guest To Booking</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Assign Room To Booking</em>' operation.
-	 * @see CodePack.ICheckIn#assignRoomToBooking(int)
+	 * @return the meta object for the '<em>Assign Guest To Booking</em>' operation.
+	 * @see CodePack.ICheckIn#assignGuestToBooking(int, java.lang.String)
 	 * @generated
 	 */
-	EOperation getICheckIn__AssignRoomToBooking__int();
+	EOperation getICheckIn__AssignGuestToBooking__int_String();
 
 	/**
 	 * Returns the meta object for class '{@link CodePack.IReceptionOperations_rename_required <em>IReception Operations rename required</em>}'.
@@ -2227,7 +2227,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__INT = eINSTANCE.getIStaffAuthentication__GetRoleForStaff__int();
+		EOperation ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__STRING = eINSTANCE.getIStaffAuthentication__GetRoleForStaff__String();
 
 		/**
 		 * The meta object literal for the '{@link CodePack.IManagement <em>IManagement</em>}' class.
@@ -2330,12 +2330,12 @@ public interface CodePackPackage extends EPackage {
 		EOperation ICHECK_IN___VALIDATE_BOOKING__INT = eINSTANCE.getICheckIn__ValidateBooking__int();
 
 		/**
-		 * The meta object literal for the '<em><b>Assign Room To Booking</b></em>' operation.
+		 * The meta object literal for the '<em><b>Assign Guest To Booking</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ICHECK_IN___ASSIGN_ROOM_TO_BOOKING__INT = eINSTANCE.getICheckIn__AssignRoomToBooking__int();
+		EOperation ICHECK_IN___ASSIGN_GUEST_TO_BOOKING__INT_STRING = eINSTANCE.getICheckIn__AssignGuestToBooking__int_String();
 
 		/**
 		 * The meta object literal for the '{@link CodePack.IReceptionOperations_rename_required <em>IReception Operations rename required</em>}' class.

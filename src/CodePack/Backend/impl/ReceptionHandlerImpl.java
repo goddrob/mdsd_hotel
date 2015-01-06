@@ -300,7 +300,7 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int assignRoomToBooking(int booking_id) {
+	public Booking assignGuestToBooking(int booking_id, String guest_name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -430,14 +430,14 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 		if (baseClass == ICheckIn.class) {
 			switch (baseOperationID) {
 				case CodePackPackage.ICHECK_IN___VALIDATE_BOOKING__INT: return BackendPackage.RECEPTION_HANDLER___VALIDATE_BOOKING__INT;
-				case CodePackPackage.ICHECK_IN___ASSIGN_ROOM_TO_BOOKING__INT: return BackendPackage.RECEPTION_HANDLER___ASSIGN_ROOM_TO_BOOKING__INT;
+				case CodePackPackage.ICHECK_IN___ASSIGN_GUEST_TO_BOOKING__INT_STRING: return BackendPackage.RECEPTION_HANDLER___ASSIGN_GUEST_TO_BOOKING__INT_STRING;
 				default: return -1;
 			}
 		}
 		if (baseClass == IStaffAuthentication.class) {
 			switch (baseOperationID) {
 				case CodePackPackage.ISTAFF_AUTHENTICATION___LOGIN__STRING_STRING: return BackendPackage.RECEPTION_HANDLER___LOGIN__STRING_STRING;
-				case CodePackPackage.ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__INT: return BackendPackage.RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__STRING;
+				case CodePackPackage.ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__STRING: return BackendPackage.RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__STRING;
 				default: return -1;
 			}
 		}
@@ -482,8 +482,8 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 				return null;
 			case BackendPackage.RECEPTION_HANDLER___VALIDATE_BOOKING__INT:
 				return validateBooking((Integer)arguments.get(0));
-			case BackendPackage.RECEPTION_HANDLER___ASSIGN_ROOM_TO_BOOKING__INT:
-				return assignRoomToBooking((Integer)arguments.get(0));
+			case BackendPackage.RECEPTION_HANDLER___ASSIGN_GUEST_TO_BOOKING__INT_STRING:
+				return assignGuestToBooking((Integer)arguments.get(0), (String)arguments.get(1));
 			case BackendPackage.RECEPTION_HANDLER___LOGIN__STRING_STRING:
 				return login((String)arguments.get(0), (String)arguments.get(1));
 			case BackendPackage.RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__STRING:

@@ -503,7 +503,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIStaffAuthentication__GetRoleForStaff__int() {
+	public EOperation getIStaffAuthentication__GetRoleForStaff__String() {
 		return iStaffAuthenticationEClass.getEOperations().get(1);
 	}
 
@@ -620,7 +620,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICheckIn__AssignRoomToBooking__int() {
+	public EOperation getICheckIn__AssignGuestToBooking__int_String() {
 		return iCheckInEClass.getEOperations().get(1);
 	}
 
@@ -896,7 +896,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 
 		iStaffAuthenticationEClass = createEClass(ISTAFF_AUTHENTICATION);
 		createEOperation(iStaffAuthenticationEClass, ISTAFF_AUTHENTICATION___LOGIN__STRING_STRING);
-		createEOperation(iStaffAuthenticationEClass, ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__INT);
+		createEOperation(iStaffAuthenticationEClass, ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__STRING);
 
 		iManagementEClass = createEClass(IMANAGEMENT);
 		createEOperation(iManagementEClass, IMANAGEMENT___ADD_ROOM__INT_STRING_BOOLEAN_STRING);
@@ -911,7 +911,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 
 		iCheckInEClass = createEClass(ICHECK_IN);
 		createEOperation(iCheckInEClass, ICHECK_IN___VALIDATE_BOOKING__INT);
-		createEOperation(iCheckInEClass, ICHECK_IN___ASSIGN_ROOM_TO_BOOKING__INT);
+		createEOperation(iCheckInEClass, ICHECK_IN___ASSIGN_GUEST_TO_BOOKING__INT_STRING);
 
 		iReceptionOperations_rename_requiredEClass = createEClass(IRECEPTION_OPERATIONS_RENAME_REQUIRED);
 		createEOperation(iReceptionOperations_rename_requiredEClass, IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT_FOR_BOOKING__INT);
@@ -1108,7 +1108,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		addEParameter(op, ecorePackage.getEString(), "e_mail", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "password", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getIStaffAuthentication__GetRoleForStaff__int(), theDataModelsPackage.getStaffRole(), "getRoleForStaff", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIStaffAuthentication__GetRoleForStaff__String(), theDataModelsPackage.getStaffRole(), "getRoleForStaff", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "pers_no", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(iManagementEClass, IManagement.class, "IManagement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1149,8 +1149,9 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		op = initEOperation(getICheckIn__ValidateBooking__int(), ecorePackage.getEBoolean(), "validateBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "booking_id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getICheckIn__AssignRoomToBooking__int(), ecorePackage.getEInt(), "assignRoomToBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getICheckIn__AssignGuestToBooking__int_String(), theDataModelsPackage.getBooking(), "assignGuestToBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "booking_id", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "guest_name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(iReceptionOperations_rename_requiredEClass, IReceptionOperations_rename_required.class, "IReceptionOperations_rename_required", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

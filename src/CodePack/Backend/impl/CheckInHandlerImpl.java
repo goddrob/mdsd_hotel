@@ -3,13 +3,9 @@
 package CodePack.Backend.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import CodePack.CodePackFactory;
-import CodePack.DataBank;
 import CodePack.Backend.BackendPackage;
 import CodePack.Backend.CheckInHandler;
 import CodePack.DataModels.Booking;
@@ -57,19 +53,12 @@ public class CheckInHandlerImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public int assignRoomToBooking(int booking_id) {
+	public Booking assignGuestToBooking(int booking_id, String guest_name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		DataBank static_db = CodePackFactory.eINSTANCE.createDataBank();
-		  Booking booking = null;
-		  for(Booking b : static_db.getBookingList()) {
-		   if (b.getId() == booking_id) {
-		    booking = b;
-		    break;
-		   }
-		  }
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -82,8 +71,8 @@ public class CheckInHandlerImpl extends MinimalEObjectImpl.Container implements 
 		switch (operationID) {
 			case BackendPackage.CHECK_IN_HANDLER___VALIDATE_BOOKING__INT:
 				return validateBooking((Integer)arguments.get(0));
-			case BackendPackage.CHECK_IN_HANDLER___ASSIGN_ROOM_TO_BOOKING__INT:
-				return assignRoomToBooking((Integer)arguments.get(0));
+			case BackendPackage.CHECK_IN_HANDLER___ASSIGN_GUEST_TO_BOOKING__INT_STRING:
+				return assignGuestToBooking((Integer)arguments.get(0), (String)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -2,6 +2,7 @@
  */
 package CodePack;
 
+import CodePack.DataModels.Booking;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,9 +27,9 @@ public interface ICheckIn extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" booking_idRequired="true" booking_idOrdered="false"
+	 * @model required="true" ordered="false" booking_idRequired="true" booking_idOrdered="false" guest_nameRequired="true" guest_nameOrdered="false"
 	 * @generated
 	 */
-	int assignRoomToBooking(int booking_id);
+	Booking assignGuestToBooking(int booking_id, String guest_name);
 
 } // ICheckIn

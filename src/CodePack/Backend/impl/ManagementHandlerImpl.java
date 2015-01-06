@@ -169,7 +169,7 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	public boolean updateRoomType(RoomType roomType) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		return true;
+		throw new UnsupportedOperationException();
 	}
 
 	/**

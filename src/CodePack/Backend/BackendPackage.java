@@ -428,13 +428,13 @@ public interface BackendPackage extends EPackage {
 	int RECEPTION_HANDLER___VALIDATE_BOOKING__INT = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___VALIDATE_BOOKING__INT;
 
 	/**
-	 * The operation id for the '<em>Assign Room To Booking</em>' operation.
+	 * The operation id for the '<em>Assign Guest To Booking</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTION_HANDLER___ASSIGN_ROOM_TO_BOOKING__INT = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___ASSIGN_ROOM_TO_BOOKING__INT;
+	int RECEPTION_HANDLER___ASSIGN_GUEST_TO_BOOKING__INT_STRING = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___ASSIGN_GUEST_TO_BOOKING__INT_STRING;
 
 	/**
 	 * The operation id for the '<em>Login</em>' operation.
@@ -452,7 +452,7 @@ public interface BackendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__STRING = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___GET_ROLE_FOR_STAFF__INT;
+	int RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__STRING = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___GET_ROLE_FOR_STAFF__STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Receipt For Booking</em>' operation.
@@ -519,13 +519,13 @@ public interface BackendPackage extends EPackage {
 	int CHECK_IN_HANDLER___VALIDATE_BOOKING__INT = CodePackPackage.ICHECK_IN___VALIDATE_BOOKING__INT;
 
 	/**
-	 * The operation id for the '<em>Assign Room To Booking</em>' operation.
+	 * The operation id for the '<em>Assign Guest To Booking</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHECK_IN_HANDLER___ASSIGN_ROOM_TO_BOOKING__INT = CodePackPackage.ICHECK_IN___ASSIGN_ROOM_TO_BOOKING__INT;
+	int CHECK_IN_HANDLER___ASSIGN_GUEST_TO_BOOKING__INT_STRING = CodePackPackage.ICHECK_IN___ASSIGN_GUEST_TO_BOOKING__INT_STRING;
 
 	/**
 	 * The number of operations of the '<em>Check In Handler</em>' class.
@@ -572,7 +572,7 @@ public interface BackendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGEMENT_HANDLER___GET_ROLE_FOR_STAFF__STRING = CodePackPackage.IMANAGEMENT___GET_ROLE_FOR_STAFF__INT;
+	int MANAGEMENT_HANDLER___GET_ROLE_FOR_STAFF__STRING = CodePackPackage.IMANAGEMENT___GET_ROLE_FOR_STAFF__STRING;
 
 	/**
 	 * The operation id for the '<em>Add Room</em>' operation.
