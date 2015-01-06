@@ -582,11 +582,30 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean registerCustomer(String e_mail, String password, Date date_of_birth, int phone_no, String first_name, String last_name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		Customer c = DataModelsFactory.eINSTANCE.createCustomer();
+		int max = 0;
+		for (Customer c1 : db.getCustomerList()) {
+			if(c1.getCustomer_id() > max){
+				max = c1.getCustomer_id();
+			}
+		}
+		c.setCustomer_id(max+1);
+		c.setFirst_name(first_name);
+		c.setLast_name(last_name);
+		c.setPhone_no(phone_no);
+		c.setDate_of_birth(date_of_birth);
+		c.setE_mail(e_mail);
+		c.setPassword(password);
+		c.setBonus_points(0);
+		
+		db.getCustomerList().add(c);
+		
 		throw new UnsupportedOperationException();
 	}
 
