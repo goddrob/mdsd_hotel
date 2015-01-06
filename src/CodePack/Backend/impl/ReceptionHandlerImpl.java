@@ -268,23 +268,42 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateRoomForBooking(int booking_id, int old_room, int new_room) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+        DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(RoomBooked rb : db.getRoomBookedList()){
+			if(booking_id == rb.getBooking_id() && old_room == rb.getRoom_number() && new_room != rb.getRoom_number()){
+				for(Room r: db.getRoomList()) {
+					if (new_room == r.getNumber());
+				}
+				return true;
+			}else{
+				return false;
+			}
+		}
+		
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateServiceForBooking(int old_service_id, ExtraService new_service) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+				for(ExtraService es:db.getExtraServiceList()){
+					if(old_service_id == es.getBooking_id()) {
+						db.getExtraServiceList().add(new_service);
+					}return true;
+			}
+				return false;
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -365,22 +384,41 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Booking getBookingForId(int booking_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(Booking b:db.getBookingList()){
+			if(b.getId() == booking_id){
+				return b;
+			}
+		}
+		
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateTimeForBooking(int booking_id, Date new_check_in, Date new_check_out) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(Booking b : db.getBookingList()) {
+			if(booking_id == b.getId() && !(new_check_in.equals(b.getDate_check_in()) && new_check_out.equals(b.getDate_check_out()))) { 
+				b.setDate_check_in(new_check_in);
+				b.setDate_check_out(new_check_out);
+				db.getBookingList().add(b);
+				return true;
+			} else
+				return false;
+		}
+		
 		throw new UnsupportedOperationException();
 	}
 
