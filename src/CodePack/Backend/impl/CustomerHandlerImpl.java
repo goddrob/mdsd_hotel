@@ -306,12 +306,30 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Room> getAvailableRooms(Date date_start, Date date_end) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<Room> rooms = new BasicEList<Room>();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(Room r : db.getRoomList()){
+			boolean available = true;
+			for(RoomBooked rb : db.getRoomBookedList()){
+				if (r.getNumber() == rb.getRoom_number()) {
+					if (!((date_start.after(rb.getDate_start()) && date_end.before(rb.getDate_start())) 
+							|| (date_start.after(rb.getDate_end()) && date_end.after(rb.getDate_end()))))
+					available = false;
+					
+				}
+			}
+			if (available) rooms.add(r);
+			
+		}
+		
+			return rooms;
+
+		
 	}
 
 	/**
