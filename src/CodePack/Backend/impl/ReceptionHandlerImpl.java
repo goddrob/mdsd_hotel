@@ -378,15 +378,7 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	public EList<Booking> getBookingsForCustomer(int customer_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
-		EList<Booking> bookings = new BasicEList<Booking>();
-		
-		for(Booking b : db.getBookingList()){
-			if(b.getCustomer_id() == customer_id){
-				bookings.add(b);
-			}
-		}return bookings;
-		
+		throw new UnsupportedOperationException();
 	}
 
 	/**

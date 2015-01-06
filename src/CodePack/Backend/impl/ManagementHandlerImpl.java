@@ -3,20 +3,16 @@
 package CodePack.Backend.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import CodePack.CodePackFactory;
 import CodePack.DataBank;
 import CodePack.Backend.BackendPackage;
 import CodePack.Backend.ManagementHandler;
-import CodePack.DataModels.Customer;
 import CodePack.DataModels.DataModelsFactory;
 import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomType;
-import CodePack.DataModels.ServiceType;
 import CodePack.DataModels.StaffMember;
 import CodePack.DataModels.StaffRole;
 
