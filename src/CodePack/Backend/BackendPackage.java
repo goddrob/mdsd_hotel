@@ -244,7 +244,7 @@ public interface BackendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_HANDLER___UPDATE_CUSTOMER_INFO__STRING_STRING = CodePackPackage.IUSER_ACCOUNT___UPDATE_CUSTOMER_INFO__STRING_STRING;
+	int CUSTOMER_HANDLER___UPDATE_CUSTOMER_INFO__STRING_STRING_INT = CodePackPackage.IUSER_ACCOUNT___UPDATE_CUSTOMER_INFO__STRING_STRING_INT;
 
 	/**
 	 * The operation id for the '<em>Register Customer</em>' operation.
@@ -253,7 +253,7 @@ public interface BackendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_HANDLER___REGISTER_CUSTOMER__STRING_STRING_DATE_INT = CodePackPackage.IUSER_ACCOUNT___REGISTER_CUSTOMER__STRING_STRING_DATE_INT;
+	int CUSTOMER_HANDLER___REGISTER_CUSTOMER__STRING_STRING_DATE_INT_STRING_STRING = CodePackPackage.IUSER_ACCOUNT___REGISTER_CUSTOMER__STRING_STRING_DATE_INT_STRING_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Customer Info</em>' operation.

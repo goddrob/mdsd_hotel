@@ -573,7 +573,7 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean updateCustomerInfo(String e_mail, String phone_no) {
+	public boolean updateCustomerInfo(String e_mail, String phone_no, int customer_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -584,7 +584,7 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean registerCustomer(String e_mail, String password, Date date_of_birth, int phone_no) {
+	public boolean registerCustomer(String e_mail, String password, Date date_of_birth, int phone_no, String first_name, String last_name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -704,10 +704,10 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 				return updateCustomerCC((Integer)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Integer)arguments.get(3), (Integer)arguments.get(4), (String)arguments.get(5), (String)arguments.get(6));
 			case BackendPackage.CUSTOMER_HANDLER___UPDATE_CUSTOMER_PWD__INT_STRING_STRING:
 				return updateCustomerPwd((Integer)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
-			case BackendPackage.CUSTOMER_HANDLER___UPDATE_CUSTOMER_INFO__STRING_STRING:
-				return updateCustomerInfo((String)arguments.get(0), (String)arguments.get(1));
-			case BackendPackage.CUSTOMER_HANDLER___REGISTER_CUSTOMER__STRING_STRING_DATE_INT:
-				return registerCustomer((String)arguments.get(0), (String)arguments.get(1), (Date)arguments.get(2), (Integer)arguments.get(3));
+			case BackendPackage.CUSTOMER_HANDLER___UPDATE_CUSTOMER_INFO__STRING_STRING_INT:
+				return updateCustomerInfo((String)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2));
+			case BackendPackage.CUSTOMER_HANDLER___REGISTER_CUSTOMER__STRING_STRING_DATE_INT_STRING_STRING:
+				return registerCustomer((String)arguments.get(0), (String)arguments.get(1), (Date)arguments.get(2), (Integer)arguments.get(3), (String)arguments.get(4), (String)arguments.get(5));
 			case BackendPackage.CUSTOMER_HANDLER___GET_CUSTOMER_INFO__INT:
 				return getCustomerInfo((Integer)arguments.get(0));
 		}

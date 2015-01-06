@@ -242,7 +242,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIUserAccount__UpdateCustomerInfo__String_String() {
+	public EOperation getIUserAccount__UpdateCustomerInfo__String_String_int() {
 		return iUserAccountEClass.getEOperations().get(4);
 	}
 
@@ -251,7 +251,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIUserAccount__RegisterCustomer__String_String_Date_int() {
+	public EOperation getIUserAccount__RegisterCustomer__String_String_Date_int_String_String() {
 		return iUserAccountEClass.getEOperations().get(5);
 	}
 
@@ -864,8 +864,8 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		createEOperation(iUserAccountEClass, IUSER_ACCOUNT___LOGIN__STRING_STRING);
 		createEOperation(iUserAccountEClass, IUSER_ACCOUNT___UPDATE_CUSTOMER_CC__INT_STRING_STRING_INT_INT_STRING_STRING);
 		createEOperation(iUserAccountEClass, IUSER_ACCOUNT___UPDATE_CUSTOMER_PWD__INT_STRING_STRING);
-		createEOperation(iUserAccountEClass, IUSER_ACCOUNT___UPDATE_CUSTOMER_INFO__STRING_STRING);
-		createEOperation(iUserAccountEClass, IUSER_ACCOUNT___REGISTER_CUSTOMER__STRING_STRING_DATE_INT);
+		createEOperation(iUserAccountEClass, IUSER_ACCOUNT___UPDATE_CUSTOMER_INFO__STRING_STRING_INT);
+		createEOperation(iUserAccountEClass, IUSER_ACCOUNT___REGISTER_CUSTOMER__STRING_STRING_DATE_INT_STRING_STRING);
 		createEOperation(iUserAccountEClass, IUSER_ACCOUNT___GET_CUSTOMER_INFO__INT);
 
 		iBookingsEClass = createEClass(IBOOKINGS);
@@ -1010,15 +1010,18 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		addEParameter(op, ecorePackage.getEString(), "pwd_old", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "pwd_new", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getIUserAccount__UpdateCustomerInfo__String_String(), ecorePackage.getEBoolean(), "updateCustomerInfo", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIUserAccount__UpdateCustomerInfo__String_String_int(), ecorePackage.getEBoolean(), "updateCustomerInfo", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "e_mail", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "phone_no", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "customer_id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getIUserAccount__RegisterCustomer__String_String_Date_int(), ecorePackage.getEBoolean(), "registerCustomer", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIUserAccount__RegisterCustomer__String_String_Date_int_String_String(), ecorePackage.getEBoolean(), "registerCustomer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "e_mail", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "password", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "date_of_birth", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "phone_no", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "first_name", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "last_name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getIUserAccount__GetCustomerInfo__int(), theDataModelsPackage.getCustomer(), "getCustomerInfo", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "customer_id", 1, 1, IS_UNIQUE, !IS_ORDERED);

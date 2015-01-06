@@ -379,7 +379,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IUSER_ACCOUNT___UPDATE_CUSTOMER_INFO__STRING_STRING = IBOOKINGS_OPERATION_COUNT + 4;
+	int IUSER_ACCOUNT___UPDATE_CUSTOMER_INFO__STRING_STRING_INT = IBOOKINGS_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Register Customer</em>' operation.
@@ -388,7 +388,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IUSER_ACCOUNT___REGISTER_CUSTOMER__STRING_STRING_DATE_INT = IBOOKINGS_OPERATION_COUNT + 5;
+	int IUSER_ACCOUNT___REGISTER_CUSTOMER__STRING_STRING_DATE_INT_STRING_STRING = IBOOKINGS_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Customer Info</em>' operation.
@@ -1245,24 +1245,24 @@ public interface CodePackPackage extends EPackage {
 	EOperation getIUserAccount__UpdateCustomerPwd__int_String_String();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IUserAccount#updateCustomerInfo(java.lang.String, java.lang.String) <em>Update Customer Info</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IUserAccount#updateCustomerInfo(java.lang.String, java.lang.String, int) <em>Update Customer Info</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Update Customer Info</em>' operation.
-	 * @see CodePack.IUserAccount#updateCustomerInfo(java.lang.String, java.lang.String)
+	 * @see CodePack.IUserAccount#updateCustomerInfo(java.lang.String, java.lang.String, int)
 	 * @generated
 	 */
-	EOperation getIUserAccount__UpdateCustomerInfo__String_String();
+	EOperation getIUserAccount__UpdateCustomerInfo__String_String_int();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IUserAccount#registerCustomer(java.lang.String, java.lang.String, java.util.Date, int) <em>Register Customer</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IUserAccount#registerCustomer(java.lang.String, java.lang.String, java.util.Date, int, java.lang.String, java.lang.String) <em>Register Customer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Customer</em>' operation.
-	 * @see CodePack.IUserAccount#registerCustomer(java.lang.String, java.lang.String, java.util.Date, int)
+	 * @see CodePack.IUserAccount#registerCustomer(java.lang.String, java.lang.String, java.util.Date, int, java.lang.String, java.lang.String)
 	 * @generated
 	 */
-	EOperation getIUserAccount__RegisterCustomer__String_String_Date_int();
+	EOperation getIUserAccount__RegisterCustomer__String_String_Date_int_String_String();
 
 	/**
 	 * Returns the meta object for the '{@link CodePack.IUserAccount#getCustomerInfo(int) <em>Get Customer Info</em>}' operation.
@@ -1989,7 +1989,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation IUSER_ACCOUNT___UPDATE_CUSTOMER_INFO__STRING_STRING = eINSTANCE.getIUserAccount__UpdateCustomerInfo__String_String();
+		EOperation IUSER_ACCOUNT___UPDATE_CUSTOMER_INFO__STRING_STRING_INT = eINSTANCE.getIUserAccount__UpdateCustomerInfo__String_String_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Register Customer</b></em>' operation.
@@ -1997,7 +1997,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation IUSER_ACCOUNT___REGISTER_CUSTOMER__STRING_STRING_DATE_INT = eINSTANCE.getIUserAccount__RegisterCustomer__String_String_Date_int();
+		EOperation IUSER_ACCOUNT___REGISTER_CUSTOMER__STRING_STRING_DATE_INT_STRING_STRING = eINSTANCE.getIUserAccount__RegisterCustomer__String_String_Date_int_String_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Customer Info</b></em>' operation.
