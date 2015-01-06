@@ -433,12 +433,20 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean cancelBooking(int booking_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(Booking b:db.getBookingList()) {
+			if(booking_id == b.getId()) {
+				db.getBookingList().remove(b);
+				return true;
+			} else
+				return false;
+		}
+			
 		throw new UnsupportedOperationException();
 	}
 
