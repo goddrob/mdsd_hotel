@@ -552,7 +552,7 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateCustomerPwd(int customer_id, String pwd_old, String pwd_new) {
 		// TODO: implement this method
