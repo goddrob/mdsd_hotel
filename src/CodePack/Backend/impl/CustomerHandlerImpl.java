@@ -157,14 +157,19 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 				}
 			}
 			b.setId(max+1);
-			//Needs to be done
-			b.setRoom();
+			//Needs to be checked!
+
+			for(Room rtb : rooms){
+				b.setRoom(rtb);
+			}
 			
 			rb.setBooking(b);
 			rb.setBooking_id(max+1);
 			rb.setDate_start(date_check_in);
 			rb.setDate_end(date_check_out);
-			rb.setRoom_number(value);
+			for(Room rta : rooms){
+				rb.setRoom_number(rta.getNumber());
+			}
 			
 			db.getRoomBookedList().add(rb);
 			db.getBookingList().add(b);
@@ -233,18 +238,19 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 				}
 			}
 			b.setId(max+1);
-			//setroom/setroom_number needs to be done
+			//setroom/setroom_number needs to be checked
 			
-				
-			
-			
-			b.setRoom();
+			for(Room rtb : rooms){
+				b.setRoom(rtb);
+			}
 			
 			rb.setBooking(b);
 			rb.setBooking_id(max+1);
 			rb.setDate_start(date_check_in);
 			rb.setDate_end(date_check_out);
-			rb.setRoom_number(value);
+			for(Room rta : rooms){
+				rb.setRoom_number(rta.getNumber());
+			}
 			
 			db.getRoomBookedList().add(rb);
 			db.getBookingList().add(b);

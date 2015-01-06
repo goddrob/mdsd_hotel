@@ -19,8 +19,10 @@ import CodePack.DataBank;
 import CodePack.ICheckIn;
 import CodePack.IStaffAuthentication;
 import CodePack.Shared.ContactData;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -276,12 +278,24 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void sendComfimationMail(Booking booking) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String to = booking.getContact_email();
+		String from = "Hotel@Habibi.com";
+		String subject = "Hotel Habibi Confirmation Email";
+		String name = booking.getContact_name();
+		Date checkin = booking.getDate_check_in();
+		Date checkout = booking.getDate_check_out();
+		Double price = booking.getTotal_price();
+		
+		System.out.println("to: "+to+", From: "+from);
+		System.out.println("Subject: "+subject);
+		System.out.println("Dear "+name+", You have selected to stay with us from "+checkin+"until "+checkout+"."
+				+ " The total Price will be: "+price+". If you have any questions regarding the booking,"
+						+ "please contact us at Hotel@Habibi.com. Have a great day.");
 	}
 
 	/**
