@@ -95,12 +95,15 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
-		for (Room r : db.getRoomList())
-			if (r.getNumber()==number) return false;
+		
 		boolean isType = false;
 		for (RoomType rt : db.getRoomTypeList())
 			if (rt.getTypename().equals(type)) isType = true;
 		if (!isType) return false;
+		
+		for (Room r : db.getRoomList())
+			if (r.getNumber()==number) return false;
+		
 		Room room = DataModelsFactory.eINSTANCE.createRoom();
 		room.setNumber(number);
 		room.setDescription(description);
@@ -119,19 +122,22 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		
 		boolean isDataValid = false;
-		for (Room r : db.getRoomList())
-			if (r.getNumber()==room.getNumber()) {
-				db.getRoomList().remove(r);
-				isDataValid = true;
-			}
+		
 		for (RoomType rt : db.getRoomTypeList())
 			if (rt.getTypename().equals(room.getRoom_type())) isDataValid = true;
 		if (!isDataValid) return false;
-		else {
-			db.getRoomList().add(room);
-			return true;
-		}
+		
+		for (Room r : db.getRoomList())
+			if (r.getNumber()==room.getNumber()) {
+				int index = db.getRoomList().indexOf(r);
+				db.getRoomList().remove(r);
+				db.getRoomList().add(index, room);
+				return true;
+			}
+		
+		return false;
 	}
 
 	/**
@@ -180,7 +186,16 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	public boolean updateRoomType(RoomType roomType) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (RoomType rt : db.getRoomTypeList()){
+			if (rt.getTypename().equals(roomType.getTypename())){
+				int index = db.getRoomTypeList().indexOf(rt);
+				db.getRoomTypeList().remove(rt);
+				db.getRoomTypeList().add(index,roomType);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -191,7 +206,13 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	public boolean removeRoomType(String type_name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (RoomType rt : db.getRoomTypeList())
+			if (rt.getTypename().equals(type_name)){
+				db.getRoomTypeList().remove(rt);
+				return true;
+			}
+		return false;	
 	}
 
 	/**

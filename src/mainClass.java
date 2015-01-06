@@ -33,20 +33,28 @@ public class mainClass {
 		DataBank db1 = CodePackFactory.eINSTANCE.createDataBank();
 		DataBank db2 = CodePackFactory.eINSTANCE.createDataBank();
 		
-   
 	    loadDatabase();
 	    
-	    for (RoomType r : db2.getRoomTypeList()){
-	    	System.out.println(r);
+	    
+		System.out.println("######### TEST  ########");
+		System.out.println(db2.getRoomList().get(0));
+		Room r = db2.getRoomList().get(0);
+		db2.getRoomList().indexOf(r);
+		db2.getRoomList().get(db2.getRoomList().indexOf(r)).setDescription("null and void");
+		System.out.println(db2.getRoomList().get(0));
+		//db2.getRoomList().remove(r);
+	    
+	    for (RoomType rx : db2.getRoomTypeList()){
+	    	System.out.println(rx);
 	    }
-	    for (Room r : db2.getRoomList()) {
-	    	System.out.println(r);
+	    for (Room rx : db2.getRoomList()) {
+	    	System.out.println(rx);
 	    }
 	    for (Booking b : db2.getBookingList()){
 	    	System.out.println(b);
 	    }
-	    for (RoomBooked r : db2.getRoomBookedList()){
-	    	System.out.println(r);
+	    for (RoomBooked rx : db2.getRoomBookedList()){
+	    	System.out.println(rx);
 	    }
 	    for (Customer c : db2.getCustomerList()){
 	    	System.out.println(c);
