@@ -557,7 +557,15 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	public boolean updateCustomerPwd(int customer_id, String pwd_old, String pwd_new) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (Customer c : db.getCustomerList()){
+			if ((c.getCustomer_id() == customer_id) && (c.getPassword().equals(pwd_old)))
+			{
+				db.getCustomerList().get(db.getCustomerList().indexOf(c)).setPassword(pwd_new);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
