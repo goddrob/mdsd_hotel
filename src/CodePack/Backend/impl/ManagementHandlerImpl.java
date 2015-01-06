@@ -110,7 +110,10 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		boolean isDataValid = false;
 		for (Room r : db.getRoomList())
-			if (r.getNumber()==room.getNumber()) isDataValid = true;
+			if (r.getNumber()==room.getNumber()) {
+				db.getRoomList().remove(r);
+				isDataValid = true;
+			}
 		for (RoomType rt : db.getRoomTypeList())
 			if (rt.getTypename().equals(room.getRoom_type())) isDataValid = true;
 		if (!isDataValid) return false;
@@ -141,12 +144,21 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean addRoomType(String name, String description, int max_guests, double rate) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(RoomType rt : db.getRoomTypeList())
+			if (rt.getTypename().equals(name)) return false;
+		RoomType rt = DataModelsFactory.eINSTANCE.createRoomType();
+		rt.setDescription(description);
+		rt.setMax_guests(max_guests);
+		rt.setRate(rate);
+		rt.setTypename(name);
+		db.getRoomTypeList().add(rt);
+		return true;
 	}
 
 	/**
@@ -157,7 +169,7 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	public boolean updateRoomType(RoomType roomType) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return true;
 	}
 
 	/**
