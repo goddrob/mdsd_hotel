@@ -375,7 +375,7 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Booking> getBookingsForCustomer(int customer_id) {
 		// TODO: implement this method
@@ -448,13 +448,23 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public PaymentData getPaymentForBooking(int booking_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(Booking b : db.getBookingList()){
+			if(b.getId() == booking_id){
+				for(PaymentData p : db.getPaymentDataList()){
+					if(p.getId() == b.getPayment_id()){
+						return p;
+					}
+				}
+			}
+		}		
+		 		throw new UnsupportedOperationException();
+		 	}
 
 	/**
 	 * <!-- begin-user-doc -->
