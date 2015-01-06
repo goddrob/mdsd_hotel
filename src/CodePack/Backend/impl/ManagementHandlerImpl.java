@@ -12,9 +12,11 @@ import CodePack.CodePackFactory;
 import CodePack.DataBank;
 import CodePack.Backend.BackendPackage;
 import CodePack.Backend.ManagementHandler;
+import CodePack.DataModels.Customer;
 import CodePack.DataModels.DataModelsFactory;
 import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomType;
+import CodePack.DataModels.ServiceType;
 import CodePack.DataModels.StaffMember;
 import CodePack.DataModels.StaffRole;
 
@@ -50,13 +52,22 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public StaffMember login(String e_mail, String password) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		
+		for(StaffMember sm : db.getStaffMemberList()){
+			if(e_mail == sm.getEmail() && password == sm.getPassword()){
+				return sm;
+			}
+		}
+		
 		throw new UnsupportedOperationException();
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,34 +197,45 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Room getRoom(int number) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(Room r:db.getRoomList()){
+			if(r.getNumber() == number){
+				return r;
+			}
+		}
+		
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Room> getAllRooms() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		EList<Room> r = db.getRoomList();
+		return r;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<RoomType> getRoomTypes() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		EList<RoomType> rt = db.getRoomTypeList();
+		return rt;
 	}
 
 	/**
