@@ -380,7 +380,12 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	public EList<Booking> getBookingsForCustomer(int customer_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		EList<Booking> list = new BasicEList<Booking>();
+		for (Booking b : db.getBookingList()){
+			if (b.getCustomer_id() == customer_id) list.add(b);
+		}
+		return list;
 	}
 
 	/**
