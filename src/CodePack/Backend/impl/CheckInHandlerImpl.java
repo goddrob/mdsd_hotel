@@ -3,9 +3,13 @@
 package CodePack.Backend.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import CodePack.CodePackFactory;
+import CodePack.DataBank;
 import CodePack.Backend.BackendPackage;
 import CodePack.Backend.CheckInHandler;
 import CodePack.DataModels.Booking;
@@ -47,7 +51,14 @@ public class CheckInHandlerImpl extends MinimalEObjectImpl.Container implements 
 	public boolean validateBooking(int booking_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (Booking b : db.getBookingList()){
+			if (b.getId() == booking_id){
+				// check date
+			}
+		}
+		return false;
+		
 	}
 
 	/**
