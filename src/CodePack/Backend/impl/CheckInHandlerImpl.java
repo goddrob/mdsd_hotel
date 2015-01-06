@@ -3,12 +3,20 @@
 package CodePack.Backend.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import CodePack.CodePackFactory;
+import CodePack.DataBank;
 import CodePack.Backend.BackendPackage;
 import CodePack.Backend.CheckInHandler;
 import CodePack.DataModels.Booking;
+import CodePack.DataModels.DataModelsFactory;
+import CodePack.DataModels.Guest;
+import CodePack.DataModels.Room;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,23 +50,40 @@ public class CheckInHandlerImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateBooking(int booking_id) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(Booking b : db.getBookingList()) {
+			Date today = new Date();
+			if (b.getId() == booking_id && b.getDate_check_in().before(today)) {
+				return true;
+			}
+		}
+		return false;
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Booking assignGuestToBooking(int booking_id, String guest_name) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		Booking bo = null;
+		for(Booking b : db.getBookingList()){
+			if (b.getId() == booking_id) {
+				bo = b;
+				Guest g = DataModelsFactory.eINSTANCE.createGuest();
+				g.setName(guest_name);
+				g.setBooking_id(booking_id);
+				db.getGuestList().add(g);
+			}
+			
+		} 
+		return bo;
+		// Ensure that you remove @generated or mark it @generated NOT	
 	}
 
 	/**
