@@ -373,12 +373,20 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Booking> getBookingsForCustomer(int customer_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		EList<Booking> bookings = new BasicEList<Booking>();
+
+		for(Booking b : db.getBookingList()){
+			if(b.getCustomer_id() == customer_id){
+				bookings.add(b);
+			}
+		}return bookings;
+
 	}
 
 	/**
@@ -445,11 +453,22 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public PaymentData getPaymentForBooking(int booking_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(Booking b : db.getBookingList()){
+			if(b.getId() == booking_id){
+				for(PaymentData p : db.getPaymentDataList()){
+					if(p.getId() == b.getPayment_id()){
+						return p;
+					}
+				}
+			}
+		}
+		
 		throw new UnsupportedOperationException();
 	}
 
@@ -520,12 +539,18 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public StaffRole getRoleForStaff(String pers_no) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (StaffMember sm : db.getStaffMemberList()) {
+			if (sm.getPers_no().equals(pers_no)) 
+				for (StaffRole sr : db.getStaffRoleList())
+					if (sr.getName().equals(sm.getRole_name())) return sr;
+		}
+		return null;
 	}
 
 	/**
