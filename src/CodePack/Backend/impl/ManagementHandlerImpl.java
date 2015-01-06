@@ -181,7 +181,7 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateRoomType(RoomType roomType) {
 		// TODO: implement this method
@@ -201,7 +201,7 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeRoomType(String type_name) {
 		// TODO: implement this method
