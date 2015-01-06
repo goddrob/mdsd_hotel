@@ -5,6 +5,7 @@ package CodePack.Backend.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import BankingModel.BankComponent;
 import CodePack.CodePackFactory;
 import CodePack.DataBank;
@@ -426,11 +428,20 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean cancelBooking(int booking_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(Booking b:db.getBookingList()) {
+			if(booking_id == b.getId()) {
+				db.getBookingList().remove(b);
+				return true;
+			} else
+				return false;
+		}
+			
 		throw new UnsupportedOperationException();
 	}
 
