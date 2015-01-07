@@ -186,25 +186,11 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Booking createBookingForCustomer(int customer_id, EList<Room> rooms, EList<ExtraService> services, int number_of_guests, Date date_check_in, Date date_check_out, int bonus_points_used) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public Booking createBookingForCustomer(int customer_id, EList<Room> rooms, EList<ExtraService> services, int number_of_guests, Date date_check_in, Date date_check_out) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		
-		//IMPORTANT: Is there any use of number_of_guests?
-		
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		Booking b = DataModelsFactory.eINSTANCE.createBooking();
 		RoomBooked rb = DataModelsFactory.eINSTANCE.createRoomBooked();
@@ -233,6 +219,8 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 			b.setDate_check_in(date_check_in);
 			b.setDate_check_out(date_check_out);
 			b.setIsCheckedIn(false);
+			
+			
 		//Find the correct customer by id and add all info
 			for (Customer c : db.getCustomerList()){
 				if(c.getCustomer_id() == customer_id){
@@ -240,6 +228,7 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 					b.setContact_email(c.getE_mail());
 					b.setContact_phone(c.getPhone_no());
 					b.setPayment_id(c.getPayment_id());
+					b.setBonus_points_used(c.getBonus_points()-bonus_points_used);
 				}
 				
 			}
@@ -275,6 +264,8 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 		
 	}
 
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -284,18 +275,22 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
         DataBank db = CodePackFactory.eINSTANCE.createDataBank();
-		for(RoomBooked rb : db.getRoomBookedList()){
-			if(booking_id == rb.getBooking_id() && old_room == rb.getRoom_number() && new_room != rb.getRoom_number()){
+        for(RoomBooked rb : db.getRoomBookedList()){
+        	Date today = new Date();
+        	long diff = rb.getDate_start().getTime() - today.getTime();
+			long hour = diff/(3600*1000);
+			if(booking_id == rb.getBooking_id() && hour > 24 && old_room == rb.getRoom_number() && new_room != rb.getRoom_number()){
+				rb.setRoom_number(old_room);
+				db.getRoomList().remove(old_room);
 				for(Room r: db.getRoomList()) {
-					if (new_room == r.getNumber());
+					if (new_room == r.getNumber()) {
+						r.setNumber(new_room);
+						db.getRoomList().add(r);
+					}				
 				}
 				return true;
-			}else{
-				return false;
-			}
-		}
-		
-		throw new UnsupportedOperationException();
+			}				
+		}return false;	
 	}
 
 	/**
@@ -308,7 +303,10 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 		// Ensure that you remove @generated or mark it @generated NOT
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 				for(ExtraService es:db.getExtraServiceList()){
-					if(old_service_id == es.getBooking_id()) {
+					Date today = new Date();
+					long diff = es.getDate_start().getTime() - today.getTime();
+					long hour = diff/(3600*1000);
+					if(old_service_id == es.getBooking_id() && hour > 24) {
 						db.getExtraServiceList().add(new_service);
 					}return true;
 			}
@@ -428,16 +426,18 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 		
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		for(Booking b : db.getBookingList()) {
-			if(booking_id == b.getId() && !(new_check_in.equals(b.getDate_check_in()) && new_check_out.equals(b.getDate_check_out()))) { 
+			// check if 24 hours before check-in time
+			Date today = new Date();
+			long diff = b.getDate_check_in().getTime() - today.getTime();
+			long hour = diff/(3600*1000);
+			if(booking_id == b.getId() && hour > 24 && !(new_check_in.equals(b.getDate_check_in()) && new_check_out.equals(b.getDate_check_out()))) { 
 				b.setDate_check_in(new_check_in);
 				b.setDate_check_out(new_check_out);
 				db.getBookingList().add(b);
 				return true;
-			} else
-				return false;
-		}
+			}
+		} return false;
 		
-		throw new UnsupportedOperationException();
 	}
 
 
@@ -451,7 +451,10 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 		// Ensure that you remove @generated or mark it @generated NOT
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		for(Booking b:db.getBookingList()) {
-			if(booking_id == b.getId()) {
+			Date today = new Date();
+			long diff = b.getDate_check_in().getTime() - today.getTime();
+			long hour = diff/(3600*1000);
+			if(booking_id == b.getId() && hour > 24) {
 				db.getBookingList().remove(b);
 				return true;
 			} else
