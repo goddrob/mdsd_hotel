@@ -1131,7 +1131,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		op = initEOperation(getIStaffAdmin__GetStaffAccount__String(), theDataModelsPackage.getStaffMember(), "getStaffAccount", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "pers_no", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getIStaffAdmin__GetAllStaffAccounts(), theDataModelsPackage.getStaffMember(), "getAllStaffAccounts", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getIStaffAdmin__GetAllStaffAccounts(), theDataModelsPackage.getStaffMember(), "getAllStaffAccounts", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getIStaffAdmin__RemoveStaffAccount__StaffMember(), ecorePackage.getEBoolean(), "removeStaffAccount", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theDataModelsPackage.getStaffMember(), "account", 1, 1, IS_UNIQUE, !IS_ORDERED);

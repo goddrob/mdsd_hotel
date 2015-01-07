@@ -55,7 +55,7 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public StaffMember registerStaffAccount(String name, String email, String pers_no, int phone_no, String role_name) {
 		// TODO: implement this method
@@ -85,89 +85,124 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateStaffAccount(StaffMember account) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (StaffMember s : db.getStaffMemberList()){
+			if (s.getPers_no().equals(account.getPers_no())) {
+				int index = db.getStaffMemberList().indexOf(s);
+				db.getStaffMemberList().remove(index);
+				db.getStaffMemberList().add(index,account);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public StaffMember getStaffAccount(String pers_no) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (StaffMember s : db.getStaffMemberList()){
+			if(s.getPers_no().equals(pers_no)) return s;
+		}
+		return null;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public StaffMember getAllStaffAccounts() {
+	public EList<StaffMember> getAllStaffAccounts() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		return db.getStaffMemberList();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeStaffAccount(StaffMember account) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		return db.getStaffMemberList().remove(account);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<StaffRole> getStaffRoles() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		return db.getStaffRoleList();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public StaffRole addStaffRole(String name, boolean canManageBookings, boolean canManageRooms, boolean canManageServices, boolean canManageAccounts) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (StaffRole sr : db.getStaffRoleList())
+			if (sr.getName().equals(name)) return sr;
+		StaffRole s = DataModelsFactory.eINSTANCE.createStaffRole();
+		s.setName(name);
+		s.setCanManageBookings(canManageBookings);
+		s.setCanManageRooms(canManageRooms);
+		s.setCanManageServices(canManageServices);
+		s.setCanManageAccounts(canManageAccounts);
+		db.getStaffRoleList().add(s);
+		return s;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateStaffRole(StaffRole role) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (StaffRole sr : db.getStaffRoleList())
+			if (sr.getName().equals(role.getName())) {
+				int index = db.getStaffRoleList().indexOf(sr);
+				db.getStaffRoleList().remove(index);
+				db.getStaffRoleList().add(index,role);
+				return true;
+			}
+		return false;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeStaffRole(StaffRole role) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		return db.getStaffRoleList().remove(role);
 	}
 
 	/**
