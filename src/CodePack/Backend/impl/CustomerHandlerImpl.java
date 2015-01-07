@@ -186,25 +186,11 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Booking createBookingForCustomer(int customer_id, EList<Room> rooms, EList<ExtraService> services, int number_of_guests, Date date_check_in, Date date_check_out, int bonus_points_used) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public Booking createBookingForCustomer(int customer_id, EList<Room> rooms, EList<ExtraService> services, int number_of_guests, Date date_check_in, Date date_check_out) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		
-		//IMPORTANT: Is there any use of number_of_guests?
-		
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		Booking b = DataModelsFactory.eINSTANCE.createBooking();
 		RoomBooked rb = DataModelsFactory.eINSTANCE.createRoomBooked();
@@ -233,6 +219,8 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 			b.setDate_check_in(date_check_in);
 			b.setDate_check_out(date_check_out);
 			b.setIsCheckedIn(false);
+			
+			
 		//Find the correct customer by id and add all info
 			for (Customer c : db.getCustomerList()){
 				if(c.getCustomer_id() == customer_id){
@@ -240,6 +228,7 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 					b.setContact_email(c.getE_mail());
 					b.setContact_phone(c.getPhone_no());
 					b.setPayment_id(c.getPayment_id());
+					b.setBonus_points_used(c.getBonus_points()-bonus_points_used);
 				}
 				
 			}
@@ -274,6 +263,8 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 		
 		
 	}
+
+
 
 	/**
 	 * <!-- begin-user-doc -->
