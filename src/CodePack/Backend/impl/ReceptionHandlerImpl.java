@@ -10,6 +10,7 @@ import CodePack.DataModels.Booking;
 import CodePack.DataModels.Customer;
 import CodePack.DataModels.DataModelsFactory;
 import CodePack.DataModels.ExtraService;
+import CodePack.DataModels.Guest;
 import CodePack.DataModels.PaymentData;
 import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomBooked;
@@ -501,20 +502,36 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	public boolean validateBooking(int booking_id) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for(Booking b : db.getBookingList()) {
+			Date today = new Date();
+			if (b.getId() == booking_id && b.getDate_check_in().before(today)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Booking assignGuestToBooking(int booking_id, String guest_name) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		Booking bo = null;
+		for(Booking b : db.getBookingList()){
+			if (b.getId() == booking_id) {
+				bo = b;
+				Guest g = DataModelsFactory.eINSTANCE.createGuest();
+				g.setName(guest_name);
+				g.setBooking_id(booking_id);
+				db.getGuestList().add(g);
+			}
+			
+		} 
+		return bo;
+		// Ensure that you remove @generated or mark it @generated NOT	
 	}
 
 	/**
