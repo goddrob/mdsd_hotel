@@ -38,10 +38,10 @@ public interface IBookings extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" customer_idRequired="true" customer_idOrdered="false" roomsRequired="true" roomsMany="true" roomsOrdered="false" servicesMany="true" servicesOrdered="false" number_of_guestsRequired="true" number_of_guestsOrdered="false" date_check_inRequired="true" date_check_inOrdered="false" date_check_outRequired="true" date_check_outOrdered="false"
+	 * @model required="true" ordered="false" customer_idRequired="true" customer_idOrdered="false" roomsRequired="true" roomsMany="true" roomsOrdered="false" servicesMany="true" servicesOrdered="false" number_of_guestsRequired="true" number_of_guestsOrdered="false" date_check_inRequired="true" date_check_inOrdered="false" date_check_outRequired="true" date_check_outOrdered="false" bonus_points_usedRequired="true" bonus_points_usedOrdered="false"
 	 * @generated
 	 */
-	Booking createBookingForCustomer(int customer_id, EList<Room> rooms, EList<ExtraService> services, int number_of_guests, Date date_check_in, Date date_check_out);
+	Booking createBookingForCustomer(int customer_id, EList<Room> rooms, EList<ExtraService> services, int number_of_guests, Date date_check_in, Date date_check_out, int bonus_points_used);
 
 	/**
 	 * <!-- begin-user-doc -->

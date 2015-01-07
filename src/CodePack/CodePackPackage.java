@@ -90,7 +90,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBOOKINGS___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE = 1;
+	int IBOOKINGS___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE_INT = 1;
 
 	/**
 	 * The operation id for the '<em>Update Room For Booking</em>' operation.
@@ -235,7 +235,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IUSER_ACCOUNT___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE = IBOOKINGS___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE;
+	int IUSER_ACCOUNT___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE_INT = IBOOKINGS___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE_INT;
 
 	/**
 	 * The operation id for the '<em>Update Room For Booking</em>' operation.
@@ -879,7 +879,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE = IBOOKINGS___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE;
+	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE_INT = IBOOKINGS___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE_INT;
 
 	/**
 	 * The operation id for the '<em>Update Room For Booking</em>' operation.
@@ -1403,14 +1403,14 @@ public interface CodePackPackage extends EPackage {
 	EOperation getIBookings__CreateBooking__ContactData_PaymentData_EList_EList_int_Date_Date();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IBookings#createBookingForCustomer(int, org.eclipse.emf.common.util.EList, org.eclipse.emf.common.util.EList, int, java.util.Date, java.util.Date) <em>Create Booking For Customer</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IBookings#createBookingForCustomer(int, org.eclipse.emf.common.util.EList, org.eclipse.emf.common.util.EList, int, java.util.Date, java.util.Date, int) <em>Create Booking For Customer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create Booking For Customer</em>' operation.
-	 * @see CodePack.IBookings#createBookingForCustomer(int, org.eclipse.emf.common.util.EList, org.eclipse.emf.common.util.EList, int, java.util.Date, java.util.Date)
+	 * @see CodePack.IBookings#createBookingForCustomer(int, org.eclipse.emf.common.util.EList, org.eclipse.emf.common.util.EList, int, java.util.Date, java.util.Date, int)
 	 * @generated
 	 */
-	EOperation getIBookings__CreateBookingForCustomer__int_EList_EList_int_Date_Date();
+	EOperation getIBookings__CreateBookingForCustomer__int_EList_EList_int_Date_Date_int();
 
 	/**
 	 * Returns the meta object for the '{@link CodePack.IBookings#updateRoomForBooking(int, int, int) <em>Update Room For Booking</em>}' operation.
@@ -2169,7 +2169,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation IBOOKINGS___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE = eINSTANCE.getIBookings__CreateBookingForCustomer__int_EList_EList_int_Date_Date();
+		EOperation IBOOKINGS___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE_INT = eINSTANCE.getIBookings__CreateBookingForCustomer__int_EList_EList_int_Date_Date_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Update Room For Booking</b></em>' operation.

@@ -287,7 +287,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIBookings__CreateBookingForCustomer__int_EList_EList_int_Date_Date() {
+	public EOperation getIBookings__CreateBookingForCustomer__int_EList_EList_int_Date_Date_int() {
 		return iBookingsEClass.getEOperations().get(1);
 	}
 
@@ -897,7 +897,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 
 		iBookingsEClass = createEClass(IBOOKINGS);
 		createEOperation(iBookingsEClass, IBOOKINGS___CREATE_BOOKING__CONTACTDATA_PAYMENTDATA_ELIST_ELIST_INT_DATE_DATE);
-		createEOperation(iBookingsEClass, IBOOKINGS___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE);
+		createEOperation(iBookingsEClass, IBOOKINGS___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE_INT);
 		createEOperation(iBookingsEClass, IBOOKINGS___UPDATE_ROOM_FOR_BOOKING__INT_INT_INT);
 		createEOperation(iBookingsEClass, IBOOKINGS___UPDATE_SERVICE_FOR_BOOKING__INT_EXTRASERVICE);
 		createEOperation(iBookingsEClass, IBOOKINGS___GET_AVAILABLE_ROOMS__DATE_DATE);
@@ -1068,13 +1068,14 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		addEParameter(op, ecorePackage.getEDate(), "date_check_in", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "date_check_out", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getIBookings__CreateBookingForCustomer__int_EList_EList_int_Date_Date(), theDataModelsPackage.getBooking(), "createBookingForCustomer", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIBookings__CreateBookingForCustomer__int_EList_EList_int_Date_Date_int(), theDataModelsPackage.getBooking(), "createBookingForCustomer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "customer_id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theDataModelsPackage.getRoom(), "rooms", 1, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theDataModelsPackage.getExtraService(), "services", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "number_of_guests", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "date_check_in", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "date_check_out", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "bonus_points_used", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getIBookings__UpdateRoomForBooking__int_int_int(), ecorePackage.getEBoolean(), "updateRoomForBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "booking_id", 1, 1, IS_UNIQUE, !IS_ORDERED);

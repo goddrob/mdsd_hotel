@@ -3,9 +3,7 @@
 package CodePack.Backend.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Calendar;
 import java.util.Date;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -13,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import BankingModel.BankComponent;
 import CodePack.CodePackFactory;
 import CodePack.CodePackPackage;
@@ -188,6 +185,17 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 				
 				
 			}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Booking createBookingForCustomer(int customer_id, EList<Room> rooms, EList<ExtraService> services, int number_of_guests, Date date_check_in, Date date_check_out, int bonus_points_used) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -641,7 +649,7 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Bill generateBill(int booking_id) {
 		// TODO: implement this method
@@ -779,8 +787,8 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 		switch (operationID) {
 			case BackendPackage.RECEPTION_HANDLER___CREATE_BOOKING__CONTACTDATA_PAYMENTDATA_ELIST_ELIST_INT_DATE_DATE:
 				return createBooking((ContactData)arguments.get(0), (PaymentData)arguments.get(1), (EList<Room>)arguments.get(2), (EList<ExtraService>)arguments.get(3), (Integer)arguments.get(4), (Date)arguments.get(5), (Date)arguments.get(6));
-			case BackendPackage.RECEPTION_HANDLER___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE:
-				return createBookingForCustomer((Integer)arguments.get(0), (EList<Room>)arguments.get(1), (EList<ExtraService>)arguments.get(2), (Integer)arguments.get(3), (Date)arguments.get(4), (Date)arguments.get(5));
+			case BackendPackage.RECEPTION_HANDLER___CREATE_BOOKING_FOR_CUSTOMER__INT_ELIST_ELIST_INT_DATE_DATE_INT:
+				return createBookingForCustomer((Integer)arguments.get(0), (EList<Room>)arguments.get(1), (EList<ExtraService>)arguments.get(2), (Integer)arguments.get(3), (Date)arguments.get(4), (Date)arguments.get(5), (Integer)arguments.get(6));
 			case BackendPackage.RECEPTION_HANDLER___UPDATE_ROOM_FOR_BOOKING__INT_INT_INT:
 				return updateRoomForBooking((Integer)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2));
 			case BackendPackage.RECEPTION_HANDLER___UPDATE_SERVICE_FOR_BOOKING__INT_EXTRASERVICE:
