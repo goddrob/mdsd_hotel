@@ -278,18 +278,22 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
         DataBank db = CodePackFactory.eINSTANCE.createDataBank();
-		for(RoomBooked rb : db.getRoomBookedList()){
-			if(booking_id == rb.getBooking_id() && old_room == rb.getRoom_number() && new_room != rb.getRoom_number()){
+        for(RoomBooked rb : db.getRoomBookedList()){
+        	Date today = new Date();
+        	long diff = rb.getDate_start().getTime() - today.getTime();
+			long hour = diff/(3600*1000);
+			if(booking_id == rb.getBooking_id() && hour > 24 && old_room == rb.getRoom_number() && new_room != rb.getRoom_number()){
+				rb.setRoom_number(old_room);
+				db.getRoomList().remove(old_room);
 				for(Room r: db.getRoomList()) {
-					if (new_room == r.getNumber());
+					if (new_room == r.getNumber()) {
+						r.setNumber(new_room);
+						db.getRoomList().add(r);
+					}				
 				}
 				return true;
-			}
-				return false;
-			
-		}
-		
-		throw new UnsupportedOperationException();
+			}				
+		}return false;	
 	}
 
 	/**
