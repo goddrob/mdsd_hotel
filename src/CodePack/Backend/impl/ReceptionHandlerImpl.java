@@ -422,16 +422,18 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 		
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		for(Booking b : db.getBookingList()) {
-			if(booking_id == b.getId() && !(new_check_in.equals(b.getDate_check_in()) && new_check_out.equals(b.getDate_check_out()))) { 
+			// check if 24 hours before check-in time
+			Date today = new Date();
+			long diff = b.getDate_check_in().getTime() - today.getTime();
+			long hour = diff/(3600*1000);
+			if(booking_id == b.getId() && hour > 24 &&!(new_check_in.equals(b.getDate_check_in()) && new_check_out.equals(b.getDate_check_out()))) { 
 				b.setDate_check_in(new_check_in);
 				b.setDate_check_out(new_check_out);
 				db.getBookingList().add(b);
 				return true;
-			} else
-				return false;
-		}
+			}
+		}return false;
 		
-		throw new UnsupportedOperationException();
 	}
 
 	/**
