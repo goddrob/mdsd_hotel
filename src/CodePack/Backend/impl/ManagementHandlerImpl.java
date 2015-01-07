@@ -3,9 +3,13 @@
 package CodePack.Backend.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.security.SecureRandom;
+import java.util.Random;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import CodePack.CodePackFactory;
 import CodePack.CodePackPackage;
 import CodePack.DataBank;
@@ -56,7 +60,26 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	public StaffMember registerStaffAccount(String name, String email, String pers_no, int phone_no, String role_name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (StaffMember s : db.getStaffMemberList()){
+			if (s.getPers_no().equals(pers_no)) return s;
+		}
+		StaffMember staff = DataModelsFactory.eINSTANCE.createStaffMember();
+		staff.setEmail(email);
+		staff.setFull_name(name);
+		staff.setPers_no(pers_no);
+		staff.setPhone_no(phone_no);
+		staff.setRole_name(role_name);
+		Random sr = new SecureRandom();
+		String validChars = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789";
+		String pwd = "";
+		for (int i=0; i<5; i++){
+			int index = (int)(sr.nextDouble()*validChars.length());
+			pwd += validChars.substring(index,index+1);
+		}
+		staff.setPassword(pwd);
+		db.getStaffMemberList().add(staff);
+		return staff;
 	}
 
 	/**

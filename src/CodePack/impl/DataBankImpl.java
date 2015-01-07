@@ -131,19 +131,19 @@ public class DataBankImpl extends MinimalEObjectImpl.Container implements DataBa
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStaffRoleList()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected EList<StaffRole> staffRoleList;
+	protected static EList<StaffRole> staffRoleList;
 	/**
 	 * The cached value of the '{@link #getStaffMemberList() <em>Staff Member List</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStaffMemberList()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected EList<StaffMember> staffMemberList;
+	protected static EList<StaffMember> staffMemberList;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

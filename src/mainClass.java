@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -11,6 +10,8 @@ import org.eclipse.emf.common.util.EList;
 
 import CodePack.CodePackFactory;
 import CodePack.DataBank;
+import CodePack.Backend.BackendFactory;
+import CodePack.Backend.ManagementHandler;
 import CodePack.DataModels.Booking;
 import CodePack.DataModels.Customer;
 import CodePack.DataModels.DataModelsFactory;
@@ -20,6 +21,7 @@ import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomBooked;
 import CodePack.DataModels.RoomType;
 import CodePack.DataModels.ServiceType;
+import CodePack.DataModels.StaffMember;
 
 import com.almworks.sqlite4java.SQLiteConnection;
 import com.almworks.sqlite4java.SQLiteException;
@@ -35,6 +37,13 @@ public class mainClass {
 		
 	    loadDatabase();
 	    
+	    
+	    ManagementHandler mh = BackendFactory.eINSTANCE.createManagementHandler();
+	    
+	    System.out.println(mh.registerStaffAccount("Robert", "rob@g.com", "123134TN", 123, "BOSSMAN"));
+	    for (StaffMember sm : db2.getStaffMemberList()) System.out.println(sm);
+	    
+	    System.out.println("DONE");
 	    
 		System.out.println("######### TEST  ########");
 		System.out.println(db2.getRoomList().get(0));
