@@ -4,16 +4,20 @@ package CodePack.Backend.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import CodePack.CodePackFactory;
 import CodePack.DataBank;
 import CodePack.Backend.BackendPackage;
 import CodePack.Backend.CheckInHandler;
 import CodePack.DataModels.Booking;
 import CodePack.DataModels.DataModelsFactory;
+import CodePack.DataModels.ExtraService;
 import CodePack.DataModels.Guest;
+import CodePack.DataModels.RoomBooked;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +54,10 @@ public class CheckInHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated NOT
 	 */
 	public boolean validateBooking(int booking_id) {
+		
+		
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		
 		for(Booking b : db.getBookingList()) {
 			Date today = new Date();
 			if (b.getId() == booking_id && b.getDate_check_in().before(today)) {
@@ -70,7 +77,7 @@ public class CheckInHandlerImpl extends MinimalEObjectImpl.Container implements 
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		Booking bo = null;
 		for(Booking b : db.getBookingList()){
-			if (b.getId() == booking_id) {
+			if (b.getId() == booking_id && b.isCheckedIn() == false) {
 				bo = b;
 				Guest g = DataModelsFactory.eINSTANCE.createGuest();
 				g.setName(guest_name);
