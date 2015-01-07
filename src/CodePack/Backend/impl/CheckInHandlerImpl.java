@@ -76,6 +76,8 @@ public class CheckInHandlerImpl extends MinimalEObjectImpl.Container implements 
 				g.setName(guest_name);
 				g.setBooking_id(booking_id);
 				db.getGuestList().add(g);
+				bo.setIsCheckedIn(true);
+				db.getBookingList().add(bo);
 			}
 			
 		} 
