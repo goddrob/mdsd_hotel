@@ -434,7 +434,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISTAFF_ADMIN___REGISTER_STAFF_ACCOUNT = 0;
+	int ISTAFF_ADMIN___REGISTER_STAFF_ACCOUNT__STRING_STRING_STRING_INT_STRING = 0;
 
 	/**
 	 * The operation id for the '<em>Update Staff Account</em>' operation.
@@ -443,7 +443,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISTAFF_ADMIN___UPDATE_STAFF_ACCOUNT = 1;
+	int ISTAFF_ADMIN___UPDATE_STAFF_ACCOUNT__STAFFMEMBER = 1;
 
 	/**
 	 * The operation id for the '<em>Get Staff Account</em>' operation.
@@ -452,7 +452,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISTAFF_ADMIN___GET_STAFF_ACCOUNT = 2;
+	int ISTAFF_ADMIN___GET_STAFF_ACCOUNT__STRING = 2;
 
 	/**
 	 * The operation id for the '<em>Get All Staff Accounts</em>' operation.
@@ -470,7 +470,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISTAFF_ADMIN___REMOVE_STAFF_ACCOUNT = 4;
+	int ISTAFF_ADMIN___REMOVE_STAFF_ACCOUNT__STAFFMEMBER = 4;
 
 	/**
 	 * The operation id for the '<em>Get Staff Roles</em>' operation.
@@ -488,7 +488,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISTAFF_ADMIN___ADD_STAFF_ROLE = 6;
+	int ISTAFF_ADMIN___ADD_STAFF_ROLE__STRING_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN = 6;
 
 	/**
 	 * The operation id for the '<em>Update Staff Role</em>' operation.
@@ -497,7 +497,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISTAFF_ADMIN___UPDATE_STAFF_ROLE = 7;
+	int ISTAFF_ADMIN___UPDATE_STAFF_ROLE__STAFFROLE = 7;
 
 	/**
 	 * The operation id for the '<em>Remove Staff Role</em>' operation.
@@ -506,7 +506,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISTAFF_ADMIN___REMOVE_STAFF_ROLE = 8;
+	int ISTAFF_ADMIN___REMOVE_STAFF_ROLE__STAFFROLE = 8;
 
 	/**
 	 * The number of operations of the '<em>IStaff Admin</em>' class.
@@ -580,7 +580,88 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT_FEATURE_COUNT = ISTAFF_AUTHENTICATION_FEATURE_COUNT + 0;
+	int IMANAGEMENT_FEATURE_COUNT = ISTAFF_ADMIN_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Register Staff Account</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___REGISTER_STAFF_ACCOUNT__STRING_STRING_STRING_INT_STRING = ISTAFF_ADMIN___REGISTER_STAFF_ACCOUNT__STRING_STRING_STRING_INT_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Staff Account</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___UPDATE_STAFF_ACCOUNT__STAFFMEMBER = ISTAFF_ADMIN___UPDATE_STAFF_ACCOUNT__STAFFMEMBER;
+
+	/**
+	 * The operation id for the '<em>Get Staff Account</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___GET_STAFF_ACCOUNT__STRING = ISTAFF_ADMIN___GET_STAFF_ACCOUNT__STRING;
+
+	/**
+	 * The operation id for the '<em>Get All Staff Accounts</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___GET_ALL_STAFF_ACCOUNTS = ISTAFF_ADMIN___GET_ALL_STAFF_ACCOUNTS;
+
+	/**
+	 * The operation id for the '<em>Remove Staff Account</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___REMOVE_STAFF_ACCOUNT__STAFFMEMBER = ISTAFF_ADMIN___REMOVE_STAFF_ACCOUNT__STAFFMEMBER;
+
+	/**
+	 * The operation id for the '<em>Get Staff Roles</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___GET_STAFF_ROLES = ISTAFF_ADMIN___GET_STAFF_ROLES;
+
+	/**
+	 * The operation id for the '<em>Add Staff Role</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___ADD_STAFF_ROLE__STRING_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN = ISTAFF_ADMIN___ADD_STAFF_ROLE__STRING_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Update Staff Role</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___UPDATE_STAFF_ROLE__STAFFROLE = ISTAFF_ADMIN___UPDATE_STAFF_ROLE__STAFFROLE;
+
+	/**
+	 * The operation id for the '<em>Remove Staff Role</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___REMOVE_STAFF_ROLE__STAFFROLE = ISTAFF_ADMIN___REMOVE_STAFF_ROLE__STAFFROLE;
 
 	/**
 	 * The operation id for the '<em>Login</em>' operation.
@@ -589,7 +670,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___LOGIN__STRING_STRING = ISTAFF_AUTHENTICATION___LOGIN__STRING_STRING;
+	int IMANAGEMENT___LOGIN__STRING_STRING = ISTAFF_ADMIN_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Role For Staff</em>' operation.
@@ -598,7 +679,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___GET_ROLE_FOR_STAFF__STRING = ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__STRING;
+	int IMANAGEMENT___GET_ROLE_FOR_STAFF__STRING = ISTAFF_ADMIN_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Room</em>' operation.
@@ -607,7 +688,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___ADD_ROOM__INT_STRING_BOOLEAN_STRING = ISTAFF_AUTHENTICATION_OPERATION_COUNT + 0;
+	int IMANAGEMENT___ADD_ROOM__INT_STRING_BOOLEAN_STRING = ISTAFF_ADMIN_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Update Room</em>' operation.
@@ -616,7 +697,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___UPDATE_ROOM__ROOM = ISTAFF_AUTHENTICATION_OPERATION_COUNT + 1;
+	int IMANAGEMENT___UPDATE_ROOM__ROOM = ISTAFF_ADMIN_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Remove Room</em>' operation.
@@ -625,7 +706,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___REMOVE_ROOM__INT = ISTAFF_AUTHENTICATION_OPERATION_COUNT + 2;
+	int IMANAGEMENT___REMOVE_ROOM__INT = ISTAFF_ADMIN_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Add Room Type</em>' operation.
@@ -634,7 +715,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___ADD_ROOM_TYPE__STRING_STRING_INT_DOUBLE = ISTAFF_AUTHENTICATION_OPERATION_COUNT + 3;
+	int IMANAGEMENT___ADD_ROOM_TYPE__STRING_STRING_INT_DOUBLE = ISTAFF_ADMIN_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Update Room Type</em>' operation.
@@ -643,7 +724,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___UPDATE_ROOM_TYPE__ROOMTYPE = ISTAFF_AUTHENTICATION_OPERATION_COUNT + 4;
+	int IMANAGEMENT___UPDATE_ROOM_TYPE__ROOMTYPE = ISTAFF_ADMIN_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Remove Room Type</em>' operation.
@@ -652,7 +733,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___REMOVE_ROOM_TYPE__STRING = ISTAFF_AUTHENTICATION_OPERATION_COUNT + 5;
+	int IMANAGEMENT___REMOVE_ROOM_TYPE__STRING = ISTAFF_ADMIN_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Room</em>' operation.
@@ -661,7 +742,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___GET_ROOM__INT = ISTAFF_AUTHENTICATION_OPERATION_COUNT + 6;
+	int IMANAGEMENT___GET_ROOM__INT = ISTAFF_ADMIN_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get All Rooms</em>' operation.
@@ -670,7 +751,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___GET_ALL_ROOMS = ISTAFF_AUTHENTICATION_OPERATION_COUNT + 7;
+	int IMANAGEMENT___GET_ALL_ROOMS = ISTAFF_ADMIN_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get Room Types</em>' operation.
@@ -679,7 +760,34 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT___GET_ROOM_TYPES = ISTAFF_AUTHENTICATION_OPERATION_COUNT + 8;
+	int IMANAGEMENT___GET_ROOM_TYPES = ISTAFF_ADMIN_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Get Service Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___GET_SERVICE_TYPES = ISTAFF_ADMIN_OPERATION_COUNT + 11;
+
+	/**
+	 * The operation id for the '<em>Update Service Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___UPDATE_SERVICE_TYPE__SERVICETYPE = ISTAFF_ADMIN_OPERATION_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Remove Service Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMANAGEMENT___REMOVE_SERVICE_TYPE__SERVICETYPE = ISTAFF_ADMIN_OPERATION_COUNT + 13;
 
 	/**
 	 * The number of operations of the '<em>IManagement</em>' class.
@@ -688,7 +796,7 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMANAGEMENT_OPERATION_COUNT = ISTAFF_AUTHENTICATION_OPERATION_COUNT + 9;
+	int IMANAGEMENT_OPERATION_COUNT = ISTAFF_ADMIN_OPERATION_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link CodePack.ICheckIn <em>ICheck In</em>}' class.
@@ -909,22 +1017,13 @@ public interface CodePackPackage extends EPackage {
 	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___GET_ROLE_FOR_STAFF__STRING = IBOOKINGS_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Generate Receipt For Booking</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT_FOR_BOOKING__INT = IBOOKINGS_OPERATION_COUNT + 4;
-
-	/**
 	 * The operation id for the '<em>Generate Bill</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_BILL__INT = IBOOKINGS_OPERATION_COUNT + 5;
+	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_BILL__INT = IBOOKINGS_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Checked In</em>' operation.
@@ -933,7 +1032,16 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___IS_CHECKED_IN__INT = IBOOKINGS_OPERATION_COUNT + 6;
+	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___IS_CHECKED_IN__INT = IBOOKINGS_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Process Payment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___PROCESS_PAYMENT__BILL_PAYMENTDATA = IBOOKINGS_OPERATION_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>IReception Operations rename required</em>' class.
@@ -1425,34 +1533,34 @@ public interface CodePackPackage extends EPackage {
 	EClass getIStaffAdmin();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#registerStaffAccount() <em>Register Staff Account</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#registerStaffAccount(java.lang.String, java.lang.String, java.lang.String, int, java.lang.String) <em>Register Staff Account</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Staff Account</em>' operation.
-	 * @see CodePack.IStaffAdmin#registerStaffAccount()
+	 * @see CodePack.IStaffAdmin#registerStaffAccount(java.lang.String, java.lang.String, java.lang.String, int, java.lang.String)
 	 * @generated
 	 */
-	EOperation getIStaffAdmin__RegisterStaffAccount();
+	EOperation getIStaffAdmin__RegisterStaffAccount__String_String_String_int_String();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#updateStaffAccount() <em>Update Staff Account</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#updateStaffAccount(CodePack.DataModels.StaffMember) <em>Update Staff Account</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Update Staff Account</em>' operation.
-	 * @see CodePack.IStaffAdmin#updateStaffAccount()
+	 * @see CodePack.IStaffAdmin#updateStaffAccount(CodePack.DataModels.StaffMember)
 	 * @generated
 	 */
-	EOperation getIStaffAdmin__UpdateStaffAccount();
+	EOperation getIStaffAdmin__UpdateStaffAccount__StaffMember();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#getStaffAccount() <em>Get Staff Account</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#getStaffAccount(java.lang.String) <em>Get Staff Account</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Staff Account</em>' operation.
-	 * @see CodePack.IStaffAdmin#getStaffAccount()
+	 * @see CodePack.IStaffAdmin#getStaffAccount(java.lang.String)
 	 * @generated
 	 */
-	EOperation getIStaffAdmin__GetStaffAccount();
+	EOperation getIStaffAdmin__GetStaffAccount__String();
 
 	/**
 	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#getAllStaffAccounts() <em>Get All Staff Accounts</em>}' operation.
@@ -1465,14 +1573,14 @@ public interface CodePackPackage extends EPackage {
 	EOperation getIStaffAdmin__GetAllStaffAccounts();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#removeStaffAccount() <em>Remove Staff Account</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#removeStaffAccount(CodePack.DataModels.StaffMember) <em>Remove Staff Account</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Remove Staff Account</em>' operation.
-	 * @see CodePack.IStaffAdmin#removeStaffAccount()
+	 * @see CodePack.IStaffAdmin#removeStaffAccount(CodePack.DataModels.StaffMember)
 	 * @generated
 	 */
-	EOperation getIStaffAdmin__RemoveStaffAccount();
+	EOperation getIStaffAdmin__RemoveStaffAccount__StaffMember();
 
 	/**
 	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#getStaffRoles() <em>Get Staff Roles</em>}' operation.
@@ -1485,34 +1593,34 @@ public interface CodePackPackage extends EPackage {
 	EOperation getIStaffAdmin__GetStaffRoles();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#addStaffRole() <em>Add Staff Role</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#addStaffRole(java.lang.String, boolean, boolean, boolean, boolean) <em>Add Staff Role</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Staff Role</em>' operation.
-	 * @see CodePack.IStaffAdmin#addStaffRole()
+	 * @see CodePack.IStaffAdmin#addStaffRole(java.lang.String, boolean, boolean, boolean, boolean)
 	 * @generated
 	 */
-	EOperation getIStaffAdmin__AddStaffRole();
+	EOperation getIStaffAdmin__AddStaffRole__String_boolean_boolean_boolean_boolean();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#updateStaffRole() <em>Update Staff Role</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#updateStaffRole(CodePack.DataModels.StaffRole) <em>Update Staff Role</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Update Staff Role</em>' operation.
-	 * @see CodePack.IStaffAdmin#updateStaffRole()
+	 * @see CodePack.IStaffAdmin#updateStaffRole(CodePack.DataModels.StaffRole)
 	 * @generated
 	 */
-	EOperation getIStaffAdmin__UpdateStaffRole();
+	EOperation getIStaffAdmin__UpdateStaffRole__StaffRole();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#removeStaffRole() <em>Remove Staff Role</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IStaffAdmin#removeStaffRole(CodePack.DataModels.StaffRole) <em>Remove Staff Role</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Remove Staff Role</em>' operation.
-	 * @see CodePack.IStaffAdmin#removeStaffRole()
+	 * @see CodePack.IStaffAdmin#removeStaffRole(CodePack.DataModels.StaffRole)
 	 * @generated
 	 */
-	EOperation getIStaffAdmin__RemoveStaffRole();
+	EOperation getIStaffAdmin__RemoveStaffRole__StaffRole();
 
 	/**
 	 * Returns the meta object for class '{@link CodePack.IStaffAuthentication <em>IStaff Authentication</em>}'.
@@ -1645,6 +1753,36 @@ public interface CodePackPackage extends EPackage {
 	EOperation getIManagement__GetRoomTypes();
 
 	/**
+	 * Returns the meta object for the '{@link CodePack.IManagement#getServiceTypes() <em>Get Service Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Service Types</em>' operation.
+	 * @see CodePack.IManagement#getServiceTypes()
+	 * @generated
+	 */
+	EOperation getIManagement__GetServiceTypes();
+
+	/**
+	 * Returns the meta object for the '{@link CodePack.IManagement#updateServiceType(CodePack.DataModels.ServiceType) <em>Update Service Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Update Service Type</em>' operation.
+	 * @see CodePack.IManagement#updateServiceType(CodePack.DataModels.ServiceType)
+	 * @generated
+	 */
+	EOperation getIManagement__UpdateServiceType__ServiceType();
+
+	/**
+	 * Returns the meta object for the '{@link CodePack.IManagement#removeServiceType(CodePack.DataModels.ServiceType) <em>Remove Service Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Service Type</em>' operation.
+	 * @see CodePack.IManagement#removeServiceType(CodePack.DataModels.ServiceType)
+	 * @generated
+	 */
+	EOperation getIManagement__RemoveServiceType__ServiceType();
+
+	/**
 	 * Returns the meta object for class '{@link CodePack.ICheckIn <em>ICheck In</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1695,14 +1833,14 @@ public interface CodePackPackage extends EPackage {
 	EOperation getIReceptionOperations_rename_required__IsCheckedIn__int();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IReceptionOperations_rename_required#generateReceiptForBooking(int) <em>Generate Receipt For Booking</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IReceptionOperations_rename_required#processPayment(CodePack.DataModels.Bill, CodePack.DataModels.PaymentData) <em>Process Payment</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Receipt For Booking</em>' operation.
-	 * @see CodePack.IReceptionOperations_rename_required#generateReceiptForBooking(int)
+	 * @return the meta object for the '<em>Process Payment</em>' operation.
+	 * @see CodePack.IReceptionOperations_rename_required#processPayment(CodePack.DataModels.Bill, CodePack.DataModels.PaymentData)
 	 * @generated
 	 */
-	EOperation getIReceptionOperations_rename_required__GenerateReceiptForBooking__int();
+	EOperation getIReceptionOperations_rename_required__ProcessPayment__Bill_PaymentData();
 
 	/**
 	 * Returns the meta object for the '{@link CodePack.IReceptionOperations_rename_required#generateBill(int) <em>Generate Bill</em>}' operation.
@@ -2137,7 +2275,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ISTAFF_ADMIN___REGISTER_STAFF_ACCOUNT = eINSTANCE.getIStaffAdmin__RegisterStaffAccount();
+		EOperation ISTAFF_ADMIN___REGISTER_STAFF_ACCOUNT__STRING_STRING_STRING_INT_STRING = eINSTANCE.getIStaffAdmin__RegisterStaffAccount__String_String_String_int_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Update Staff Account</b></em>' operation.
@@ -2145,7 +2283,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ISTAFF_ADMIN___UPDATE_STAFF_ACCOUNT = eINSTANCE.getIStaffAdmin__UpdateStaffAccount();
+		EOperation ISTAFF_ADMIN___UPDATE_STAFF_ACCOUNT__STAFFMEMBER = eINSTANCE.getIStaffAdmin__UpdateStaffAccount__StaffMember();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Staff Account</b></em>' operation.
@@ -2153,7 +2291,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ISTAFF_ADMIN___GET_STAFF_ACCOUNT = eINSTANCE.getIStaffAdmin__GetStaffAccount();
+		EOperation ISTAFF_ADMIN___GET_STAFF_ACCOUNT__STRING = eINSTANCE.getIStaffAdmin__GetStaffAccount__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Staff Accounts</b></em>' operation.
@@ -2169,7 +2307,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ISTAFF_ADMIN___REMOVE_STAFF_ACCOUNT = eINSTANCE.getIStaffAdmin__RemoveStaffAccount();
+		EOperation ISTAFF_ADMIN___REMOVE_STAFF_ACCOUNT__STAFFMEMBER = eINSTANCE.getIStaffAdmin__RemoveStaffAccount__StaffMember();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Staff Roles</b></em>' operation.
@@ -2185,7 +2323,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ISTAFF_ADMIN___ADD_STAFF_ROLE = eINSTANCE.getIStaffAdmin__AddStaffRole();
+		EOperation ISTAFF_ADMIN___ADD_STAFF_ROLE__STRING_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN = eINSTANCE.getIStaffAdmin__AddStaffRole__String_boolean_boolean_boolean_boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Update Staff Role</b></em>' operation.
@@ -2193,7 +2331,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ISTAFF_ADMIN___UPDATE_STAFF_ROLE = eINSTANCE.getIStaffAdmin__UpdateStaffRole();
+		EOperation ISTAFF_ADMIN___UPDATE_STAFF_ROLE__STAFFROLE = eINSTANCE.getIStaffAdmin__UpdateStaffRole__StaffRole();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Staff Role</b></em>' operation.
@@ -2201,7 +2339,7 @@ public interface CodePackPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ISTAFF_ADMIN___REMOVE_STAFF_ROLE = eINSTANCE.getIStaffAdmin__RemoveStaffRole();
+		EOperation ISTAFF_ADMIN___REMOVE_STAFF_ROLE__STAFFROLE = eINSTANCE.getIStaffAdmin__RemoveStaffRole__StaffRole();
 
 		/**
 		 * The meta object literal for the '{@link CodePack.IStaffAuthentication <em>IStaff Authentication</em>}' class.
@@ -2312,6 +2450,30 @@ public interface CodePackPackage extends EPackage {
 		EOperation IMANAGEMENT___GET_ROOM_TYPES = eINSTANCE.getIManagement__GetRoomTypes();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Service Types</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMANAGEMENT___GET_SERVICE_TYPES = eINSTANCE.getIManagement__GetServiceTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Update Service Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMANAGEMENT___UPDATE_SERVICE_TYPE__SERVICETYPE = eINSTANCE.getIManagement__UpdateServiceType__ServiceType();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Service Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMANAGEMENT___REMOVE_SERVICE_TYPE__SERVICETYPE = eINSTANCE.getIManagement__RemoveServiceType__ServiceType();
+
+		/**
 		 * The meta object literal for the '{@link CodePack.ICheckIn <em>ICheck In</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2356,12 +2518,12 @@ public interface CodePackPackage extends EPackage {
 		EOperation IRECEPTION_OPERATIONS_RENAME_REQUIRED___IS_CHECKED_IN__INT = eINSTANCE.getIReceptionOperations_rename_required__IsCheckedIn__int();
 
 		/**
-		 * The meta object literal for the '<em><b>Generate Receipt For Booking</b></em>' operation.
+		 * The meta object literal for the '<em><b>Process Payment</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT_FOR_BOOKING__INT = eINSTANCE.getIReceptionOperations_rename_required__GenerateReceiptForBooking__int();
+		EOperation IRECEPTION_OPERATIONS_RENAME_REQUIRED___PROCESS_PAYMENT__BILL_PAYMENTDATA = eINSTANCE.getIReceptionOperations_rename_required__ProcessPayment__Bill_PaymentData();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate Bill</b></em>' operation.

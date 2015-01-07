@@ -8,6 +8,7 @@ import CodePack.IBookings;
 import CodePack.ICheckIn;
 import CodePack.IManagement;
 import CodePack.IReceptionOperations_rename_required;
+import CodePack.IStaffAdmin;
 import CodePack.IStaffAuthentication;
 import CodePack.IUserAccount;
 
@@ -109,6 +110,10 @@ public class BackendAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseIReceptionOperations_rename_required(IReceptionOperations_rename_required object) {
 				return createIReceptionOperations_rename_requiredAdapter();
+			}
+			@Override
+			public Adapter caseIStaffAdmin(IStaffAdmin object) {
+				return createIStaffAdminAdapter();
 			}
 			@Override
 			public Adapter caseIManagement(IManagement object) {
@@ -257,6 +262,20 @@ public class BackendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIReceptionOperations_rename_requiredAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link CodePack.IStaffAdmin <em>IStaff Admin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see CodePack.IStaffAdmin
+	 * @generated
+	 */
+	public Adapter createIStaffAdminAdapter() {
 		return null;
 	}
 

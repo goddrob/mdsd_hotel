@@ -7,14 +7,17 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import CodePack.CodePackFactory;
+import CodePack.CodePackPackage;
 import CodePack.DataBank;
 import CodePack.Backend.BackendPackage;
 import CodePack.Backend.ManagementHandler;
 import CodePack.DataModels.DataModelsFactory;
 import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomType;
+import CodePack.DataModels.ServiceType;
 import CodePack.DataModels.StaffMember;
 import CodePack.DataModels.StaffRole;
+import CodePack.IStaffAuthentication;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +46,105 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	protected EClass eStaticClass() {
 		return BackendPackage.Literals.MANAGEMENT_HANDLER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StaffMember registerStaffAccount(String name, String email, String pers_no, int phone_no, String role_name) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean updateStaffAccount(StaffMember account) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StaffMember getStaffAccount(String pers_no) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StaffMember getAllStaffAccounts() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean removeStaffAccount(StaffMember account) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<StaffRole> getStaffRoles() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StaffRole addStaffRole(String name, boolean canManageBookings, boolean canManageRooms, boolean canManageServices, boolean canManageAccounts) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean updateStaffRole(StaffRole role) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean removeStaffRole(StaffRole role) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -260,9 +362,77 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ServiceType> getServiceTypes() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean updateServiceType(ServiceType serviceType) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean removeServiceType(ServiceType serviceType) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == IStaffAuthentication.class) {
+			switch (baseOperationID) {
+				case CodePackPackage.ISTAFF_AUTHENTICATION___LOGIN__STRING_STRING: return BackendPackage.MANAGEMENT_HANDLER___LOGIN__STRING_STRING;
+				case CodePackPackage.ISTAFF_AUTHENTICATION___GET_ROLE_FOR_STAFF__STRING: return BackendPackage.MANAGEMENT_HANDLER___GET_ROLE_FOR_STAFF__STRING;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case BackendPackage.MANAGEMENT_HANDLER___REGISTER_STAFF_ACCOUNT__STRING_STRING_STRING_INT_STRING:
+				return registerStaffAccount((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Integer)arguments.get(3), (String)arguments.get(4));
+			case BackendPackage.MANAGEMENT_HANDLER___UPDATE_STAFF_ACCOUNT__STAFFMEMBER:
+				return updateStaffAccount((StaffMember)arguments.get(0));
+			case BackendPackage.MANAGEMENT_HANDLER___GET_STAFF_ACCOUNT__STRING:
+				return getStaffAccount((String)arguments.get(0));
+			case BackendPackage.MANAGEMENT_HANDLER___GET_ALL_STAFF_ACCOUNTS:
+				return getAllStaffAccounts();
+			case BackendPackage.MANAGEMENT_HANDLER___REMOVE_STAFF_ACCOUNT__STAFFMEMBER:
+				return removeStaffAccount((StaffMember)arguments.get(0));
+			case BackendPackage.MANAGEMENT_HANDLER___GET_STAFF_ROLES:
+				return getStaffRoles();
+			case BackendPackage.MANAGEMENT_HANDLER___ADD_STAFF_ROLE__STRING_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN:
+				return addStaffRole((String)arguments.get(0), (Boolean)arguments.get(1), (Boolean)arguments.get(2), (Boolean)arguments.get(3), (Boolean)arguments.get(4));
+			case BackendPackage.MANAGEMENT_HANDLER___UPDATE_STAFF_ROLE__STAFFROLE:
+				return updateStaffRole((StaffRole)arguments.get(0));
+			case BackendPackage.MANAGEMENT_HANDLER___REMOVE_STAFF_ROLE__STAFFROLE:
+				return removeStaffRole((StaffRole)arguments.get(0));
 			case BackendPackage.MANAGEMENT_HANDLER___LOGIN__STRING_STRING:
 				return login((String)arguments.get(0), (String)arguments.get(1));
 			case BackendPackage.MANAGEMENT_HANDLER___GET_ROLE_FOR_STAFF__STRING:
@@ -285,6 +455,12 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 				return getAllRooms();
 			case BackendPackage.MANAGEMENT_HANDLER___GET_ROOM_TYPES:
 				return getRoomTypes();
+			case BackendPackage.MANAGEMENT_HANDLER___GET_SERVICE_TYPES:
+				return getServiceTypes();
+			case BackendPackage.MANAGEMENT_HANDLER___UPDATE_SERVICE_TYPE__SERVICETYPE:
+				return updateServiceType((ServiceType)arguments.get(0));
+			case BackendPackage.MANAGEMENT_HANDLER___REMOVE_SERVICE_TYPE__SERVICETYPE:
+				return removeServiceType((ServiceType)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

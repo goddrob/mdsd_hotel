@@ -5,6 +5,7 @@ package CodePack;
 import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomType;
 
+import CodePack.DataModels.ServiceType;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -17,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface IManagement extends IStaffAuthentication {
+public interface IManagement extends IStaffAdmin, IStaffAuthentication {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,5 +90,29 @@ public interface IManagement extends IStaffAuthentication {
 	 * @generated
 	 */
 	EList<RoomType> getRoomTypes();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" ordered="false"
+	 * @generated
+	 */
+	EList<ServiceType> getServiceTypes();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" serviceTypeRequired="true" serviceTypeOrdered="false"
+	 * @generated
+	 */
+	boolean updateServiceType(ServiceType serviceType);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" serviceTypeRequired="true" serviceTypeOrdered="false"
+	 * @generated
+	 */
+	boolean removeServiceType(ServiceType serviceType);
 
 } // IManagement

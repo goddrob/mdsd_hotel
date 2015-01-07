@@ -787,6 +787,70 @@ public interface DataModelsPackage extends EPackage {
 	int GUEST_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link CodePack.DataModels.impl.BillImpl <em>Bill</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CodePack.DataModels.impl.BillImpl
+	 * @see CodePack.DataModels.impl.DataModelsPackageImpl#getBill()
+	 * @generated
+	 */
+	int BILL = 10;
+
+	/**
+	 * The feature id for the '<em><b>Booking id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BILL__BOOKING_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Rooms booked</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BILL__ROOMS_BOOKED = 1;
+
+	/**
+	 * The feature id for the '<em><b>Services ordered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BILL__SERVICES_ORDERED = 2;
+
+	/**
+	 * The feature id for the '<em><b>Total price</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BILL__TOTAL_PRICE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Bill</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BILL_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Bill</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BILL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link CodePack.DataModels.impl.BookingImpl <em>Booking</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -794,7 +858,7 @@ public interface DataModelsPackage extends EPackage {
 	 * @see CodePack.DataModels.impl.DataModelsPackageImpl#getBooking()
 	 * @generated
 	 */
-	int BOOKING = 10;
+	int BOOKING = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1566,6 +1630,60 @@ public interface DataModelsPackage extends EPackage {
 	EAttribute getGuest_Booking_id();
 
 	/**
+	 * Returns the meta object for class '{@link CodePack.DataModels.Bill <em>Bill</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bill</em>'.
+	 * @see CodePack.DataModels.Bill
+	 * @generated
+	 */
+	EClass getBill();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CodePack.DataModels.Bill#getBooking_id <em>Booking id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Booking id</em>'.
+	 * @see CodePack.DataModels.Bill#getBooking_id()
+	 * @see #getBill()
+	 * @generated
+	 */
+	EAttribute getBill_Booking_id();
+
+	/**
+	 * Returns the meta object for the reference list '{@link CodePack.DataModels.Bill#getRooms_booked <em>Rooms booked</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Rooms booked</em>'.
+	 * @see CodePack.DataModels.Bill#getRooms_booked()
+	 * @see #getBill()
+	 * @generated
+	 */
+	EReference getBill_Rooms_booked();
+
+	/**
+	 * Returns the meta object for the reference list '{@link CodePack.DataModels.Bill#getServices_ordered <em>Services ordered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Services ordered</em>'.
+	 * @see CodePack.DataModels.Bill#getServices_ordered()
+	 * @see #getBill()
+	 * @generated
+	 */
+	EReference getBill_Services_ordered();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CodePack.DataModels.Bill#getTotal_price <em>Total price</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Total price</em>'.
+	 * @see CodePack.DataModels.Bill#getTotal_price()
+	 * @see #getBill()
+	 * @generated
+	 */
+	EAttribute getBill_Total_price();
+
+	/**
 	 * Returns the meta object for class '{@link CodePack.DataModels.Booking <em>Booking</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2217,6 +2335,48 @@ public interface DataModelsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GUEST__BOOKING_ID = eINSTANCE.getGuest_Booking_id();
+
+		/**
+		 * The meta object literal for the '{@link CodePack.DataModels.impl.BillImpl <em>Bill</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CodePack.DataModels.impl.BillImpl
+		 * @see CodePack.DataModels.impl.DataModelsPackageImpl#getBill()
+		 * @generated
+		 */
+		EClass BILL = eINSTANCE.getBill();
+
+		/**
+		 * The meta object literal for the '<em><b>Booking id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BILL__BOOKING_ID = eINSTANCE.getBill_Booking_id();
+
+		/**
+		 * The meta object literal for the '<em><b>Rooms booked</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BILL__ROOMS_BOOKED = eINSTANCE.getBill_Rooms_booked();
+
+		/**
+		 * The meta object literal for the '<em><b>Services ordered</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BILL__SERVICES_ORDERED = eINSTANCE.getBill_Services_ordered();
+
+		/**
+		 * The meta object literal for the '<em><b>Total price</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BILL__TOTAL_PRICE = eINSTANCE.getBill_Total_price();
 
 		/**
 		 * The meta object literal for the '{@link CodePack.DataModels.impl.BookingImpl <em>Booking</em>}' class.

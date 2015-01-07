@@ -20,6 +20,7 @@ import CodePack.DataModels.StaffMember;
 import CodePack.DataModels.StaffRole;
 import CodePack.CodePackFactory;
 import CodePack.DataBank;
+import CodePack.DataModels.Bill;
 import CodePack.ICheckIn;
 import CodePack.IStaffAuthentication;
 import CodePack.Shared.ContactData;
@@ -594,7 +595,7 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String generateReceiptForBooking(int booking_id) {
+	public String processPayment(Bill bill, PaymentData payment_data) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -605,7 +606,7 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double generateBill(int booking_id) {
+	public Bill generateBill(int booking_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -738,12 +739,12 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 				return login((String)arguments.get(0), (String)arguments.get(1));
 			case BackendPackage.RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__STRING:
 				return getRoleForStaff((String)arguments.get(0));
-			case BackendPackage.RECEPTION_HANDLER___GENERATE_RECEIPT_FOR_BOOKING__INT:
-				return generateReceiptForBooking((Integer)arguments.get(0));
 			case BackendPackage.RECEPTION_HANDLER___GENERATE_BILL__INT:
 				return generateBill((Integer)arguments.get(0));
 			case BackendPackage.RECEPTION_HANDLER___IS_CHECKED_IN__INT:
 				return isCheckedIn((Integer)arguments.get(0));
+			case BackendPackage.RECEPTION_HANDLER___PROCESS_PAYMENT__BILL_PAYMENTDATA:
+				return processPayment((Bill)arguments.get(0), (PaymentData)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

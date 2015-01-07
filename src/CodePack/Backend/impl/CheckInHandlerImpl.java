@@ -4,11 +4,9 @@ package CodePack.Backend.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import CodePack.CodePackFactory;
 import CodePack.DataBank;
 import CodePack.Backend.BackendPackage;
@@ -16,7 +14,6 @@ import CodePack.Backend.CheckInHandler;
 import CodePack.DataModels.Booking;
 import CodePack.DataModels.DataModelsFactory;
 import CodePack.DataModels.Guest;
-import CodePack.DataModels.Room;
 
 /**
  * <!-- begin-user-doc -->

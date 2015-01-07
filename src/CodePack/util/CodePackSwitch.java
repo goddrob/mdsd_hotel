@@ -92,6 +92,7 @@ public class CodePackSwitch<T> extends Switch<T> {
 			case CodePackPackage.IMANAGEMENT: {
 				IManagement iManagement = (IManagement)theEObject;
 				T result = caseIManagement(iManagement);
+				if (result == null) result = caseIStaffAdmin(iManagement);
 				if (result == null) result = caseIStaffAuthentication(iManagement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

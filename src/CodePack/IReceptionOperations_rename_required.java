@@ -2,6 +2,9 @@
  */
 package CodePack;
 
+import CodePack.DataModels.Bill;
+import CodePack.DataModels.PaymentData;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -25,10 +28,10 @@ public interface IReceptionOperations_rename_required extends IBookings, ICheckI
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" booking_idRequired="true" booking_idOrdered="false"
+	 * @model required="true" ordered="false" billRequired="true" billOrdered="false" payment_dataRequired="true" payment_dataOrdered="false"
 	 * @generated
 	 */
-	String generateReceiptForBooking(int booking_id);
+	String processPayment(Bill bill, PaymentData payment_data);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -36,6 +39,6 @@ public interface IReceptionOperations_rename_required extends IBookings, ICheckI
 	 * @model required="true" ordered="false" booking_idRequired="true" booking_idOrdered="false"
 	 * @generated
 	 */
-	double generateBill(int booking_id);
+	Bill generateBill(int booking_id);
 
 } // IReceptionOperations_rename_required

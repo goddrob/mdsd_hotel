@@ -404,7 +404,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIStaffAdmin__RegisterStaffAccount() {
+	public EOperation getIStaffAdmin__RegisterStaffAccount__String_String_String_int_String() {
 		return iStaffAdminEClass.getEOperations().get(0);
 	}
 
@@ -413,7 +413,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIStaffAdmin__UpdateStaffAccount() {
+	public EOperation getIStaffAdmin__UpdateStaffAccount__StaffMember() {
 		return iStaffAdminEClass.getEOperations().get(1);
 	}
 
@@ -422,7 +422,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIStaffAdmin__GetStaffAccount() {
+	public EOperation getIStaffAdmin__GetStaffAccount__String() {
 		return iStaffAdminEClass.getEOperations().get(2);
 	}
 
@@ -440,7 +440,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIStaffAdmin__RemoveStaffAccount() {
+	public EOperation getIStaffAdmin__RemoveStaffAccount__StaffMember() {
 		return iStaffAdminEClass.getEOperations().get(4);
 	}
 
@@ -458,7 +458,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIStaffAdmin__AddStaffRole() {
+	public EOperation getIStaffAdmin__AddStaffRole__String_boolean_boolean_boolean_boolean() {
 		return iStaffAdminEClass.getEOperations().get(6);
 	}
 
@@ -467,7 +467,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIStaffAdmin__UpdateStaffRole() {
+	public EOperation getIStaffAdmin__UpdateStaffRole__StaffRole() {
 		return iStaffAdminEClass.getEOperations().get(7);
 	}
 
@@ -476,7 +476,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIStaffAdmin__RemoveStaffRole() {
+	public EOperation getIStaffAdmin__RemoveStaffRole__StaffRole() {
 		return iStaffAdminEClass.getEOperations().get(8);
 	}
 
@@ -602,6 +602,33 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getIManagement__GetServiceTypes() {
+		return iManagementEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getIManagement__UpdateServiceType__ServiceType() {
+		return iManagementEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getIManagement__RemoveServiceType__ServiceType() {
+		return iManagementEClass.getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getICheckIn() {
 		return iCheckInEClass;
 	}
@@ -639,6 +666,15 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * @generated
 	 */
 	public EOperation getIReceptionOperations_rename_required__IsCheckedIn__int() {
+		return iReceptionOperations_rename_requiredEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getIReceptionOperations_rename_required__ProcessPayment__Bill_PaymentData() {
 		return iReceptionOperations_rename_requiredEClass.getEOperations().get(2);
 	}
 
@@ -647,17 +683,8 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIReceptionOperations_rename_required__GenerateReceiptForBooking__int() {
-		return iReceptionOperations_rename_requiredEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getIReceptionOperations_rename_required__GenerateBill__int() {
-		return iReceptionOperations_rename_requiredEClass.getEOperations().get(1);
+		return iReceptionOperations_rename_requiredEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -884,15 +911,15 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		createEOperation(iBookingsEClass, IBOOKINGS___SEND_COMFIMATION_MAIL__BOOKING);
 
 		iStaffAdminEClass = createEClass(ISTAFF_ADMIN);
-		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___REGISTER_STAFF_ACCOUNT);
-		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___UPDATE_STAFF_ACCOUNT);
-		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___GET_STAFF_ACCOUNT);
+		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___REGISTER_STAFF_ACCOUNT__STRING_STRING_STRING_INT_STRING);
+		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___UPDATE_STAFF_ACCOUNT__STAFFMEMBER);
+		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___GET_STAFF_ACCOUNT__STRING);
 		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___GET_ALL_STAFF_ACCOUNTS);
-		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___REMOVE_STAFF_ACCOUNT);
+		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___REMOVE_STAFF_ACCOUNT__STAFFMEMBER);
 		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___GET_STAFF_ROLES);
-		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___ADD_STAFF_ROLE);
-		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___UPDATE_STAFF_ROLE);
-		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___REMOVE_STAFF_ROLE);
+		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___ADD_STAFF_ROLE__STRING_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN);
+		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___UPDATE_STAFF_ROLE__STAFFROLE);
+		createEOperation(iStaffAdminEClass, ISTAFF_ADMIN___REMOVE_STAFF_ROLE__STAFFROLE);
 
 		iStaffAuthenticationEClass = createEClass(ISTAFF_AUTHENTICATION);
 		createEOperation(iStaffAuthenticationEClass, ISTAFF_AUTHENTICATION___LOGIN__STRING_STRING);
@@ -908,15 +935,18 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		createEOperation(iManagementEClass, IMANAGEMENT___GET_ROOM__INT);
 		createEOperation(iManagementEClass, IMANAGEMENT___GET_ALL_ROOMS);
 		createEOperation(iManagementEClass, IMANAGEMENT___GET_ROOM_TYPES);
+		createEOperation(iManagementEClass, IMANAGEMENT___GET_SERVICE_TYPES);
+		createEOperation(iManagementEClass, IMANAGEMENT___UPDATE_SERVICE_TYPE__SERVICETYPE);
+		createEOperation(iManagementEClass, IMANAGEMENT___REMOVE_SERVICE_TYPE__SERVICETYPE);
 
 		iCheckInEClass = createEClass(ICHECK_IN);
 		createEOperation(iCheckInEClass, ICHECK_IN___VALIDATE_BOOKING__INT);
 		createEOperation(iCheckInEClass, ICHECK_IN___ASSIGN_GUEST_TO_BOOKING__INT_STRING);
 
 		iReceptionOperations_rename_requiredEClass = createEClass(IRECEPTION_OPERATIONS_RENAME_REQUIRED);
-		createEOperation(iReceptionOperations_rename_requiredEClass, IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT_FOR_BOOKING__INT);
 		createEOperation(iReceptionOperations_rename_requiredEClass, IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_BILL__INT);
 		createEOperation(iReceptionOperations_rename_requiredEClass, IRECEPTION_OPERATIONS_RENAME_REQUIRED___IS_CHECKED_IN__INT);
+		createEOperation(iReceptionOperations_rename_requiredEClass, IRECEPTION_OPERATIONS_RENAME_REQUIRED___PROCESS_PAYMENT__BILL_PAYMENTDATA);
 
 		staffGUIEClass = createEClass(STAFF_GUI);
 		createEReference(staffGUIEClass, STAFF_GUI__MANAGEMENT_HANDLER);
@@ -981,6 +1011,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 
 		// Add supertypes to classes
 		iUserAccountEClass.getESuperTypes().add(this.getIBookings());
+		iManagementEClass.getESuperTypes().add(this.getIStaffAdmin());
 		iManagementEClass.getESuperTypes().add(this.getIStaffAuthentication());
 		iReceptionOperations_rename_requiredEClass.getESuperTypes().add(this.getIBookings());
 		iReceptionOperations_rename_requiredEClass.getESuperTypes().add(this.getICheckIn());
@@ -1087,23 +1118,38 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 
 		initEClass(iStaffAdminEClass, IStaffAdmin.class, "IStaffAdmin", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getIStaffAdmin__RegisterStaffAccount(), null, "registerStaffAccount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIStaffAdmin__RegisterStaffAccount__String_String_String_int_String(), theDataModelsPackage.getStaffMember(), "registerStaffAccount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "email", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "pers_no", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "phone_no", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "role_name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getIStaffAdmin__UpdateStaffAccount(), null, "updateStaffAccount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIStaffAdmin__UpdateStaffAccount__StaffMember(), ecorePackage.getEBoolean(), "updateStaffAccount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theDataModelsPackage.getStaffMember(), "account", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getIStaffAdmin__GetStaffAccount(), null, "getStaffAccount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIStaffAdmin__GetStaffAccount__String(), theDataModelsPackage.getStaffMember(), "getStaffAccount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "pers_no", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getIStaffAdmin__GetAllStaffAccounts(), null, "getAllStaffAccounts", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getIStaffAdmin__GetAllStaffAccounts(), theDataModelsPackage.getStaffMember(), "getAllStaffAccounts", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getIStaffAdmin__RemoveStaffAccount(), null, "removeStaffAccount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIStaffAdmin__RemoveStaffAccount__StaffMember(), ecorePackage.getEBoolean(), "removeStaffAccount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theDataModelsPackage.getStaffMember(), "account", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getIStaffAdmin__GetStaffRoles(), null, "getStaffRoles", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getIStaffAdmin__GetStaffRoles(), theDataModelsPackage.getStaffRole(), "getStaffRoles", 1, -1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getIStaffAdmin__AddStaffRole(), null, "addStaffRole", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIStaffAdmin__AddStaffRole__String_boolean_boolean_boolean_boolean(), theDataModelsPackage.getStaffRole(), "addStaffRole", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "canManageBookings", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "canManageRooms", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "canManageServices", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "canManageAccounts", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getIStaffAdmin__UpdateStaffRole(), null, "updateStaffRole", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIStaffAdmin__UpdateStaffRole__StaffRole(), ecorePackage.getEBoolean(), "updateStaffRole", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theDataModelsPackage.getStaffRole(), "role", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getIStaffAdmin__RemoveStaffRole(), null, "removeStaffRole", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIStaffAdmin__RemoveStaffRole__StaffRole(), ecorePackage.getEBoolean(), "removeStaffRole", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theDataModelsPackage.getStaffRole(), "role", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(iStaffAuthenticationEClass, IStaffAuthentication.class, "IStaffAuthentication", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1147,6 +1193,14 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 
 		initEOperation(getIManagement__GetRoomTypes(), theDataModelsPackage.getRoomType(), "getRoomTypes", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
+		initEOperation(getIManagement__GetServiceTypes(), theDataModelsPackage.getServiceType(), "getServiceTypes", 0, -1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getIManagement__UpdateServiceType__ServiceType(), ecorePackage.getEBoolean(), "updateServiceType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theDataModelsPackage.getServiceType(), "serviceType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getIManagement__RemoveServiceType__ServiceType(), ecorePackage.getEBoolean(), "removeServiceType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theDataModelsPackage.getServiceType(), "serviceType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(iCheckInEClass, ICheckIn.class, "ICheckIn", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getICheckIn__ValidateBooking__int(), ecorePackage.getEBoolean(), "validateBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -1158,14 +1212,15 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 
 		initEClass(iReceptionOperations_rename_requiredEClass, IReceptionOperations_rename_required.class, "IReceptionOperations_rename_required", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getIReceptionOperations_rename_required__GenerateReceiptForBooking__int(), ecorePackage.getEString(), "generateReceiptForBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "booking_id", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getIReceptionOperations_rename_required__GenerateBill__int(), ecorePackage.getEDouble(), "generateBill", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIReceptionOperations_rename_required__GenerateBill__int(), theDataModelsPackage.getBill(), "generateBill", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "booking_id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getIReceptionOperations_rename_required__IsCheckedIn__int(), ecorePackage.getEBoolean(), "isCheckedIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "booking_id", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getIReceptionOperations_rename_required__ProcessPayment__Bill_PaymentData(), ecorePackage.getEString(), "processPayment", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theDataModelsPackage.getBill(), "bill", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theDataModelsPackage.getPaymentData(), "payment_data", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(staffGUIEClass, StaffGUI.class, "StaffGUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStaffGUI_ManagementHandler(), theBackendPackage.getManagementHandler(), null, "managementHandler", null, 0, 1, StaffGUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

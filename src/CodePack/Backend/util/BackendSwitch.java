@@ -7,6 +7,7 @@ import CodePack.IBookings;
 import CodePack.ICheckIn;
 import CodePack.IManagement;
 import CodePack.IReceptionOperations_rename_required;
+import CodePack.IStaffAdmin;
 import CodePack.IStaffAuthentication;
 import CodePack.IUserAccount;
 import org.eclipse.emf.ecore.EObject;
@@ -99,6 +100,7 @@ public class BackendSwitch<T> extends Switch<T> {
 				ManagementHandler managementHandler = (ManagementHandler)theEObject;
 				T result = caseManagementHandler(managementHandler);
 				if (result == null) result = caseIManagement(managementHandler);
+				if (result == null) result = caseIStaffAdmin(managementHandler);
 				if (result == null) result = caseIStaffAuthentication(managementHandler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -239,6 +241,21 @@ public class BackendSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIReceptionOperations_rename_required(IReceptionOperations_rename_required object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IStaff Admin</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IStaff Admin</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIStaffAdmin(IStaffAdmin object) {
 		return null;
 	}
 

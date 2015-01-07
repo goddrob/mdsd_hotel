@@ -124,6 +124,12 @@ public class DataModelsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DataModelsPackage.BILL: {
+				Bill bill = (Bill)theEObject;
+				T result = caseBill(bill);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DataModelsPackage.BOOKING: {
 				Booking booking = (Booking)theEObject;
 				T result = caseBooking(booking);
@@ -281,6 +287,21 @@ public class DataModelsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGuest(Guest object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bill</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bill</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBill(Bill object) {
 		return null;
 	}
 

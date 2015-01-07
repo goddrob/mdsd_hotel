@@ -66,6 +66,7 @@ public class DataModelsFactoryImpl extends EFactoryImpl implements DataModelsFac
 			case DataModelsPackage.STAFF_ROLE: return createStaffRole();
 			case DataModelsPackage.STAFF_MEMBER: return createStaffMember();
 			case DataModelsPackage.GUEST: return createGuest();
+			case DataModelsPackage.BILL: return createBill();
 			case DataModelsPackage.BOOKING: return createBooking();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -170,6 +171,16 @@ public class DataModelsFactoryImpl extends EFactoryImpl implements DataModelsFac
 	public Guest createGuest() {
 		GuestImpl guest = new GuestImpl();
 		return guest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Bill createBill() {
+		BillImpl bill = new BillImpl();
+		return bill;
 	}
 
 	/**

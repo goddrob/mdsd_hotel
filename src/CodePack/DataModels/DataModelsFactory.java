@@ -112,6 +112,15 @@ public interface DataModelsFactory extends EFactory {
 	Guest createGuest();
 
 	/**
+	 * Returns a new object of class '<em>Bill</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bill</em>'.
+	 * @generated
+	 */
+	Bill createBill();
+
+	/**
 	 * Returns a new object of class '<em>Booking</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

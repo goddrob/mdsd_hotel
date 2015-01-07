@@ -455,15 +455,6 @@ public interface BackendPackage extends EPackage {
 	int RECEPTION_HANDLER___GET_ROLE_FOR_STAFF__STRING = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___GET_ROLE_FOR_STAFF__STRING;
 
 	/**
-	 * The operation id for the '<em>Generate Receipt For Booking</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECEPTION_HANDLER___GENERATE_RECEIPT_FOR_BOOKING__INT = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT_FOR_BOOKING__INT;
-
-	/**
 	 * The operation id for the '<em>Generate Bill</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -480,6 +471,15 @@ public interface BackendPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECEPTION_HANDLER___IS_CHECKED_IN__INT = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___IS_CHECKED_IN__INT;
+
+	/**
+	 * The operation id for the '<em>Process Payment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTION_HANDLER___PROCESS_PAYMENT__BILL_PAYMENTDATA = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___PROCESS_PAYMENT__BILL_PAYMENTDATA;
 
 	/**
 	 * The number of operations of the '<em>Reception Handler</em>' class.
@@ -555,6 +555,87 @@ public interface BackendPackage extends EPackage {
 	 */
 	int MANAGEMENT_HANDLER_FEATURE_COUNT = CodePackPackage.IMANAGEMENT_FEATURE_COUNT + 0;
 
+
+	/**
+	 * The operation id for the '<em>Register Staff Account</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___REGISTER_STAFF_ACCOUNT__STRING_STRING_STRING_INT_STRING = CodePackPackage.IMANAGEMENT___REGISTER_STAFF_ACCOUNT__STRING_STRING_STRING_INT_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Staff Account</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___UPDATE_STAFF_ACCOUNT__STAFFMEMBER = CodePackPackage.IMANAGEMENT___UPDATE_STAFF_ACCOUNT__STAFFMEMBER;
+
+	/**
+	 * The operation id for the '<em>Get Staff Account</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___GET_STAFF_ACCOUNT__STRING = CodePackPackage.IMANAGEMENT___GET_STAFF_ACCOUNT__STRING;
+
+	/**
+	 * The operation id for the '<em>Get All Staff Accounts</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___GET_ALL_STAFF_ACCOUNTS = CodePackPackage.IMANAGEMENT___GET_ALL_STAFF_ACCOUNTS;
+
+	/**
+	 * The operation id for the '<em>Remove Staff Account</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___REMOVE_STAFF_ACCOUNT__STAFFMEMBER = CodePackPackage.IMANAGEMENT___REMOVE_STAFF_ACCOUNT__STAFFMEMBER;
+
+	/**
+	 * The operation id for the '<em>Get Staff Roles</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___GET_STAFF_ROLES = CodePackPackage.IMANAGEMENT___GET_STAFF_ROLES;
+
+	/**
+	 * The operation id for the '<em>Add Staff Role</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___ADD_STAFF_ROLE__STRING_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN = CodePackPackage.IMANAGEMENT___ADD_STAFF_ROLE__STRING_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Update Staff Role</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___UPDATE_STAFF_ROLE__STAFFROLE = CodePackPackage.IMANAGEMENT___UPDATE_STAFF_ROLE__STAFFROLE;
+
+	/**
+	 * The operation id for the '<em>Remove Staff Role</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___REMOVE_STAFF_ROLE__STAFFROLE = CodePackPackage.IMANAGEMENT___REMOVE_STAFF_ROLE__STAFFROLE;
 
 	/**
 	 * The operation id for the '<em>Login</em>' operation.
@@ -654,6 +735,33 @@ public interface BackendPackage extends EPackage {
 	 * @ordered
 	 */
 	int MANAGEMENT_HANDLER___GET_ROOM_TYPES = CodePackPackage.IMANAGEMENT___GET_ROOM_TYPES;
+
+	/**
+	 * The operation id for the '<em>Get Service Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___GET_SERVICE_TYPES = CodePackPackage.IMANAGEMENT___GET_SERVICE_TYPES;
+
+	/**
+	 * The operation id for the '<em>Update Service Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___UPDATE_SERVICE_TYPE__SERVICETYPE = CodePackPackage.IMANAGEMENT___UPDATE_SERVICE_TYPE__SERVICETYPE;
+
+	/**
+	 * The operation id for the '<em>Remove Service Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGEMENT_HANDLER___REMOVE_SERVICE_TYPE__SERVICETYPE = CodePackPackage.IMANAGEMENT___REMOVE_SERVICE_TYPE__SERVICETYPE;
 
 	/**
 	 * The number of operations of the '<em>Management Handler</em>' class.

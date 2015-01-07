@@ -108,6 +108,10 @@ public class DataModelsAdapterFactory extends AdapterFactoryImpl {
 				return createGuestAdapter();
 			}
 			@Override
+			public Adapter caseBill(Bill object) {
+				return createBillAdapter();
+			}
+			@Override
 			public Adapter caseBooking(Booking object) {
 				return createBookingAdapter();
 			}
@@ -268,6 +272,20 @@ public class DataModelsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGuestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link CodePack.DataModels.Bill <em>Bill</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see CodePack.DataModels.Bill
+	 * @generated
+	 */
+	public Adapter createBillAdapter() {
 		return null;
 	}
 

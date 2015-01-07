@@ -7,6 +7,7 @@ import BankingModel.impl.BankingModelPackageImpl;
 import CodePack.Backend.BackendPackage;
 import CodePack.Backend.impl.BackendPackageImpl;
 import CodePack.CodePackPackage;
+import CodePack.DataModels.Bill;
 import CodePack.DataModels.Booking;
 import CodePack.DataModels.Customer;
 import CodePack.DataModels.DataModelsFactory;
@@ -106,6 +107,13 @@ public class DataModelsPackageImpl extends EPackageImpl implements DataModelsPac
 	 * @generated
 	 */
 	private EClass guestEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass billEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -737,6 +745,51 @@ public class DataModelsPackageImpl extends EPackageImpl implements DataModelsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBill() {
+		return billEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBill_Booking_id() {
+		return (EAttribute)billEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBill_Rooms_booked() {
+		return (EReference)billEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBill_Services_ordered() {
+		return (EReference)billEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBill_Total_price() {
+		return (EAttribute)billEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBooking() {
 		return bookingEClass;
 	}
@@ -938,6 +991,12 @@ public class DataModelsPackageImpl extends EPackageImpl implements DataModelsPac
 		createEAttribute(guestEClass, GUEST__NAME);
 		createEAttribute(guestEClass, GUEST__BOOKING_ID);
 
+		billEClass = createEClass(BILL);
+		createEAttribute(billEClass, BILL__BOOKING_ID);
+		createEReference(billEClass, BILL__ROOMS_BOOKED);
+		createEReference(billEClass, BILL__SERVICES_ORDERED);
+		createEAttribute(billEClass, BILL__TOTAL_PRICE);
+
 		bookingEClass = createEClass(BOOKING);
 		createEAttribute(bookingEClass, BOOKING__ID);
 		createEAttribute(bookingEClass, BOOKING__DATE_CHECK_IN);
@@ -1051,6 +1110,12 @@ public class DataModelsPackageImpl extends EPackageImpl implements DataModelsPac
 		initEClass(guestEClass, Guest.class, "Guest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGuest_Name(), ecorePackage.getEString(), "name", null, 1, 1, Guest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getGuest_Booking_id(), ecorePackage.getEInt(), "booking_id", null, 1, 1, Guest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(billEClass, Bill.class, "Bill", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBill_Booking_id(), ecorePackage.getEInt(), "booking_id", null, 1, 1, Bill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBill_Rooms_booked(), this.getRoomBooked(), null, "rooms_booked", null, 1, -1, Bill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBill_Services_ordered(), this.getExtraService(), null, "services_ordered", null, 1, -1, Bill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBill_Total_price(), ecorePackage.getEDouble(), "total_price", null, 1, 1, Bill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(bookingEClass, Booking.class, "Booking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooking_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
