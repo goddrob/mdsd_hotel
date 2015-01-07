@@ -31,7 +31,7 @@ public interface IReceptionOperations_rename_required extends IBookings, ICheckI
 	 * @model required="true" ordered="false" billRequired="true" billOrdered="false" payment_dataRequired="true" payment_dataOrdered="false"
 	 * @generated
 	 */
-	String processPayment(Bill bill, PaymentData payment_data);
+	String generateReceipt(Bill bill, PaymentData payment_data);
 
 	/**
 	 * <!-- begin-user-doc -->

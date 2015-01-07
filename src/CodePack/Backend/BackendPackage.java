@@ -473,13 +473,13 @@ public interface BackendPackage extends EPackage {
 	int RECEPTION_HANDLER___IS_CHECKED_IN__INT = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___IS_CHECKED_IN__INT;
 
 	/**
-	 * The operation id for the '<em>Process Payment</em>' operation.
+	 * The operation id for the '<em>Generate Receipt</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTION_HANDLER___PROCESS_PAYMENT__BILL_PAYMENTDATA = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___PROCESS_PAYMENT__BILL_PAYMENTDATA;
+	int RECEPTION_HANDLER___GENERATE_RECEIPT__BILL_PAYMENTDATA = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT__BILL_PAYMENTDATA;
 
 	/**
 	 * The number of operations of the '<em>Reception Handler</em>' class.

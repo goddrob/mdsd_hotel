@@ -595,7 +595,7 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String processPayment(Bill bill, PaymentData payment_data) {
+	public String generateReceipt(Bill bill, PaymentData payment_data) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -743,8 +743,8 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 				return generateBill((Integer)arguments.get(0));
 			case BackendPackage.RECEPTION_HANDLER___IS_CHECKED_IN__INT:
 				return isCheckedIn((Integer)arguments.get(0));
-			case BackendPackage.RECEPTION_HANDLER___PROCESS_PAYMENT__BILL_PAYMENTDATA:
-				return processPayment((Bill)arguments.get(0), (PaymentData)arguments.get(1));
+			case BackendPackage.RECEPTION_HANDLER___GENERATE_RECEIPT__BILL_PAYMENTDATA:
+				return generateReceipt((Bill)arguments.get(0), (PaymentData)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

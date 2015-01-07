@@ -1035,13 +1035,13 @@ public interface CodePackPackage extends EPackage {
 	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___IS_CHECKED_IN__INT = IBOOKINGS_OPERATION_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Process Payment</em>' operation.
+	 * The operation id for the '<em>Generate Receipt</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___PROCESS_PAYMENT__BILL_PAYMENTDATA = IBOOKINGS_OPERATION_COUNT + 6;
+	int IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT__BILL_PAYMENTDATA = IBOOKINGS_OPERATION_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>IReception Operations rename required</em>' class.
@@ -1833,14 +1833,14 @@ public interface CodePackPackage extends EPackage {
 	EOperation getIReceptionOperations_rename_required__IsCheckedIn__int();
 
 	/**
-	 * Returns the meta object for the '{@link CodePack.IReceptionOperations_rename_required#processPayment(CodePack.DataModels.Bill, CodePack.DataModels.PaymentData) <em>Process Payment</em>}' operation.
+	 * Returns the meta object for the '{@link CodePack.IReceptionOperations_rename_required#generateReceipt(CodePack.DataModels.Bill, CodePack.DataModels.PaymentData) <em>Generate Receipt</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Process Payment</em>' operation.
-	 * @see CodePack.IReceptionOperations_rename_required#processPayment(CodePack.DataModels.Bill, CodePack.DataModels.PaymentData)
+	 * @return the meta object for the '<em>Generate Receipt</em>' operation.
+	 * @see CodePack.IReceptionOperations_rename_required#generateReceipt(CodePack.DataModels.Bill, CodePack.DataModels.PaymentData)
 	 * @generated
 	 */
-	EOperation getIReceptionOperations_rename_required__ProcessPayment__Bill_PaymentData();
+	EOperation getIReceptionOperations_rename_required__GenerateReceipt__Bill_PaymentData();
 
 	/**
 	 * Returns the meta object for the '{@link CodePack.IReceptionOperations_rename_required#generateBill(int) <em>Generate Bill</em>}' operation.
@@ -2518,12 +2518,12 @@ public interface CodePackPackage extends EPackage {
 		EOperation IRECEPTION_OPERATIONS_RENAME_REQUIRED___IS_CHECKED_IN__INT = eINSTANCE.getIReceptionOperations_rename_required__IsCheckedIn__int();
 
 		/**
-		 * The meta object literal for the '<em><b>Process Payment</b></em>' operation.
+		 * The meta object literal for the '<em><b>Generate Receipt</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation IRECEPTION_OPERATIONS_RENAME_REQUIRED___PROCESS_PAYMENT__BILL_PAYMENTDATA = eINSTANCE.getIReceptionOperations_rename_required__ProcessPayment__Bill_PaymentData();
+		EOperation IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT__BILL_PAYMENTDATA = eINSTANCE.getIReceptionOperations_rename_required__GenerateReceipt__Bill_PaymentData();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate Bill</b></em>' operation.
