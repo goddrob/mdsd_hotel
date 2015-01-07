@@ -298,7 +298,10 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 		// Ensure that you remove @generated or mark it @generated NOT
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 				for(ExtraService es:db.getExtraServiceList()){
-					if(old_service_id == es.getBooking_id()) {
+					Date today = new Date();
+					long diff = es.getDate_start().getTime() - today.getTime();
+					long hour = diff/(3600*1000);
+					if(old_service_id == es.getBooking_id() && hour > 24) {
 						db.getExtraServiceList().add(new_service);
 					}return true;
 			}
