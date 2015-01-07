@@ -2,6 +2,7 @@
  */
 package CodePack.impl;
 
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -262,7 +263,7 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 			
 		} );
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setSize(500,500);
+		frame.setSize(800,600);
 		frame.add(container);
 		frame.setVisible(true);
 		//throw new UnsupportedOperationException();
@@ -272,37 +273,55 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 		JButton addButton = new JButton("Add room");
 		JButton updateButton = new JButton("Modify room");
 		JButton removeButton = new JButton("Remove room");
+		JButton addTypeButton = new JButton("Add room type");
+		JButton updateTypeButton = new JButton("Modify room type");
+		JButton removeTypeButton = new JButton("Remove room type");
 		DefaultListModel<Room> listModel;
+		DefaultListModel<RoomType> typeListModel;
+		JList<RoomType> roomTypeList;
 		JList<Room> roomList;
 		public RoomsPanel() {			
-			listModel = new DefaultListModel<>();			
-			JScrollPane scrollPane;
+			listModel = new DefaultListModel<>();
+			typeListModel = new DefaultListModel<>();
+			JScrollPane scrollPane,typeScrollPane;
+			//buttons
 			ActionListener listener = new buttonListener();
 			removeButton.addActionListener(listener);
 			addButton.addActionListener(listener);
 			updateButton.addActionListener(listener);
-			
+			addTypeButton.addActionListener(listener);
+			updateTypeButton.addActionListener(listener);
+			removeTypeButton.addActionListener(listener);	
+			JPanel room_buttons = new JPanel();
+			room_buttons.add(addButton);
+			room_buttons.add(updateButton);
+			room_buttons.add(removeButton);			
+			JPanel type_buttons = new JPanel();
+			type_buttons.add(addTypeButton);
+			type_buttons.add(updateTypeButton);
+			type_buttons.add(removeTypeButton);	
+			//Lists
+			roomList = new JList<Room>(listModel);
+			scrollPane = new JScrollPane(roomList);			
+			roomTypeList = new JList<RoomType>(typeListModel);
+			typeScrollPane = new JScrollPane(roomTypeList);
+			//Layout
 			this.setLayout(new GridBagLayout());
 			GridBagConstraints c = new GridBagConstraints();
-			
-			JPanel buttons = new JPanel();
-			buttons.add(addButton);
-			buttons.add(updateButton);
-			buttons.add(removeButton);
 			c.weightx = 0;
 			c.ipady = 4;
 			c.gridx = 0;
 			c.gridy = 0;
-			this.add(buttons);
-			c.gridx = 0;
-			c.gridy = 1;
-			c.anchor = GridBagConstraints.PAGE_END;
-			
-			roomList = new JList<Room>(listModel);
-			scrollPane = new JScrollPane(roomList);
-			
+			this.add(room_buttons);
+			c.gridy = 1;	
 			this.add(scrollPane,c);
-			
+			c.gridy = 2;
+			this.add(type_buttons,c);
+			c.gridy = 3;
+			c.anchor = GridBagConstraints.PAGE_END;
+			this.add(typeScrollPane,c);
+			//Layout end
+			//Load lists
 			loadRoomList();
 			
 		}
@@ -310,22 +329,89 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 			listModel.removeAllElements();
 			EList<Room>  rooms = managementHandler.getAllRooms();
 			for (Room r : rooms) listModel.addElement(r);
+			typeListModel.removeAllElements();
+			EList<RoomType> room_types = managementHandler.getRoomTypes();
+			for (RoomType rt : room_types) typeListModel.addElement(rt);
 		}
 		private class buttonListener implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (e.getSource().equals(addButton)) showDialog(false);
-				if (e.getSource().equals(updateButton)) showDialog(true);
+				if (e.getSource().equals(addButton)) showRoomDialog(false);
+				if (e.getSource().equals(updateButton) && !roomList.isSelectionEmpty()) 
+						showRoomDialog(true);
 				if (e.getSource().equals(removeButton)) {
 					managementHandler.removeRoom(roomList.getSelectedValue().getNumber());
 				}
+				if (e.getSource().equals(removeTypeButton)){
+					managementHandler.removeRoomType(roomTypeList.getSelectedValue().getTypename());
+				}
+				if (e.getSource().equals(addTypeButton)) showTypeDialog(false);
+				if (e.getSource().equals(updateTypeButton) && !roomTypeList.isSelectionEmpty())
+					showTypeDialog(true);
+				
 				loadRoomList();
 				
 			}
 			
 		}
-		private int showDialog(boolean isUpdate){
+		private int showTypeDialog(boolean isUpdate){
+			JTextField name = new JTextField();
+			JTextArea description = new JTextArea();
+			JTextField rate = new JTextField();
+			JTextField max_guests = new JTextField();
+			
+			String title = "";
+			if (isUpdate) {
+				title = "Update room type";
+				name.setText(roomTypeList.getSelectedValue().getTypename());
+				description.setText(roomTypeList.getSelectedValue().getDescription());
+				rate.setText(Double.toString(roomTypeList.getSelectedValue().getRate()));
+				max_guests.setText(Integer.toString(roomTypeList.getSelectedValue().getMax_guests()));
+				name.setEditable(false);
+			}
+			else title = "Add room type";
+			Object[] dialog = {
+					"Type name:", name,
+					"Description:", description,
+					"Rate:", rate,
+					"Max guests:", max_guests
+			};
+			int option = JOptionPane.showConfirmDialog(null, dialog, title, JOptionPane.OK_CANCEL_OPTION);
+			
+			if (option != JOptionPane.OK_OPTION) return -1;
+			
+			if (name.getText().length()<1 || description.getText().length()<1 || rate.getText().length()<1 || max_guests.getText().length() <1) {
+				displayMessage(this,true,"All fields need to be filled.");
+				return -1;
+			}
+			
+			RoomType roomType = DataModelsFactory.eINSTANCE.createRoomType();
+			try {
+				roomType.setTypename(name.getText());
+				roomType.setDescription(description.getText());
+				roomType.setRate(Double.parseDouble(rate.getText()));
+				roomType.setMax_guests(Integer.parseInt(max_guests.getText()));
+			}
+			catch (Exception e){
+				displayMessage(this,true,"Illegal characters in Rate or Max guests fields.");
+			}
+			
+			if (isUpdate) {
+				if (managementHandler.updateRoomType(roomType)) displayMessage(this,false,"Room type successfully updated");
+				else displayMessage(this,true,"Room type update failed. Type may no longer exist.");
+			}
+			else {
+				if (managementHandler.addRoomType(roomType.getTypename(), roomType.getDescription(), roomType.getMax_guests(), roomType.getRate()))
+					displayMessage(this,false,"Room type succesfully added");
+				else displayMessage(this,true,"Adding room type failed. Room type may already exist.");
+			}
+			
+			
+			return 0;
+			
+		}
+		private int showRoomDialog(boolean isUpdate){
 			JTextField number = new JTextField();
 			JTextArea description = new JTextArea();
 			JCheckBox isAvailable = new JCheckBox();
@@ -351,6 +437,12 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 			};
 			
 			int option = JOptionPane.showConfirmDialog(null, dialog, title, JOptionPane.OK_CANCEL_OPTION);
+			
+			if (number.getText().length()<1 || description.getText().length()<1) {
+				displayMessage(this,true,"All fields need to be filled.");
+				return -1;
+			}
+			
 			if (option == JOptionPane.OK_OPTION) {
 				Room room = DataModelsFactory.eINSTANCE.createRoom();
 				try {				
@@ -360,20 +452,20 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 					room.setRoom_type(type.getSelectedItem().toString());
 				}
 				catch (Exception e){
-					JOptionPane.showMessageDialog(this, "Your data was invalid.\nRoom numbers can only be integers.", "Error", JOptionPane.ERROR_MESSAGE);
+					displayMessage(this, true, "Your data was invalid.\nRoom numbers can only be integers.");
 					return 0;
 				}
 				if (isUpdate){
-					if (managementHandler.updateRoom(room)) JOptionPane.showMessageDialog(this, "Room "+room.getNumber()+" succesfully updated.", "Success!", JOptionPane.INFORMATION_MESSAGE);
-					else JOptionPane.showMessageDialog(this, "The requested room could not be updated. \nRoom type or room number does not exist.", "Error", JOptionPane.ERROR_MESSAGE);
+					if (managementHandler.updateRoom(room)) displayMessage(this,false, "Room "+room.getNumber()+" succesfully updated.");
+					else displayMessage(this, true, "The requested room could not be updated. \nRoom type or room number does not exist.");
 					return 0;
 				}
 				if (managementHandler.addRoom(room.getNumber(), room.getDescription(), room.isAvailable(), room.getRoom_type())) {
-					JOptionPane.showMessageDialog(this, "Room "+room.getNumber()+" succesfully added.", "Success!", JOptionPane.INFORMATION_MESSAGE);
+					displayMessage(this, false, "Room "+room.getNumber()+" succesfully added.");
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(this, "The requested room could not be added. \nEither the room number is already assigned or the room type does not exist.", "Error", JOptionPane.ERROR_MESSAGE);
+					displayMessage(this, true, "The requested room could not be added. \nEither the room number is already assigned or the room type does not exist.");
 				}
 				
 			}
@@ -387,6 +479,15 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 		
 	}
 	private class AccountsPanel extends JPanel {
+		
+	}
+	private void displayMessage(Component c, boolean isError, String message){
+		if (isError) {
+			JOptionPane.showMessageDialog(c, message, "Error!", JOptionPane.ERROR_MESSAGE);
+		}
+		else{
+			JOptionPane.showMessageDialog(c, message, "Success!", JOptionPane.INFORMATION_MESSAGE);
+		}
 		
 	}
 
