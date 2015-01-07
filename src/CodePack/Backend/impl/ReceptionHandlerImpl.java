@@ -4,6 +4,7 @@ package CodePack.Backend.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import BankingModel.BankComponent;
 import CodePack.CodePackFactory;
 import CodePack.CodePackPackage;
@@ -282,9 +284,9 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 					if (new_room == r.getNumber());
 				}
 				return true;
-			}else{
-				return false;
 			}
+				return false;
+			
 		}
 		
 		throw new UnsupportedOperationException();
@@ -442,7 +444,10 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 		// Ensure that you remove @generated or mark it @generated NOT
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		for(Booking b:db.getBookingList()) {
-			if(booking_id == b.getId()) {
+			Date today = new Date();
+			long diff = b.getDate_check_in().getTime() - today.getTime();
+			long hour = diff/(3600*1000);
+			if(booking_id == b.getId() && hour > 24) {
 				db.getBookingList().remove(b);
 				return true;
 			} else

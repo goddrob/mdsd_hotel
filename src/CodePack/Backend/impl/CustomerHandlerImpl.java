@@ -281,9 +281,8 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 					if (new_room == r.getNumber());
 				}
 				return true;
-			}else{
-				return false;
 			}
+				return false;		
 		}
 		
 		throw new UnsupportedOperationException();
@@ -442,7 +441,10 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 		// Ensure that you remove @generated or mark it @generated NOT
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		for(Booking b:db.getBookingList()) {
-			if(booking_id == b.getId()) {
+			Date today = new Date();
+			long diff = b.getDate_check_in().getTime() - today.getTime();
+			long hour = diff/(3600*1000);
+			if(booking_id == b.getId() && hour > 24) {
 				db.getBookingList().remove(b);
 				return true;
 			} else
