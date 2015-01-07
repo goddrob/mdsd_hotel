@@ -960,13 +960,22 @@ public interface DataModelsPackage extends EPackage {
 	int BOOKING__PAYMENT_ID = 10;
 
 	/**
+	 * The feature id for the '<em><b>Bonus points used</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING__BONUS_POINTS_USED = 11;
+
+	/**
 	 * The number of structural features of the '<em>Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_FEATURE_COUNT = 11;
+	int BOOKING_FEATURE_COUNT = 12;
 
 
 	/**
@@ -1815,6 +1824,17 @@ public interface DataModelsPackage extends EPackage {
 	EAttribute getBooking_Payment_id();
 
 	/**
+	 * Returns the meta object for the attribute '{@link CodePack.DataModels.Booking#getBonus_points_used <em>Bonus points used</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bonus points used</em>'.
+	 * @see CodePack.DataModels.Booking#getBonus_points_used()
+	 * @see #getBooking()
+	 * @generated
+	 */
+	EAttribute getBooking_Bonus_points_used();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2475,6 +2495,14 @@ public interface DataModelsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOOKING__PAYMENT_ID = eINSTANCE.getBooking_Payment_id();
+
+		/**
+		 * The meta object literal for the '<em><b>Bonus points used</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOKING__BONUS_POINTS_USED = eINSTANCE.getBooking_Bonus_points_used();
 
 	}
 

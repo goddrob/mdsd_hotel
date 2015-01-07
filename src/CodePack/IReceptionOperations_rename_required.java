@@ -3,7 +3,6 @@
 package CodePack;
 
 import CodePack.DataModels.Bill;
-import CodePack.DataModels.PaymentData;
 
 
 /**
@@ -28,10 +27,10 @@ public interface IReceptionOperations_rename_required extends IBookings, ICheckI
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" billRequired="true" billOrdered="false" payment_dataRequired="true" payment_dataOrdered="false"
+	 * @model required="true" ordered="false" billRequired="true" billOrdered="false"
 	 * @generated
 	 */
-	String generateReceipt(Bill bill, PaymentData payment_data);
+	String generateReceipt(Bill bill);
 
 	/**
 	 * <!-- begin-user-doc -->

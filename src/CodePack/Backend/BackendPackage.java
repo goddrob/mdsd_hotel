@@ -479,7 +479,7 @@ public interface BackendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTION_HANDLER___GENERATE_RECEIPT__BILL_PAYMENTDATA = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT__BILL_PAYMENTDATA;
+	int RECEPTION_HANDLER___GENERATE_RECEIPT__BILL = CodePackPackage.IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT__BILL;
 
 	/**
 	 * The number of operations of the '<em>Reception Handler</em>' class.

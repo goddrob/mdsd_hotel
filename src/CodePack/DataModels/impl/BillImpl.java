@@ -5,19 +5,13 @@ package CodePack.DataModels.impl;
 import CodePack.DataModels.Bill;
 import CodePack.DataModels.DataModelsPackage;
 import CodePack.DataModels.ExtraService;
-import CodePack.DataModels.RoomBooked;
-
+import CodePack.DataModels.Room;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -65,7 +59,7 @@ public class BillImpl extends MinimalEObjectImpl.Container implements Bill {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RoomBooked> rooms_booked;
+	protected EList<Room> rooms_booked;
 
 	/**
 	 * The cached value of the '{@link #getServices_ordered() <em>Services ordered</em>}' reference list.
@@ -142,9 +136,9 @@ public class BillImpl extends MinimalEObjectImpl.Container implements Bill {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RoomBooked> getRooms_booked() {
+	public EList<Room> getRooms_booked() {
 		if (rooms_booked == null) {
-			rooms_booked = new EObjectResolvingEList<RoomBooked>(RoomBooked.class, this, DataModelsPackage.BILL__ROOMS_BOOKED);
+			rooms_booked = new EObjectResolvingEList<Room>(Room.class, this, DataModelsPackage.BILL__ROOMS_BOOKED);
 		}
 		return rooms_booked;
 	}
@@ -216,7 +210,7 @@ public class BillImpl extends MinimalEObjectImpl.Container implements Bill {
 				return;
 			case DataModelsPackage.BILL__ROOMS_BOOKED:
 				getRooms_booked().clear();
-				getRooms_booked().addAll((Collection<? extends RoomBooked>)newValue);
+				getRooms_booked().addAll((Collection<? extends Room>)newValue);
 				return;
 			case DataModelsPackage.BILL__SERVICES_ORDERED:
 				getServices_ordered().clear();

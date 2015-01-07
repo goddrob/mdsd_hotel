@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link CodePack.DataModels.impl.BookingImpl#getRoom <em>Room</em>}</li>
  *   <li>{@link CodePack.DataModels.impl.BookingImpl#getCustomer_id <em>Customer id</em>}</li>
  *   <li>{@link CodePack.DataModels.impl.BookingImpl#getPayment_id <em>Payment id</em>}</li>
+ *   <li>{@link CodePack.DataModels.impl.BookingImpl#getBonus_points_used <em>Bonus points used</em>}</li>
  * </ul>
  * </p>
  *
@@ -249,6 +250,26 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * @ordered
 	 */
 	protected int payment_id = PAYMENT_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBonus_points_used() <em>Bonus points used</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBonus_points_used()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int BONUS_POINTS_USED_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getBonus_points_used() <em>Bonus points used</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBonus_points_used()
+	 * @generated
+	 * @ordered
+	 */
+	protected int bonus_points_used = BONUS_POINTS_USED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -522,6 +543,27 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getBonus_points_used() {
+		return bonus_points_used;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBonus_points_used(int newBonus_points_used) {
+		int oldBonus_points_used = bonus_points_used;
+		bonus_points_used = newBonus_points_used;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DataModelsPackage.BOOKING__BONUS_POINTS_USED, oldBonus_points_used, bonus_points_used));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -548,6 +590,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 				return getCustomer_id();
 			case DataModelsPackage.BOOKING__PAYMENT_ID:
 				return getPayment_id();
+			case DataModelsPackage.BOOKING__BONUS_POINTS_USED:
+				return getBonus_points_used();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -592,6 +636,9 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 				return;
 			case DataModelsPackage.BOOKING__PAYMENT_ID:
 				setPayment_id((Integer)newValue);
+				return;
+			case DataModelsPackage.BOOKING__BONUS_POINTS_USED:
+				setBonus_points_used((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -638,6 +685,9 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 			case DataModelsPackage.BOOKING__PAYMENT_ID:
 				setPayment_id(PAYMENT_ID_EDEFAULT);
 				return;
+			case DataModelsPackage.BOOKING__BONUS_POINTS_USED:
+				setBonus_points_used(BONUS_POINTS_USED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -672,6 +722,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 				return customer_id != CUSTOMER_ID_EDEFAULT;
 			case DataModelsPackage.BOOKING__PAYMENT_ID:
 				return payment_id != PAYMENT_ID_EDEFAULT;
+			case DataModelsPackage.BOOKING__BONUS_POINTS_USED:
+				return bonus_points_used != BONUS_POINTS_USED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -706,6 +758,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 		result.append(customer_id);
 		result.append(", payment_id: ");
 		result.append(payment_id);
+		result.append(", bonus_points_used: ");
+		result.append(bonus_points_used);
 		result.append(')');
 		return result.toString();
 	}

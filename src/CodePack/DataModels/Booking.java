@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link CodePack.DataModels.Booking#getRoom <em>Room</em>}</li>
  *   <li>{@link CodePack.DataModels.Booking#getCustomer_id <em>Customer id</em>}</li>
  *   <li>{@link CodePack.DataModels.Booking#getPayment_id <em>Payment id</em>}</li>
+ *   <li>{@link CodePack.DataModels.Booking#getBonus_points_used <em>Bonus points used</em>}</li>
  * </ul>
  * </p>
  *
@@ -318,5 +319,31 @@ public interface Booking extends EObject {
 	 * @generated
 	 */
 	void setPayment_id(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Bonus points used</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bonus points used</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bonus points used</em>' attribute.
+	 * @see #setBonus_points_used(int)
+	 * @see CodePack.DataModels.DataModelsPackage#getBooking_Bonus_points_used()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	int getBonus_points_used();
+
+	/**
+	 * Sets the value of the '{@link CodePack.DataModels.Booking#getBonus_points_used <em>Bonus points used</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bonus points used</em>' attribute.
+	 * @see #getBonus_points_used()
+	 * @generated
+	 */
+	void setBonus_points_used(int value);
 
 } // Booking

@@ -2,10 +2,27 @@
  */
 package CodePack.Backend.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Calendar;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import BankingModel.BankComponent;
+import CodePack.CodePackFactory;
+import CodePack.CodePackPackage;
+import CodePack.DataBank;
+import CodePack.ICheckIn;
+import CodePack.IStaffAuthentication;
 import CodePack.Backend.BackendPackage;
 import CodePack.Backend.ReceptionHandler;
-import CodePack.CodePackPackage;
+import CodePack.DataModels.Bill;
 import CodePack.DataModels.Booking;
 import CodePack.DataModels.Customer;
 import CodePack.DataModels.DataModelsFactory;
@@ -18,23 +35,7 @@ import CodePack.DataModels.RoomType;
 import CodePack.DataModels.ServiceType;
 import CodePack.DataModels.StaffMember;
 import CodePack.DataModels.StaffRole;
-import CodePack.CodePackFactory;
-import CodePack.DataBank;
-import CodePack.DataModels.Bill;
-import CodePack.ICheckIn;
-import CodePack.IStaffAuthentication;
 import CodePack.Shared.ContactData;
-
-import java.lang.reflect.InvocationTargetException;
-import java.util.Date;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -593,12 +594,48 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public String generateReceipt(Bill bill, PaymentData payment_data) {
+	public String generateReceipt(Bill bill) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		
+		//ADD BONUS POINTS
+		int c_id = 0;
+		for (Booking b: db.getBookingList()){
+			if (bill.getBooking_id() == b.getId())
+				c_id = b.getCustomer_id();
+		}
+		if (c_id > 0) {
+			for (Customer c : db.getCustomerList())
+				if (c.getCustomer_id() == c_id){
+					int points = c.getBonus_points();
+					db.getCustomerList().get(db.getCustomerList().indexOf(c)).setBonus_points(points+(int)(bill.getTotal_price()));
+					}
+		}
+		// END BONUS POINTS
+		
+		
+		String receipt = "========= HOTEL =========\n";
+		int[] count = new int[db.getRoomTypeList().size()];
+		for (int n : count) n = 0;
+		for (Room r : bill.getRooms_booked()){
+			for (RoomType type : db.getRoomTypeList()){
+				if(r.getRoom_type().equals(type.getTypename())){
+					count[db.getRoomTypeList().indexOf(type)]++;
+				}
+			}
+		}
+		for (int i = 0;i<count.length;i++){
+			if (count[i]>0)
+				receipt+= "Room:" + count[i] + " X " +  db.getRoomTypeList().get(i).getTypename() + "\n";
+		}
+		for (ExtraService es : db.getExtraServiceList()){
+			receipt += es.getType() + "\n"; 
+		}
+		receipt += "Total:" + bill.getTotal_price();
+		return receipt;
 	}
 
 	/**
@@ -609,7 +646,43 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	public Bill generateBill(int booking_id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		Bill bill = DataModelsFactory.eINSTANCE.createBill();
+		bill.setBooking_id(booking_id);
+		double total_price = 0;
+		Booking booking = DataModelsFactory.eINSTANCE.createBooking();
+		for (Booking b : db.getBookingList())
+			if(b.getId() == booking_id) booking = b;
+		
+		int days = (int)(booking.getDate_check_out().getTime() - booking.getDate_check_in().getTime())/(1000 * 60 * 60 * 24);
+		//Calendar c = booking.getDate_check_out();
+		//rooms
+		for (RoomBooked rb : db.getRoomBookedList()){
+			if (rb.getBooking_id() == booking_id){
+				for (Room r : db.getRoomList()) {
+					if (r.getNumber() == rb.getRoom_number()){
+						bill.getRooms_booked().add(r);
+						for (RoomType rt : db.getRoomTypeList()){
+							if (r.getRoom_type().equals(rt.getTypename())){
+								total_price += days * rt.getRate();
+							}
+						}
+					}
+				}
+			}
+		}
+		//services
+		for (ExtraService es : db.getExtraServiceList()){
+			if (es.getBooking_id() == booking_id) {
+				bill.getServices_ordered().add(es);
+				total_price += es.getTotal_price();
+			}
+		}
+		total_price -= (booking.getBonus_points_used()/10);
+		
+		bill.setTotal_price(total_price);
+		return bill;
+		
 	}
 
 	/**
@@ -743,8 +816,8 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 				return generateBill((Integer)arguments.get(0));
 			case BackendPackage.RECEPTION_HANDLER___IS_CHECKED_IN__INT:
 				return isCheckedIn((Integer)arguments.get(0));
-			case BackendPackage.RECEPTION_HANDLER___GENERATE_RECEIPT__BILL_PAYMENTDATA:
-				return generateReceipt((Bill)arguments.get(0), (PaymentData)arguments.get(1));
+			case BackendPackage.RECEPTION_HANDLER___GENERATE_RECEIPT__BILL:
+				return generateReceipt((Bill)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

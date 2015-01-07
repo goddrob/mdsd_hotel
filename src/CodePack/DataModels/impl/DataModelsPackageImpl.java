@@ -898,6 +898,15 @@ public class DataModelsPackageImpl extends EPackageImpl implements DataModelsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBooking_Bonus_points_used() {
+		return (EAttribute)bookingEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DataModelsFactory getDataModelsFactory() {
 		return (DataModelsFactory)getEFactoryInstance();
 	}
@@ -1009,6 +1018,7 @@ public class DataModelsPackageImpl extends EPackageImpl implements DataModelsPac
 		createEReference(bookingEClass, BOOKING__ROOM);
 		createEAttribute(bookingEClass, BOOKING__CUSTOMER_ID);
 		createEAttribute(bookingEClass, BOOKING__PAYMENT_ID);
+		createEAttribute(bookingEClass, BOOKING__BONUS_POINTS_USED);
 	}
 
 	/**
@@ -1113,7 +1123,7 @@ public class DataModelsPackageImpl extends EPackageImpl implements DataModelsPac
 
 		initEClass(billEClass, Bill.class, "Bill", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBill_Booking_id(), ecorePackage.getEInt(), "booking_id", null, 1, 1, Bill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getBill_Rooms_booked(), this.getRoomBooked(), null, "rooms_booked", null, 1, -1, Bill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBill_Rooms_booked(), this.getRoom(), null, "rooms_booked", null, 1, -1, Bill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBill_Services_ordered(), this.getExtraService(), null, "services_ordered", null, 1, -1, Bill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBill_Total_price(), ecorePackage.getEDouble(), "total_price", null, 1, 1, Bill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -1129,6 +1139,7 @@ public class DataModelsPackageImpl extends EPackageImpl implements DataModelsPac
 		initEReference(getBooking_Room(), this.getRoom(), null, "room", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_Customer_id(), ecorePackage.getEInt(), "customer_id", null, 0, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_Payment_id(), ecorePackage.getEInt(), "payment_id", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBooking_Bonus_points_used(), ecorePackage.getEInt(), "bonus_points_used", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create annotations
 		// http://www.eclipse.org/uml2/2.0.0/UML

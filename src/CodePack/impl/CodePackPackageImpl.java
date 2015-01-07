@@ -674,7 +674,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIReceptionOperations_rename_required__GenerateReceipt__Bill_PaymentData() {
+	public EOperation getIReceptionOperations_rename_required__GenerateReceipt__Bill() {
 		return iReceptionOperations_rename_requiredEClass.getEOperations().get(2);
 	}
 
@@ -946,7 +946,7 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		iReceptionOperations_rename_requiredEClass = createEClass(IRECEPTION_OPERATIONS_RENAME_REQUIRED);
 		createEOperation(iReceptionOperations_rename_requiredEClass, IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_BILL__INT);
 		createEOperation(iReceptionOperations_rename_requiredEClass, IRECEPTION_OPERATIONS_RENAME_REQUIRED___IS_CHECKED_IN__INT);
-		createEOperation(iReceptionOperations_rename_requiredEClass, IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT__BILL_PAYMENTDATA);
+		createEOperation(iReceptionOperations_rename_requiredEClass, IRECEPTION_OPERATIONS_RENAME_REQUIRED___GENERATE_RECEIPT__BILL);
 
 		staffGUIEClass = createEClass(STAFF_GUI);
 		createEReference(staffGUIEClass, STAFF_GUI__MANAGEMENT_HANDLER);
@@ -1218,9 +1218,8 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		op = initEOperation(getIReceptionOperations_rename_required__IsCheckedIn__int(), ecorePackage.getEBoolean(), "isCheckedIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "booking_id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getIReceptionOperations_rename_required__GenerateReceipt__Bill_PaymentData(), ecorePackage.getEString(), "generateReceipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getIReceptionOperations_rename_required__GenerateReceipt__Bill(), ecorePackage.getEString(), "generateReceipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theDataModelsPackage.getBill(), "bill", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theDataModelsPackage.getPaymentData(), "payment_data", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(staffGUIEClass, StaffGUI.class, "StaffGUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStaffGUI_ManagementHandler(), theBackendPackage.getManagementHandler(), null, "managementHandler", null, 0, 1, StaffGUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

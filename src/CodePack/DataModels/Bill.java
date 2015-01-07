@@ -54,7 +54,7 @@ public interface Bill extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Rooms booked</b></em>' reference list.
-	 * The list contents are of type {@link CodePack.DataModels.RoomBooked}.
+	 * The list contents are of type {@link CodePack.DataModels.Room}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rooms booked</em>' reference list isn't clear,
@@ -66,7 +66,7 @@ public interface Bill extends EObject {
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	EList<RoomBooked> getRooms_booked();
+	EList<Room> getRooms_booked();
 
 	/**
 	 * Returns the value of the '<em><b>Services ordered</b></em>' reference list.
