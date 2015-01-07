@@ -499,7 +499,7 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateBooking(int booking_id) {
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
