@@ -1090,13 +1090,22 @@ public interface CodePackPackage extends EPackage {
 	int STAFF_GUI_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Start UI</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAFF_GUI___START_UI = 0;
+
+	/**
 	 * The number of operations of the '<em>Staff GUI</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STAFF_GUI_OPERATION_COUNT = 0;
+	int STAFF_GUI_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link CodePack.impl.UserGUIImpl <em>User GUI</em>}' class.
@@ -1127,13 +1136,22 @@ public interface CodePackPackage extends EPackage {
 	int USER_GUI_FEATURE_COUNT = 1;
 
 	/**
+	 * The operation id for the '<em>Start UI</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_GUI___START_UI = 0;
+
+	/**
 	 * The number of operations of the '<em>User GUI</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_GUI_OPERATION_COUNT = 0;
+	int USER_GUI_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link CodePack.impl.CheckInMachineImpl <em>Check In Machine</em>}' class.
@@ -1165,13 +1183,22 @@ public interface CodePackPackage extends EPackage {
 
 
 	/**
+	 * The operation id for the '<em>Start UI</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_IN_MACHINE___START_UI = 0;
+
+	/**
 	 * The number of operations of the '<em>Check In Machine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHECK_IN_MACHINE_OPERATION_COUNT = 0;
+	int CHECK_IN_MACHINE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link CodePack.impl.DataBankImpl <em>Data Bank</em>}' class.
@@ -1885,6 +1912,16 @@ public interface CodePackPackage extends EPackage {
 	EReference getStaffGUI_ReceptionHandler();
 
 	/**
+	 * Returns the meta object for the '{@link CodePack.StaffGUI#startUI() <em>Start UI</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Start UI</em>' operation.
+	 * @see CodePack.StaffGUI#startUI()
+	 * @generated
+	 */
+	EOperation getStaffGUI__StartUI();
+
+	/**
 	 * Returns the meta object for class '{@link CodePack.UserGUI <em>User GUI</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1906,6 +1943,16 @@ public interface CodePackPackage extends EPackage {
 	EReference getUserGUI_CustomerHandler();
 
 	/**
+	 * Returns the meta object for the '{@link CodePack.UserGUI#startUI() <em>Start UI</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Start UI</em>' operation.
+	 * @see CodePack.UserGUI#startUI()
+	 * @generated
+	 */
+	EOperation getUserGUI__StartUI();
+
+	/**
 	 * Returns the meta object for class '{@link CodePack.CheckInMachine <em>Check In Machine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1925,6 +1972,16 @@ public interface CodePackPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCheckInMachine_CheckInHandler();
+
+	/**
+	 * Returns the meta object for the '{@link CodePack.CheckInMachine#startUI() <em>Start UI</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Start UI</em>' operation.
+	 * @see CodePack.CheckInMachine#startUI()
+	 * @generated
+	 */
+	EOperation getCheckInMachine__StartUI();
 
 	/**
 	 * Returns the meta object for class '{@link CodePack.DataBank <em>Data Bank</em>}'.
@@ -2560,6 +2617,14 @@ public interface CodePackPackage extends EPackage {
 		EReference STAFF_GUI__RECEPTION_HANDLER = eINSTANCE.getStaffGUI_ReceptionHandler();
 
 		/**
+		 * The meta object literal for the '<em><b>Start UI</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STAFF_GUI___START_UI = eINSTANCE.getStaffGUI__StartUI();
+
+		/**
 		 * The meta object literal for the '{@link CodePack.impl.UserGUIImpl <em>User GUI</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2578,6 +2643,14 @@ public interface CodePackPackage extends EPackage {
 		EReference USER_GUI__CUSTOMER_HANDLER = eINSTANCE.getUserGUI_CustomerHandler();
 
 		/**
+		 * The meta object literal for the '<em><b>Start UI</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation USER_GUI___START_UI = eINSTANCE.getUserGUI__StartUI();
+
+		/**
 		 * The meta object literal for the '{@link CodePack.impl.CheckInMachineImpl <em>Check In Machine</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2594,6 +2667,14 @@ public interface CodePackPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CHECK_IN_MACHINE__CHECK_IN_HANDLER = eINSTANCE.getCheckInMachine_CheckInHandler();
+
+		/**
+		 * The meta object literal for the '<em><b>Start UI</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CHECK_IN_MACHINE___START_UI = eINSTANCE.getCheckInMachine__StartUI();
 
 		/**
 		 * The meta object literal for the '{@link CodePack.impl.DataBankImpl <em>Data Bank</em>}' class.

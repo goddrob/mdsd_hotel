@@ -719,6 +719,15 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getStaffGUI__StartUI() {
+		return staffGUIEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUserGUI() {
 		return userGUIEClass;
 	}
@@ -737,6 +746,15 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getUserGUI__StartUI() {
+		return userGUIEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCheckInMachine() {
 		return checkInMachineEClass;
 	}
@@ -748,6 +766,15 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 	 */
 	public EReference getCheckInMachine_CheckInHandler() {
 		return (EReference)checkInMachineEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCheckInMachine__StartUI() {
+		return checkInMachineEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -951,12 +978,15 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		staffGUIEClass = createEClass(STAFF_GUI);
 		createEReference(staffGUIEClass, STAFF_GUI__MANAGEMENT_HANDLER);
 		createEReference(staffGUIEClass, STAFF_GUI__RECEPTION_HANDLER);
+		createEOperation(staffGUIEClass, STAFF_GUI___START_UI);
 
 		userGUIEClass = createEClass(USER_GUI);
 		createEReference(userGUIEClass, USER_GUI__CUSTOMER_HANDLER);
+		createEOperation(userGUIEClass, USER_GUI___START_UI);
 
 		checkInMachineEClass = createEClass(CHECK_IN_MACHINE);
 		createEReference(checkInMachineEClass, CHECK_IN_MACHINE__CHECK_IN_HANDLER);
+		createEOperation(checkInMachineEClass, CHECK_IN_MACHINE___START_UI);
 
 		dataBankEClass = createEClass(DATA_BANK);
 		createEReference(dataBankEClass, DATA_BANK__ROOM_LIST);
@@ -1226,11 +1256,17 @@ public class CodePackPackageImpl extends EPackageImpl implements CodePackPackage
 		initEReference(getStaffGUI_ManagementHandler(), theBackendPackage.getManagementHandler(), null, "managementHandler", null, 0, 1, StaffGUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getStaffGUI_ReceptionHandler(), theBackendPackage.getReceptionHandler(), null, "receptionHandler", null, 0, 1, StaffGUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		initEOperation(getStaffGUI__StartUI(), null, "startUI", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(userGUIEClass, UserGUI.class, "UserGUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUserGUI_CustomerHandler(), theBackendPackage.getCustomerHandler(), null, "customerHandler", null, 0, 1, UserGUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		initEOperation(getUserGUI__StartUI(), null, "startUI", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(checkInMachineEClass, CheckInMachine.class, "CheckInMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCheckInMachine_CheckInHandler(), theBackendPackage.getCheckInHandler(), null, "checkInHandler", null, 0, 1, CheckInMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEOperation(getCheckInMachine__StartUI(), null, "startUI", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(dataBankEClass, DataBank.class, "DataBank", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataBank_RoomList(), theDataModelsPackage.getRoom(), null, "roomList", null, 1, -1, DataBank.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

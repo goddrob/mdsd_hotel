@@ -49,4 +49,12 @@ public interface CheckInMachine extends EObject {
 	 */
 	void setCheckInHandler(CheckInHandler value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void startUI();
+
 } // CheckInMachine

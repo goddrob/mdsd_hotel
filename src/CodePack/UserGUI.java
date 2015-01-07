@@ -49,4 +49,12 @@ public interface UserGUI extends EObject {
 	 */
 	void setCustomerHandler(CustomerHandler value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void startUI();
+
 } // UserGUI

@@ -7,8 +7,10 @@ import CodePack.Backend.CustomerHandler;
 import CodePack.CodePackPackage;
 import CodePack.UserGUI;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -101,6 +103,17 @@ public class UserGUIImpl extends MinimalEObjectImpl.Container implements UserGUI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void startUI() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -153,6 +166,21 @@ public class UserGUIImpl extends MinimalEObjectImpl.Container implements UserGUI
 				return customerHandler != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case CodePackPackage.USER_GUI___START_UI:
+				startUI();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //UserGUIImpl

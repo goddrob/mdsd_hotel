@@ -77,4 +77,12 @@ public interface StaffGUI extends EObject {
 	 */
 	void setReceptionHandler(ReceptionHandler value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void startUI();
+
 } // StaffGUI

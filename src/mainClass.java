@@ -45,6 +45,9 @@ public class mainClass {
 	    
 	    System.out.println("DONE");
 	    
+	    CodePackFactory.eINSTANCE.createCheckInMachine().startUI();
+	    CodePackFactory.eINSTANCE.createStaffGUI().startUI();
+	    
 		System.out.println("######### TEST  ########");
 		System.out.println(db2.getRoomList().get(0));
 		Room r = db2.getRoomList().get(0);
