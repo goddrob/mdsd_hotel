@@ -199,13 +199,21 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 		JPanel sidebar = new JPanel();
 		JPanel selected = new JPanel();
 		JComboBox<String> menu = new JComboBox<String>();
+		
 		sidebar.add(menu);
 		
-
+		JPanel right = new JPanel();
 		container.add(sidebar);
-		container.add(selected);
+		container.add(right);
 		
+		right.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
 		
+		c.gridx = 0;
+		c.gridy = 0;
+		right.add(selected,c);
+		c.gridy = 1;
+		c.anchor = GridBagConstraints.PAGE_END;
 		
 		
 		
@@ -221,6 +229,8 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 		selected.add(new JLabel("Password:"));
 		selected.add(password);
 		selected.add(login);
+		JTextField accounts = new JTextField("email/pwd: manager@hotel/manager , admin@hotel/admin, receptionist@hotel/receptionist");
+		right.add(accounts,c);
 		
 		//account = managementHandler.login(username.getText(), password.getText());
 		login.addActionListener(new ActionListener(){
@@ -266,7 +276,7 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 			
 		} );
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setSize(800,600);
+		frame.setSize(1000,600);
 		frame.add(container);
 		frame.setVisible(true);
 		//throw new UnsupportedOperationException();
@@ -674,8 +684,24 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 					sm_new.setRole_name(role.getText());
 					managementHandler.updateStaffAccount(sm_new);
 				}
+				return 0;
 			}
 			else {
+				selectedText.setText("Staff role add/edit not implemented\nRunning test case");
+				selectedText.append("\nAdding Role");
+				StaffRole sr = DataModelsFactory.eINSTANCE.createStaffRole();
+				sr.setName("Custom");
+				sr.setCanManageAccounts(true);
+				sr.setCanManageBookings(false);
+				sr.setCanManageRooms(true);
+				sr.setCanManageServices(false);
+				selectedText.append("\n"+sr+"\nRetrieving role list:\n");
+				for (StaffRole s : managementHandler.getStaffRoles()) selectedText.append(s+"\n"+"Changing custom staff role booking access to true");
+				sr.setCanManageBookings(true);
+				selectedText.append("\n"+sr+"Retrieving role list:\n");
+				for (StaffRole s : managementHandler.getStaffRoles()) selectedText.append("\n"+s);
+				
+				
 				
 			}
 			return 0;

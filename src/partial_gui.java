@@ -29,7 +29,7 @@ import com.almworks.sqlite4java.SQLiteException;
 import com.almworks.sqlite4java.SQLiteStatement;
 
 
-public class mainClass {
+public class partial_gui {
 
 	public static void main(String[] args) throws IOException, SQLiteException, ParseException {
 		// TODO Auto-generated method stub
@@ -38,23 +38,7 @@ public class mainClass {
 		
 	    loadDatabase();
 	    
-	    
-	    ManagementHandler mh = BackendFactory.eINSTANCE.createManagementHandler();
-	    
-	    
-	    System.out.println("DONE");
-	    
-	    CodePackFactory.eINSTANCE.createCheckInMachine().startUI();
-	    CodePackFactory.eINSTANCE.createStaffGUI().startUI();
-	    
-		System.out.println("######### TEST  ########");
-		System.out.println(db2.getRoomList().get(0));
-		Room r = db2.getRoomList().get(0);
-		db2.getRoomList().indexOf(r);
-		db2.getRoomList().get(db2.getRoomList().indexOf(r)).setDescription("null and void");
-		System.out.println(db2.getRoomList().get(0));
-		//db2.getRoomList().remove(r);
-	    
+	    	    
 	    for (RoomType rx : db2.getRoomTypeList()){
 	    	System.out.println(rx);
 	    }
@@ -76,12 +60,9 @@ public class mainClass {
 	    for (StaffMember sm :db2.getStaffMemberList()){
 	    	System.out.println(sm);
 	    }
-	    System.out.println(db2.getStaffMemberList().size());
-	    DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-	    Date d1 = df.parse("2015-05-16 12:00");
-	    Date d2 = df.parse("2015-05-19 11:00");
-	  
-	    sampleAvailableRooms(d1,d2);
+	    for (StaffRole sr : db2.getStaffRoleList()){
+	    	System.out.println(sr);
+	    }
 	}
 	
 	public static void sampleAvailableRooms(Date start, Date end){
