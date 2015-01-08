@@ -206,14 +206,23 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 			long diff = date_check_out.getTime() - date_check_in.getTime();
 			long diffdays = diff/(24*60*60*1000);
 	// Calculate the total price		
-			for(Room r: rooms) {
-				RoomType room1 = DataModelsFactory.eINSTANCE.createRoomType();
-				room1.setTypename(r.getRoom_type());
-			}for(RoomType rt1 : rt){
-				for(RoomType dbrt : db.getRoomTypeList()){
-					if(dbrt.getTypename().equals(rt1.getTypename())){
-						b.setTotal_price(rt1.getRate()*diffdays);
+			//for(Room r: rooms) {
+				//RoomType room1 = DataModelsFactory.eINSTANCE.createRoomType();
+				//room1.setTypename(r.getRoom_type());
+			//}for(RoomType rt1 : rt){
+				//for(RoomType dbrt : db.getRoomTypeList()){
+					//if(dbrt.getTypename().equals(rt1.getTypename())){
+						//b.setTotal_price(dbrt.getRate()*diffdays);
 						
+					//}
+				//}
+			//}
+			
+			
+			for(Room r : rooms){
+				for(RoomType rt1 : db.getRoomTypeList()){
+					if(r.getRoom_type() == rt1.getTypename()){
+						b.setTotal_price(rt1.getRate()*diffdays);
 					}
 				}
 			}
