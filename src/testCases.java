@@ -104,7 +104,6 @@ public class testCases {
 			}
 		}
 		
-		System.out.println(room);
 		Booking bookingreturn = null;
 		bookingreturn = ch.createBookingForCustomer(1, room, correct, 1, date_check_in, date_check_out, 4000);
 		System.out.println("The returned booking:"+bookingreturn);

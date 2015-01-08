@@ -129,24 +129,23 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 				DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 				Booking b = DataModelsFactory.eINSTANCE.createBooking();
 				RoomBooked rb = DataModelsFactory.eINSTANCE.createRoomBooked();
-				EList<RoomType> rt = new BasicEList<RoomType>();
 				
 				if(date_check_in.before(date_check_out)){
 			// Find out the time difference in days		
 					long diff = date_check_out.getTime() - date_check_in.getTime();
 					long diffdays = diff/(24*60*60*1000);
 			// Calculate the total price		
-					for(Room r: rooms) {
-						RoomType room1 = DataModelsFactory.eINSTANCE.createRoomType();
-						room1.setTypename(r.getRoom_type());
-					}for(RoomType rt1 : rt){
-						for(RoomType dbrt : db.getRoomTypeList()){
-							if(dbrt.getTypename().equals(rt1.getTypename())){
-								b.setTotal_price(rt1.getRate()*diffdays);
-								
+					double tprice = 0;
+					for(Room r : rooms){
+						for(RoomType rt1 : db.getRoomTypeList()){
+							if(r.getRoom_type().equals(rt1.getTypename())){
+								tprice += rt1.getRate()*diffdays;
 							}
 						}
 					}
+					
+					
+					b.setTotal_price(tprice);
 					
 					b.setDate_check_in(date_check_in);
 					b.setDate_check_out(date_check_out);
@@ -198,7 +197,6 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		Booking b = DataModelsFactory.eINSTANCE.createBooking();
 		RoomBooked rb = DataModelsFactory.eINSTANCE.createRoomBooked();
-		EList<RoomType> rt = new BasicEList<RoomType>();
 		
 		
 		if(date_check_in.before(date_check_out)){
@@ -206,18 +204,17 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 			long diff = date_check_out.getTime() - date_check_in.getTime();
 			long diffdays = diff/(24*60*60*1000);
 	// Calculate the total price	
-			double tprice = 1000;
-			for(Room r: rooms) {
-				RoomType room1 = DataModelsFactory.eINSTANCE.createRoomType();
-				room1.setTypename(r.getRoom_type());
-			}for(RoomType rt1 : rt){
-				for(RoomType dbrt : db.getRoomTypeList()){
-					if(dbrt.getTypename().equals(rt1.getTypename())){
-						tprice =dbrt.getRate()*diffdays;
-						
+			double tprice = 0;
+			for(Room r : rooms){
+				for(RoomType rt1 : db.getRoomTypeList()){
+					if(r.getRoom_type().equals(rt1.getTypename())){
+						tprice += rt1.getRate()*diffdays;
 					}
 				}
 			}
+			
+			
+			b.setTotal_price(tprice);
 			
 			
 			b.setTotal_price(tprice);
