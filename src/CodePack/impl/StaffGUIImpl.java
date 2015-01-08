@@ -8,7 +8,9 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -22,6 +24,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ListCellRenderer;
+import javax.swing.plaf.basic.BasicComboBoxRenderer;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -190,10 +194,6 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 		boolean isLoggedIn = false;
 		this.managementHandler = BackendFactory.eINSTANCE.createManagementHandler();
 		this.receptionHandler = BackendFactory.eINSTANCE.createReceptionHandler();
-//		this.panel_accounts = createAccountsPanel();
-//		this.panel_bookings = createBookingsPanel();
-//		this.panel_rooms  = createRoomsPanel();
-//		this.panel_services = createServicesPanel();
 		JFrame frame = new JFrame("Staff UI");
 		JPanel container = new JPanel();
 		JPanel sidebar = new JPanel();
@@ -507,7 +507,7 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 			this.add(scrollPane,c);
 			c.gridy = 2;
 			c.anchor = GridBagConstraints.PAGE_END;
-			this.add(new JLabel("Warning! Trying to add an already existing service type will result in removal of the old one."));
+			this.add(new JLabel("Warning! Trying to add an already existing service type will result in removal of the old one."),c);
 			
 			loadList();
 			
@@ -571,6 +571,152 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 		
 	}
 	private class AccountsPanel extends JPanel {
+		JComboBox<StaffMember> accountsBox = new JComboBox<StaffMember>();
+		JTextArea selectedText = new JTextArea();
+		JComboBox<StaffRole> rolesBox = new JComboBox<StaffRole>();
+		JButton addAccount = new JButton("Add");
+		JButton editAccount = new JButton("Edit");
+		JButton removeAccount = new JButton("Remove");
+		JButton addRole = new JButton("Add");
+		JButton editRole = new JButton("Edit");
+		JButton removeRole = new JButton("Remove");
+		public AccountsPanel(){
+			loadAccounts();
+			accountsBox.setRenderer(new ComboBoxRenderer());
+			rolesBox.setRenderer(new ComboBoxRenderer());
+			ActionListener listener = new buttonListener();
+			//Listeners
+			addAccount.addActionListener(listener);
+			editAccount.addActionListener(listener);
+			removeAccount.addActionListener(listener);
+			addRole.addActionListener(listener);
+			editRole.addActionListener(listener);
+			removeRole.addActionListener(listener);
+			//Components
+			JPanel accountPanel = new JPanel();
+			JPanel rolePanel = new JPanel();
+			accountPanel.add(new JLabel("Account:"));
+			accountPanel.add(accountsBox);
+			accountPanel.add(addAccount);
+			accountPanel.add(editAccount);
+			accountPanel.add(removeAccount);
+			rolePanel.add(new JLabel("Role:"));
+			rolePanel.add(rolesBox);
+			rolePanel.add(addRole);
+			rolePanel.add(editRole);
+			rolePanel.add(removeRole);
+			//layout
+			this.setLayout(new GridBagLayout());
+			GridBagConstraints c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = 0;
+			this.add(accountPanel,c);
+			c.gridy = 1;			
+			this.add(rolePanel,c);
+			c.gridy = 2;
+			c.anchor = GridBagConstraints.PAGE_END;
+			this.add(selectedText,c);
+		}
+		private void loadAccounts(){
+			accountsBox.removeAllItems();
+			for (StaffMember sm : managementHandler.getAllStaffAccounts()) accountsBox.addItem(sm);
+			rolesBox.removeAllItems();
+			for (StaffRole sr : managementHandler.getStaffRoles()) rolesBox.addItem(sr);
+		}
+		private int showDialog(boolean isRole, boolean isUpdate){
+			if (!isRole){
+				JTextField name = new JTextField();
+				JTextField email = new JTextField();
+				JTextField password = new JTextField();
+				JTextField pers_no = new JTextField();
+				JTextField phone_no = new JTextField();
+				JTextField role = new JTextField();
+				Object[] dialog = {
+						"Name", name,
+						"E-mail", email,
+						"Password", password,
+						"Pers. No.", pers_no,
+						"Phone", phone_no,
+						"Role", role
+				};
+				String title = "";
+				StaffMember sm = (StaffMember) accountsBox.getSelectedItem();
+				StaffMember sm_new = DataModelsFactory.eINSTANCE.createStaffMember();
+				if (isUpdate) {
+						title = "Update account";
+						name.setText(sm.getFull_name());
+						email.setText(sm.getEmail());
+						password.setText(sm.getPassword());
+						pers_no.setText(sm.getPers_no());
+						phone_no.setText(Integer.toString(sm.getPhone_no()));
+						role.setText(sm.getRole_name());					
+				}
+				else {
+					password.setEditable(false);
+					title = "Add account";
+				}
+				int option = JOptionPane.showConfirmDialog(null, dialog, title, JOptionPane.OK_CANCEL_OPTION);
+				if (name.getText().length()<1 || email.getText().length()<1 || pers_no.getText().length()<1 || phone_no.getText().length()<1 || role.getText().length()<1) return -1;
+				if (isUpdate && password.getText().length()<1) return -1;
+				if (option != JOptionPane.OK_OPTION) return -1;
+				if (!isUpdate){
+					System.err.println("got here");
+					StaffMember result = managementHandler.registerStaffAccount(name.getText(), email.getText(), pers_no.getText(), Integer.parseInt(phone_no.getText()), role.getText());
+					displayMessage(this,false,"Staff account registered.\nGenerated password is: "+result.getPassword());
+					System.err.println(result);
+				}
+				else {
+					sm_new.setFull_name(name.getText());
+					sm_new.setEmail(email.getText());
+					sm_new.setPassword(password.getText());
+					sm_new.setPers_no(pers_no.getText());
+					sm_new.setPhone_no(Integer.parseInt(phone_no.getText()));
+					sm_new.setRole_name(role.getText());
+					managementHandler.updateStaffAccount(sm_new);
+				}
+			}
+			else {
+				
+			}
+			return 0;
+		}
+		private class buttonListener implements ActionListener{
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource().equals(addAccount)) showDialog(false,false);
+				if (e.getSource().equals(editAccount)) showDialog(false,true);
+				if (e.getSource().equals(removeAccount)) managementHandler.removeStaffAccount((StaffMember)accountsBox.getSelectedItem());
+				if (e.getSource().equals(addRole)) showDialog(true,false);
+				if (e.getSource().equals(editRole)) showDialog(true,true);
+				if (e.getSource().equals(removeRole)) managementHandler.removeStaffRole((StaffRole)rolesBox.getSelectedItem());
+				loadAccounts();
+			}
+		}
+		private class ComboBoxRenderer extends JLabel implements ListCellRenderer<Object> {
+			public ComboBoxRenderer(){
+				setOpaque(true);
+			}
+			@Override
+			public Component getListCellRendererComponent(
+					JList<? extends Object> list, Object value,
+					int index, boolean isSelected, boolean cellHasFocus) {
+				// TODO Auto-generated method stub
+				if (isSelected) {
+		    	    setBackground(list.getSelectionBackground());
+		    	    setForeground(list.getSelectionForeground());
+		    	} else {
+		    	    setBackground(list.getBackground());
+		    	    setForeground(list.getForeground());
+		    	}
+				if (value instanceof StaffMember)
+					setText(((StaffMember)value).getFull_name()+"["+((StaffMember)value).getRole_name()+"]");
+				else if (value instanceof StaffRole)
+					setText(((StaffRole)value).getName());
+				return this;				
+			}
+			
+			
+		}
 		
 	}
 	private void displayMessage(Component c, boolean isError, String message){
