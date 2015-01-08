@@ -58,7 +58,7 @@ import CodePack.DataModels.StaffRole;
  * </ul>
  * </p>
  *
- * @generated
+ * @generated NOT
  */
 public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffGUI {
 	/**
@@ -486,7 +486,8 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 		}
 	}
 	private class BookingsPanel extends JPanel {
-		
+	
+	
 	}
 	private class ServicesPanel extends JPanel {
 		JButton addButton = new JButton("Add service type");
