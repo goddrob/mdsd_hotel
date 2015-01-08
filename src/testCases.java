@@ -104,10 +104,9 @@ public class testCases {
 			}
 		}
 		
-		
 		System.out.println(room);
 		Booking bookingreturn = null;
-		bookingreturn = ch.createBookingForCustomer(1, room, correct, 1, date_check_in, date_check_out, 0);
+		bookingreturn = ch.createBookingForCustomer(1, room, correct, 1, date_check_in, date_check_out, 4000);
 		System.out.println("The returned booking:"+bookingreturn);
 		//Fail case: we switch checkout date first then checkin.
 		
@@ -118,14 +117,6 @@ public class testCases {
 		//CreateBookingCostumer End
 		
 		//Booking test cases end
-		
-		//Test for assign guest
-		Booking b = db.getBookingList().iterator().next();
-		System.out.println(b.getId());
-		checkInHandler.assignGuestToBooking(b.getId(), "Ylva");
-		for(Guest g : db.getGuestList()) {
-			System.out.println(g.getName());
-		}
 		
 		ReceptionHandler ReceptionHandler = BackendFactory.eINSTANCE.createReceptionHandler();
 		

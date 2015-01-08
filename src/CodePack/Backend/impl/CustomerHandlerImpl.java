@@ -200,19 +200,18 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 	// Find out the time difference in days		
 			long diff = date_check_out.getTime() - date_check_in.getTime();
 			long diffdays = diff/(24*60*60*1000);
-	// Calculate the total price		
-			for(Room r: rooms) {
-				RoomType room1 = DataModelsFactory.eINSTANCE.createRoomType();
-				room1.setTypename(r.getRoom_type());
-			}for(RoomType rt1 : rt){
-				for(RoomType dbrt : db.getRoomTypeList()){
-					if(dbrt.getTypename().equals(rt1.getTypename())){
-						b.setTotal_price(rt1.getRate()*diffdays);
-						
+	// Calculate the total price
+			double tprice = 0;
+			for(Room r : rooms){
+				for(RoomType rt1 : db.getRoomTypeList()){
+					if(r.getRoom_type() == rt1.getTypename()){
+						tprice += rt1.getRate()*diffdays;
 					}
 				}
 			}
 			
+			
+			b.setTotal_price(tprice);
 			
 			b.setCustomer_id(customer_id);
 			b.setDate_check_in(date_check_in);
@@ -252,7 +251,7 @@ public class CustomerHandlerImpl extends MinimalEObjectImpl.Container implements
 			for(Room rta : rooms){
 				rb.setRoom_number(rta.getNumber());
 			}
-			
+			System.out.println(b);
 			db.getRoomBookedList().add(rb);
 			db.getBookingList().add(b);
 			
