@@ -125,7 +125,6 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 	public Booking createBooking(ContactData contact_data, PaymentData payment_data, EList<Room> rooms, EList<ExtraService> services, int number_of_guests, Date date_check_in, Date date_check_out) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		//IMPORTANT: Is there any use of number_of_guests?
 		
 				DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 				Booking b = DataModelsFactory.eINSTANCE.createBooking();
@@ -331,11 +330,10 @@ public class ReceptionHandlerImpl extends MinimalEObjectImpl.Container implement
 			boolean available = true;
 			for(RoomBooked rb : db.getRoomBookedList()){
 				if (r.getNumber() == rb.getRoom_number()) {
-					if (!((date_start.after(rb.getDate_start()) && date_end.before(rb.getDate_start())) 
+					if (!((date_start.before(rb.getDate_start()) && date_end.before(rb.getDate_start()))
 							|| (date_start.after(rb.getDate_end()) && date_end.after(rb.getDate_end()))))
-					available = false;
-					
-				}
+							available = false;	
+					}
 			}
 			if (available) rooms.add(r);
 			
