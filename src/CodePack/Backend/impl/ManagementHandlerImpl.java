@@ -216,7 +216,7 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
 		
 		for(StaffMember sm : db.getStaffMemberList()){
-			if(e_mail == sm.getEmail() && password == sm.getPassword()){
+			if(e_mail.equals(sm.getEmail()) && password.equals(sm.getPassword())){
 				return sm;
 			}
 		}
@@ -363,6 +363,8 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		DataBank db = CodePackFactory.eINSTANCE.createDataBank();
+		for (Room r : db.getRoomList())
+			if (r.getRoom_type().equals(type_name)) return false;
 		for (RoomType rt : db.getRoomTypeList())
 			if (rt.getTypename().equals(type_name)){
 				db.getRoomTypeList().remove(rt);
@@ -440,6 +442,8 @@ public class ManagementHandlerImpl extends MinimalEObjectImpl.Container implemen
 			if (st.getType_name().equals(serviceType.getType_name()))
 			{
 				db.getServiceTypeList().remove(st);
+				db.getServiceTypeList().add(serviceType);
+				return true;
 			}
 		}
 		db.getServiceTypeList().add(serviceType);

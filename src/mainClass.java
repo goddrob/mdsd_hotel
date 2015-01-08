@@ -22,6 +22,7 @@ import CodePack.DataModels.RoomBooked;
 import CodePack.DataModels.RoomType;
 import CodePack.DataModels.ServiceType;
 import CodePack.DataModels.StaffMember;
+import CodePack.DataModels.StaffRole;
 
 import com.almworks.sqlite4java.SQLiteConnection;
 import com.almworks.sqlite4java.SQLiteException;
@@ -40,8 +41,6 @@ public class mainClass {
 	    
 	    ManagementHandler mh = BackendFactory.eINSTANCE.createManagementHandler();
 	    
-	    System.out.println(mh.registerStaffAccount("Robert", "rob@g.com", "123134TN", 123, "BOSSMAN"));
-	    for (StaffMember sm : db2.getStaffMemberList()) System.out.println(sm);
 	    
 	    System.out.println("DONE");
 	    
@@ -74,6 +73,10 @@ public class mainClass {
 	    for (PaymentData pd : db2.getPaymentDataList()){
 	    	System.out.println(pd);
 	    }
+	    for (StaffMember sm :db2.getStaffMemberList()){
+	    	System.out.println(sm);
+	    }
+	    System.out.println(db2.getStaffMemberList().size());
 	    DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	    Date d1 = df.parse("2015-05-16 12:00");
 	    Date d2 = df.parse("2015-05-19 11:00");
@@ -212,7 +215,31 @@ public class mainClass {
 			static_db.getExtraServiceList().add(es);
 		}
 		st.dispose();
-		
+		//Staff Roles
+		st = db.prepare("SELECT * FROM StaffRole");
+		while (st.step()){
+			StaffRole sr = DataModelsFactory.eINSTANCE.createStaffRole();
+			sr.setName(st.columnString(0));
+			sr.setCanManageBookings(Boolean.parseBoolean(st.columnString(1)));
+			sr.setCanManageRooms(Boolean.parseBoolean(st.columnString(2)));
+			sr.setCanManageServices(Boolean.parseBoolean(st.columnString(3)));
+			sr.setCanManageAccounts(Boolean.parseBoolean(st.columnString(4)));
+			static_db.getStaffRoleList().add(sr);
+		}
+		st.dispose();
+		//Staff members
+		st = db.prepare("SELECT * FROM StaffMember");
+		while(st.step()){
+			StaffMember sm = DataModelsFactory.eINSTANCE.createStaffMember();
+			sm.setFull_name(st.columnString(0));
+			sm.setEmail(st.columnString(1));
+			sm.setPassword(st.columnString(2));
+			sm.setPers_no(st.columnString(3));
+			sm.setPhone_no(st.columnInt(4));
+			sm.setRole_name(st.columnString(5));
+			static_db.getStaffMemberList().add(sm);
+		}
+		st.dispose();
 		
 		db.dispose();
 	}

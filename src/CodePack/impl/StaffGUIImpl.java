@@ -38,7 +38,9 @@ import CodePack.Backend.ReceptionHandler;
 import CodePack.DataModels.DataModelsFactory;
 import CodePack.DataModels.Room;
 import CodePack.DataModels.RoomType;
+import CodePack.DataModels.ServiceType;
 import CodePack.DataModels.StaffMember;
+import CodePack.DataModels.StaffRole;
 
 /**
  * <!-- begin-user-doc -->
@@ -214,9 +216,9 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 		password.setColumns(10);
 		
 		JButton login = new JButton("Login");
-		selected.add(new JLabel("Personal number:"));
+		selected.add(new JLabel("E-mail:"));
 		selected.add(username);
-		selected.add(new JLabel("Password"));
+		selected.add(new JLabel("Password:"));
 		selected.add(password);
 		selected.add(login);
 		
@@ -225,18 +227,19 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-//					account = managementHandler.login(username.getText(), password.getText());
-//					StaffRole sr = managementHandler.getRoleForStaff(account.getPers_no());
-//					if (sr.isCanManageBookings()) menu.addItem("Manage Bookings");
-//					if (sr.isCanManageRooms()) menu.addItem("Manage Rooms");
-//					if (sr.isCanManageServices()) menu.addItem("Manage Services");
-//					if (sr.isCanManageAccounts()) menu.addItem("Manage Accounts");
-					if (true) {
-						menu.addItem("Manage Bookings");
-						menu.addItem("Manage Rooms");
-						menu.addItem("Manage Services");
-						menu.addItem("Manage Accounts");
-					}
+					account = managementHandler.login(username.getText(), password.getText());
+					System.err.println("passed login");
+					StaffRole sr = managementHandler.getRoleForStaff(account.getPers_no());
+					if (sr.isCanManageBookings()) menu.addItem("Manage Bookings");
+					if (sr.isCanManageRooms()) menu.addItem("Manage Rooms");
+					if (sr.isCanManageServices()) menu.addItem("Manage Services");
+					if (sr.isCanManageAccounts()) menu.addItem("Manage Accounts");
+//					if (true) {
+//						menu.addItem("Manage Bookings");
+//						menu.addItem("Manage Rooms");
+//						menu.addItem("Manage Services");
+//						menu.addItem("Manage Accounts");
+//					}
 					selected.removeAll();
 					selected.revalidate();
 				}catch(Exception e){
@@ -476,6 +479,95 @@ public class StaffGUIImpl extends MinimalEObjectImpl.Container implements StaffG
 		
 	}
 	private class ServicesPanel extends JPanel {
+		JButton addButton = new JButton("Add service type");
+		JButton updateButton = new JButton("Modify service type");
+		JButton removeButton = new JButton("Remove service type");
+		DefaultListModel<ServiceType> listModel;
+		JList<ServiceType> serviceTypeList;
+		public ServicesPanel(){
+			listModel = new DefaultListModel<>();
+			serviceTypeList = new JList<ServiceType>(listModel);
+			JScrollPane scrollPane = new JScrollPane(serviceTypeList);
+			ActionListener listener = new buttonListener();
+			//Buttons
+			addButton.addActionListener(listener);
+			updateButton.addActionListener(listener);
+			removeButton.addActionListener(listener);
+			JPanel buttonPanel = new JPanel();
+			buttonPanel.add(addButton);
+			buttonPanel.add(updateButton);
+			buttonPanel.add(removeButton);
+			//Layout
+			this.setLayout(new GridBagLayout());
+			GridBagConstraints c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = 0;
+			this.add(buttonPanel,c);
+			c.gridy = 1;
+			this.add(scrollPane,c);
+			c.gridy = 2;
+			c.anchor = GridBagConstraints.PAGE_END;
+			this.add(new JLabel("Warning! Trying to add an already existing service type will result in removal of the old one."));
+			
+			loadList();
+			
+		}
+		private class buttonListener implements ActionListener{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource().equals(removeButton)) managementHandler.removeServiceType(serviceTypeList.getSelectedValue());
+				if (e.getSource().equals(updateButton)) showDialog(true);
+				if (e.getSource().equals(addButton)) showDialog(false);				
+				loadList();
+			}
+			
+		}
+		private void loadList(){
+			listModel.removeAllElements();
+			for (ServiceType st : managementHandler.getServiceTypes()){
+				listModel.addElement(st);
+			}
+		}
+		private int showDialog(boolean isUpdate){
+			JTextField name = new JTextField();
+			JTextArea description = new JTextArea();
+			JTextField price = new JTextField();
+			Object[] dialog = {
+					"Name", name,
+					"Description", description,
+					"Price", price
+			};
+			String title = "";
+			if (isUpdate) {
+				title = "Modify service type";
+				name.setText(serviceTypeList.getSelectedValue().getType_name());
+				description.setText(serviceTypeList.getSelectedValue().getDescription());
+				price.setText(Double.toString(serviceTypeList.getSelectedValue().getPrice()));
+				name.setEditable(false);
+			}
+			else title = "Add service type";
+			int option = JOptionPane.showConfirmDialog(null, dialog, title, JOptionPane.OK_CANCEL_OPTION);
+			
+			if (option != JOptionPane.OK_OPTION) return 0;
+			if (name.getText().length() < 1 || description.getText().length()<1 || price.getText().length() < 1) {
+				displayMessage(this,true,"All fields need to be filled.");
+				return -1;
+			}
+			ServiceType service = DataModelsFactory.eINSTANCE.createServiceType();
+			service.setDescription(description.getText());
+			service.setType_name(name.getText());
+			try {
+				service.setPrice(Double.parseDouble(price.getText()));
+			}catch (Exception e){
+				displayMessage(this,true,"Invalid price. Input double.");
+				return -1;
+			}
+			
+			if (managementHandler.updateServiceType(service)) displayMessage(this,false,"Your update has succeeded.");
+			else displayMessage(this,true,"Update has failed");
+			return 0;
+		}
 		
 	}
 	private class AccountsPanel extends JPanel {
