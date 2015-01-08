@@ -383,9 +383,7 @@
       <signature xmi:type="uml:Operation" href="CodePack.uml#_HrymkJLFEeS8ELtIqYhpXQ"/>
     </message>
     <message xmi:type="uml:Message" xmi:id="_aBkrEJLFEeS8ELtIqYhpXQ" name="PaymentData" messageSort="reply" receiveEvent="_aBnuYJLFEeS8ELtIqYhpXQ" sendEvent="_aBnHUJLFEeS8ELtIqYhpXQ"/>
-    <message xmi:type="uml:Message" xmi:id="_FI0ooJLHEeS8ELtIqYhpXQ" name="generateReceiptForBooking_Message" receiveEvent="_FI3E4JLHEeS8ELtIqYhpXQ" sendEvent="_FI2d0JLHEeS8ELtIqYhpXQ">
-      <signature xmi:type="uml:Operation" href="CodePack.uml#_Y8LaAJKpEeS8ELtIqYhpXQ"/>
-    </message>
+    <message xmi:type="uml:Message" xmi:id="_FI0ooJLHEeS8ELtIqYhpXQ" name="generateReceiptForBooking_Message" receiveEvent="_FI3E4JLHEeS8ELtIqYhpXQ" sendEvent="_FI2d0JLHEeS8ELtIqYhpXQ"/>
     <message xmi:type="uml:Message" xmi:id="_IX3XgJLHEeS8ELtIqYhpXQ" name="Receipt" messageSort="reply" receiveEvent="_IX5MsJLHEeS8ELtIqYhpXQ" sendEvent="_IX4loJLHEeS8ELtIqYhpXQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_u59h4JNXEeS8ELtIqYhpXQ" name="MakeBooking">
